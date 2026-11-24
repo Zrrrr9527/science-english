@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IB 科学英语 · 教学标准 v2</title>
+<style>
+:root{
+  --bg:#f7f7f4;--paper:#fff;--ink:#1a1b19;--ink2:#43463f;--ink3:#7d827a;--ink4:#a8ada4;
+  --line:#e4e4dd;--line2:#eef0ea;
+  --accent:#0f6e63;--accent2:#0a4f47;--soft:#eaf4f2;--soft2:#f4faf9;
+  --warn:#8f5606;--warn-soft:#fbf4e8;--warn-line:#ecdcc0;
+  --gray-soft:#f2f2ee;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:15.5px;line-height:1.76;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:860px;margin:0 auto;padding:28px 20px 80px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+
+/* ---------- 封面 ---------- */
+.cover{padding:6px 0 24px;border-bottom:1px solid var(--line)}
+.cover .kick{font-size:12px;letter-spacing:.2em;color:var(--ink3);margin-bottom:12px}
+.cover h1{font-size:28px;line-height:1.3;margin:0 0 10px;letter-spacing:-.5px;font-weight:700}
+.cover .lead{font-size:15px;color:var(--ink2);margin:0;max-width:680px}
+.ver{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-size:12.5px}
+.ver span{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px 11px;color:var(--ink3)}
+.ver span b{color:var(--ink);font-weight:600}
+
+/* ---------- 标记说明 ---------- */
+.legend{display:grid;gap:7px;margin:20px 0 4px;padding:15px 17px;background:var(--paper);border:1px solid var(--line);border-radius:11px}
+.legend .row{display:grid;grid-template-columns:78px 1fr;gap:10px;font-size:13.5px;align-items:baseline}
+.legend .row div:last-child{color:var(--ink2);line-height:1.6}
+
+.tag{display:inline-block;font-size:11px;line-height:1.5;padding:1px 7px;border-radius:5px;white-space:nowrap;vertical-align:1px;font-weight:600;letter-spacing:.02em}
+.tag.off{background:#e8eef2;color:#2c5566;border:1px solid #d3e0e7}
+.tag.con{background:var(--gray-soft);color:#5d6159;border:1px solid #e0e0d8}
+.tag.tch{background:var(--warn-soft);color:var(--warn);border:1px solid var(--warn-line)}
+
+/* ---------- 导航 ---------- */
+.nav{position:sticky;top:0;z-index:30;background:rgba(247,247,244,.95);
+  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);margin:0 -20px 28px;padding:9px 20px;
+  overflow-x:auto;white-space:nowrap;-ms-overflow-style:none;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{display:inline-block;margin-right:7px;padding:4px 12px;font-size:13px;color:var(--ink2);
+  text-decoration:none;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
+.nav a:active{background:var(--soft);color:var(--accent2)}
+
+/* ---------- 章 ---------- */
+.ch{margin:48px 0 0;scroll-margin-top:62px}
+.ch-head{display:flex;align-items:flex-start;gap:13px;padding-bottom:11px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+.ch-num{font-size:32px;line-height:1;font-weight:200;color:var(--ink4);letter-spacing:-1px;flex:0 0 auto;padding-top:2px}
+.ch-head h2{font-size:19.5px;margin:2px 0 0;font-weight:700;letter-spacing:-.2px;line-height:1.4}
+.ch-note{font-size:13.5px;color:var(--ink3);margin:9px 0 24px;line-height:1.7}
+.ch-note b{color:var(--ink2);font-weight:600}
+
+/* ---------- 节 ---------- */
+.s{margin:0 0 30px;scroll-margin-top:62px}
+.s-head{display:flex;align-items:baseline;gap:9px;margin-bottom:10px;flex-wrap:wrap}
+.s-num{font-size:12.5px;color:var(--accent);font-weight:700;flex:0 0 auto}
+.s-head h3{font-size:16.5px;margin:0;font-weight:600}
+.s p{margin:0 0 10px;color:var(--ink2)}
+.s p:last-child{margin-bottom:0}
+
+/* ---------- 表 ---------- */
+.tscroll{overflow-x:auto;margin:13px -2px;padding:0 2px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;background:var(--paper);font-size:14px}
+table.t1{min-width:600px}
+thead th{text-align:left;padding:9px 12px;background:#fafaf7;border:1px solid var(--line);
+  font-size:12.5px;color:var(--ink3);font-weight:600;white-space:nowrap}
+tbody td{padding:9px 12px;border:1px solid var(--line);vertical-align:top;line-height:1.68;color:var(--ink2)}
+tbody td:first-child{color:var(--ink);white-space:nowrap}
+tbody tr:nth-child(even) td{background:#fcfcfa}
+td .en,th .en{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--accent2)}
+
+/* ---------- 指令动词卡 ---------- */
+.cts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:13px 0}
+.ct{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:13px 15px}
+.ct-h{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}
+.ct-h .en{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14.5px;font-weight:700;color:var(--accent2);letter-spacing:.2px}
+.ao{font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:4px;letter-spacing:.04em}
+.ao.a1{background:#eceff1;color:#4b5a63}
+.ao.a2{background:var(--soft);color:var(--accent2)}
+.ao.a3{background:#e4eef6;color:#26536e}
+.ct .p{margin:0 0 7px;font-size:13.8px;line-height:1.68;color:var(--ink)}
+.ct .e{margin:0 0 7px;font-size:13px;line-height:1.66;color:var(--ink2);
+  background:#fbfbf9;border-left:2px solid #d9e4e2;padding:7px 10px;border-radius:0 6px 6px 0}
+.ct .e b{color:var(--accent2);font-weight:600}
+.ct .x{margin:0;font-size:12.8px;line-height:1.6;color:var(--warn)}
+.ct .x::before{content:"易错 · ";font-weight:700}
+.ct.key{border-color:#c4e4df;background:var(--soft2)}
+
+/* ---------- 词表 ---------- */
+.bil{columns:3;column-gap:22px;margin:12px 0;padding:14px 16px;background:var(--paper);
+  border:1px solid var(--line);border-radius:10px;font-size:13.3px;line-height:1.58}
+.bil > div{break-inside:avoid;padding:2.5px 0}
+.bil b{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.6px;color:var(--accent2);font-weight:600;margin-right:6px}
+
+/* ---------- 提示 ---------- */
+.note{border-left:3px solid var(--accent);background:var(--soft2);padding:11px 15px;border-radius:0 8px 8px 0;
+  margin:12px 0;font-size:13.8px;line-height:1.72;color:var(--ink2)}
+.note b{color:var(--accent2)}
+.note.w{border-left-color:#c9902f;background:var(--warn-soft);color:#6d4204}
+.note.w b{color:var(--warn)}
+
+/* ---------- 分组标题 ---------- */
+.gl{display:flex;align-items:center;gap:9px;margin:20px 0 8px;font-size:13px;color:var(--ink3);font-weight:600;letter-spacing:.05em}
+.gl::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* ---------- 例句对照 ---------- */
+.eg{display:grid;gap:7px;margin:11px 0}
+.eg > div{font-size:13.8px;padding:10px 13px;border-radius:8px;line-height:1.7}
+.eg .bad{background:#fdf3f2;border:1px solid #f3d9d5;color:#77362f}
+.eg .good{background:var(--soft);border:1px solid #cbe5e1;color:#0a4c45}
+.eg .mk{font-weight:700;margin-right:7px}
+
+/* ---------- 句式 ---------- */
+.sg{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:15px 17px;margin:12px 0}
+.sg .h{font-size:12.5px;color:var(--ink3);letter-spacing:.08em;font-weight:600;
+  margin:18px 0 3px;padding-bottom:4px;border-bottom:1px solid var(--line2)}
+.sg .h:first-child{margin-top:0;border:0;padding-bottom:0}
+.sg .it{padding:7px 0;border-bottom:1px solid var(--line2)}
+.sg .it:last-child{border:0;padding-bottom:0}
+.sg .it .en{display:block;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--accent2);line-height:1.6}
+.sg .it .cn{display:block;font-size:12.5px;color:var(--ink3);line-height:1.55}
+
+/* ---------- 附录 ---------- */
+.appx{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:17px 19px;margin:12px 0}
+.appx h4{margin:0 0 8px;font-size:14.5px}
+.appx ul{margin:0 0 14px;padding-left:19px;font-size:13.8px;color:var(--ink2);line-height:1.75}
+.appx ul:last-child{margin-bottom:0}
+.appx li{margin-bottom:5px}
+.appx li:last-child{margin-bottom:0}
+
+@media (max-width:680px){
+  .wrap{padding:22px 15px 62px}
+  .cover h1{font-size:23px}
+  .cts{grid-template-columns:1fr}
+  .bil{columns:2}
+  .ch-num{font-size:25px}
+  .legend .row{grid-template-columns:1fr;gap:2px}
+  .nav{margin:0 -15px 22px;padding:8px 15px}
+}
+@media print{
+  body{background:#fff;font-size:10pt}
+  .wrap{max-width:none;padding:0}
+  .nav{display:none}
+  .ch{break-before:page;margin-top:0}
+  .ch:first-of-type{break-before:auto}
+  table,.ct,.bil,.sg,.note,.eg{break-inside:avoid;page-break-inside:avoid}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="cover">
+    <div class="kick">IB MYP / DP &nbsp;SCIENCE</div>
+    <h1>IB 科学英语 · 教学标准</h1>
+    <p class="lead">科学课的英语要求分三个层次：认得的词、题目要你做的动作、把判断连成段落的句子。本页把这三点拆开讲清楚，每个词配一个白话解释、一个例句、一个易错点。</p>
+    <div class="ver">
+      <span>版本 <b>v2.2</b></span>
+      <span>更新 <b>2026-11-24</b></span>
+      <span>适用 <b>MYP 科学 / DP 理科</b></span>
+      <span>词条 <b>174</b></span>
+      <span>指令动词 <b>25</b> + 扩展 <b>6</b></span>
+      <span>句式 <b>42</b></span>
+    </div>
+    <div class="note w" style="margin-top:14px;font-size:13.4px"><b>v2.2 修订说明（本轮定点修订，未扩章、未增词条）：</b>① <b>Compare 定义更正</b>——按 IB <i>Biology Guide</i>（First assessment 2025，第 124–125 页）：Compare 只要求相同点，异同另立 Compare and contrast；删除"Group 4 科学指南统一要求异同"的说法，其他学科标 PENDING（2.4、2.1）；② <b>Compare 卡片从 AO2 区域移入 AO3 区域</b>（此前只改徽标、位置仍在 AO2）；③ 2.1 补明这是<strong>指令动词的</strong> AO1–AO3 分组，并说明 Biology 2025 另有 AO4（调查技能），不暗示该科只有三个 AO；④ Evaluate 删除"只拿一半"，改为条件性表述；⑤ 因果表达改为"句法上清晰即可"，不再要求固定连接词（4.6、2.1、2.2）；⑥ 术语三处：gene／locus／allele 分开、heat／temperature 补模型边界与"平均平动动能"、mitosis／meiosis 改按染色体数目表述；⑦ terminal velocity 统一为"终端速度"。<br><span style="opacity:.8">v2.1 的定点修订（1.1／1.2／1.3／2.4／4.2／4.3／4.4 及五张动词卡的绝对化措辞）已并入正文，不再单列。</span></div>
+  </div>
+
+  <div class="legend">
+    <div class="row"><div><span class="tag off">官方</span></div><div>IB 文件里有明确表述，可以核对。例如 MYP 四条标准的名称与满分、DP 指令动词的分组与释义。</div></div>
+    <div class="row"><div><span class="tag con">惯例</span></div><div>科学界或教学界通行的做法，不是 IB 的明文规定。例如单位写法、有效数字、图表规范。</div></div>
+    <div class="row"><div><span class="tag tch">教学整理</span></div><div>为了好懂而做的编排，IB 没有这种分类。例如"三层语言""四标准×三层矩阵""句式表""易错归类"。这些可以帮助记忆，但不是官方说法。</div></div>
+  </div>
+
+  <nav class="nav">
+    <a href="#p1">一 · 骨架</a>
+    <a href="#p2">二 · 指令动词</a>
+    <a href="#p2b">辨析</a>
+    <a href="#p3">三 · 词语</a>
+    <a href="#p4">四 · 写作</a>
+    <a href="#p5">附录</a>
+  </nav>
+
+  <!-- ==================== 一 ==================== -->
+  <div class="ch" id="p1">
+    <div class="ch-head"><div class="ch-num">一</div><h2>骨架：四条标准与三层语言</h2></div>
+    <p class="ch-note">先看学校怎么给分，再看英语在这些分数里扮演什么角色。</p>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">1.1</span><h3>MYP 科学的四条标准</h3><span class="tag off">官方</span></div>
+      <p>MYP 科学的评估分四条 Criterion，<strong>每条满分 8 分，四条同等权重</strong>。具体一项作业用哪几条来评，由学校与教师按任务性质决定——<strong>不是每一份作业都同时评四条</strong>（例如一次纯知识测验可能只涉 A，一份完整实验报告才同时涉 B 与 C）。</p>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>标准</th><th>官方名称</th><th>这一条要你做什么</th><th>满分</th></tr></thead>
+          <tbody>
+            <tr><td><strong>A</strong></td><td><span class="en">Knowing and understanding</span></td><td>懂概念，并且能把概念用在新情境里说清楚</td><td>8</td></tr>
+            <tr><td><strong>B</strong></td><td><span class="en">Inquiring and designing</span></td><td>提出一个能测的研究问题，设计一个别人照着能做的实验</td><td>8</td></tr>
+            <tr><td><strong>C</strong></td><td><span class="en">Processing and evaluating</span></td><td>处理数据、下结论、评估方法靠不靠得住</td><td>8</td></tr>
+            <tr><td><strong>D</strong></td><td><span class="en">Reflecting on the impacts of science</span></td><td>说清一项科学应用解决了什么问题、又带来了什么后果和限制</td><td>8</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><b>关于 D：</b>D 不是"不考知识"，而是<b>仍然要用到科学知识</b>，只是重心从"讲清原理"移到"这项科学被用在哪里、对谁产生了什么影响、有什么限制"。原文的要求是：与 moral、ethical、social、economic、political、cultural、environmental 七个因子中<b>至少一个</b>互动。</div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">1.2</span><h3>三层语言</h3><span class="tag tch">教学整理</span></div>
+      <p>科学课的英语由三层不同性质的东西组成。这个分法不是 IB 的官方分类，是为了看清"哪一层值得花时间"而做的整理。</p>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>层</th><th>是什么</th><th>量</th><th>特点</th></tr></thead>
+          <tbody>
+            <tr><td>术语</td><td>指称事物、过程、量的词：<span class="en">photosynthesis</span>、<span class="en">resistance</span></td><td>单科 200–300</td><td>数量大，但可图示、可拆词根，靠重复建立；化学的词不帮生物</td></tr>
+            <tr><td><strong>指令动词</strong></td><td>题目开头那个动词：<span class="en">describe</span>、<span class="en">explain</span>、<span class="en">evaluate</span></td><td>本页收 <strong>25</strong> 个核心词</td><td>决定了答案要满足哪一种要求；<strong>用错动词通常拿不到该题的主要分数</strong>。各科指南的收录数量与归组不同，没有统一总数</td></tr>
+            <tr><td>程序性表达</td><td>把判断连成段落的固定句式：<span class="en">this may be due to ___</span></td><td>本页 42 句</td><td>半开放，可模仿；与评分的高低档相关，但不是评分标准本身</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><b>为什么中间那层最值钱：</b>同一个句子，如果题目要 <span class="mono">explain</span> 而你只写了"变成什么样"，<b>通常拿不到这道题的分</b>（严格程度取决于该题的 markscheme 与分值）——不是因为你不会，而是因为这个动词要的是原因。术语不会可以查，动词理解错就整题错。</div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">1.3</span><h3>三层分别用在哪条标准上</h3><span class="tag tch">教学整理</span></div>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>标准</th><th>常用的术语</th><th>常用的指令动词</th><th>要写的句子</th></tr></thead>
+          <tbody>
+            <tr><td><strong>A</strong> 知识与理解</td><td>概念名、过程名</td><td>define · describe · explain</td><td>定义句、机制句</td></tr>
+            <tr><td><strong>B</strong> 探究与设计</td><td>仪器名、变量名</td><td>identify · outline · design · justify</td><td>变量陈述句、步骤句</td></tr>
+            <tr><td><strong>C</strong> 处理与评价</td><td>误差名、单位、统计量</td><td>calculate · determine · evaluate</td><td>数据描述句、误差句</td></tr>
+            <tr><td><strong>D</strong> 科学的影响</td><td>应用领域词、影响类词</td><td>discuss · evaluate · justify</td><td>影响句、限制句</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note w"><b>这张表是"常见关联"，不是"唯一对应"。</b>同一道题往往同时考两三条标准；同一个动词也可能服务多条标准（<span class="mono">evaluate</span> 在 B、C、D 里都会出现）。表只用于判断"这次的重点大概在哪"，不能反推"某条标准只用这些词"。真正的依据是该次作业发布的 Criterion 说明。</div>
+    </div>
+  </div>
+
+  <!-- ==================== 二 ==================== -->
+  <div class="ch" id="p2">
+    <div class="ch-head"><div class="ch-num">二</div><h2>指令动词</h2></div>
+    <p class="ch-note">这是全页最该记住的部分。每个词只有三件事要记：<b>题目要你做什么</b>、<b>长什么样</b>、<b>在哪里丢分</b>。</p>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">2.1</span><h3>指令动词的 AO1–AO3 三组</h3><span class="tag off">官方</span></div>
+      <p>DP 科学指南把这些动词按<strong>评估目标</strong>（Assessment Objective）分成三组，三组代表三种不同的难度：AO1 只要取出记住的东西，AO2 要理解并运用，AO3 要分析和判断。本页的归组按<strong>学科指南末尾的 command terms 表</strong>整理；<strong>其中只有 Biology（2025 首考）第 124–125 页的比较类两条经过原文核对</strong>，其余归组属通用 glossary 口径，<strong>未逐科逐条核对</strong>——因此本页不写成"Group 4 统一"，同一学科的新旧版也可能不同。</p>
+      <div class="note w"><b>两个必须分清的东西：</b>①<b>这是指令动词的 AO 分组</b>，不是整门学科的评估目标清单；②<b>"指令动词分三组"不等于"这门学科只有三个 AO"</b>。以 Biology 2025 指南为例，该科共设<strong>四条</strong> Assessment Objective，其中 <strong>AO4 涉及调查技能</strong>，而 command terms 表只把动词归入 AO1–AO3。（AO4 所在章节页码本轮未记录，标待核。）真正要引用归组时，查该科当年版指南末尾的 Glossary of Command Terms，并记下版本、首考年、页码。</div>
+
+      <div class="gl">AO1 · 识记类 —— 取出记住的东西</div>
+      <div class="cts">
+        <div class="ct"><div class="ct-h"><span class="en">Define</span><span class="ao a1">AO1</span></div>
+          <p class="p">给出一个词或概念的精确含义，不多不少。</p>
+          <p class="e"><b>例</b> Define osmosis. → 水分子通过半透膜，从水势高的一侧净移动到水势低的一侧。</p>
+          <p class="x">用自己的话改写，丢掉关键限定词（净移动、水势、半透膜）。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">State</span><span class="ao a1">AO1</span></div>
+          <p class="p">直接给答案，一句话或一个词，不解释。</p>
+          <p class="e"><b>例</b> State the unit of resistance. → <span class="mono">Ohm (Ω).</span></p>
+          <p class="x">开始解释原因，浪费时间还占答题空间。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">List</span><span class="ao a1">AO1</span></div>
+          <p class="p">列出一串项目，用短语，不用句子。</p>
+          <p class="e"><b>例</b> List three functions of membrane proteins. → 运输、受体、细胞识别。</p>
+          <p class="x">每条都写成完整句子，超出分值要求。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Label</span><span class="ao a1">AO1</span></div>
+          <p class="p">在图上标出名称，不加解释。</p>
+          <p class="e"><b>例</b> Label the parts of the heart diagram. → 在箭头处写"左心室"等。</p>
+          <p class="x">顺手写了功能说明——那是 <span class="mono">annotate</span> 的要求。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Draw</span><span class="ao a1">AO1</span></div>
+          <p class="p">用铅笔画图。<strong>是否必须按比例、是否必须标注，看题目怎么说</strong>——多数情况要求标注，但题目明确说"不标"时就不用标。</p>
+          <p class="e"><b>例</b> Draw a labelled diagram of a transverse wave. → 波形 + 波长、振幅、平衡位置标注。</p>
+          <p class="x">题目要求 labelled 却没标；用圆珠笔；比例明显失真。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Measure</span><span class="ao a1">AO1</span></div>
+          <p class="p">取一个量的实际值，<strong>要带单位</strong>。是否还必须给出不确定度，取决于题目与该课程要求，不能一概而论。</p>
+          <p class="e"><b>例</b> Measure the length of the spring. → <span class="mono">12.4 cm</span>；若要求不确定度则写 <span class="mono">12.4 ± 0.1 cm</span></p>
+          <p class="x">只写数字不写单位；或把读数报到仪器分辨不出来的位数。</p></div>
+      </div>
+
+      <div class="gl">AO2 · 理解与应用 —— 懂了还要会用</div>
+      <div class="cts">
+        <div class="ct key"><div class="ct-h"><span class="en">Describe</span><span class="ao a2">AO2</span></div>
+          <p class="p">详细说清"是什么、怎么样、趋势如何"。<strong>要细节，不要原因。</strong></p>
+          <p class="e"><b>例</b> Describe the trend in the graph. → 温度从 20 升到 60 °C 时，电阻稳定地从 4.2 Ω 升到 6.8 Ω。</p>
+          <p class="x">写得太笼统（"it increased a lot"）；或越界去写 because，那是 explain。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Outline</span><span class="ao a2">AO2</span></div>
+          <p class="p">和 describe 同方向，但更短，只要要点。</p>
+          <p class="e"><b>例</b> Outline how a catalyst works. → 降低活化能，提供另一条反应路径。</p>
+          <p class="x">写得太细，用掉时间却不是采分点。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Identify</span><span class="ao a2">AO2</span></div>
+          <p class="p">从若干可能里指出正确的那一个。</p>
+          <p class="e"><b>例</b> Identify the dependent variable in this experiment. → 弹簧的伸长量。</p>
+          <p class="x">把"指出"写成了"分析"，做了题目没要求的事。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Distinguish</span><span class="ao a2">AO2</span></div>
+          <p class="p">说清两者的差别，要让区别一眼看得出来。</p>
+          <p class="e"><b>例</b> Distinguish between diffusion and osmosis. → 扩散是任意粒子的净移动，<strong>而</strong>渗透特指水分子<strong>且</strong>需要半透膜。</p>
+          <p class="x">各写一遍定义，两者没有并排对比。要用 <span class="mono">whereas / but</span> 把差别顶出来。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Annotate</span><span class="ao a2">AO2</span></div>
+          <p class="p">在图上加简短说明，把结构和功能连起来。</p>
+          <p class="e"><b>例</b> Annotate the diagram to show where gas exchange occurs. → 在肺泡处写"薄壁 + 大面积 → 便于气体扩散"。</p>
+          <p class="x">只标名称，没有说明。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Calculate</span><span class="ao a2">AO2</span></div>
+          <p class="p">算出数值并展示过程。要写几步取决于分值与题目要求——分值高或题目出现 <span class="mono">show your working</span> 时，公式、代入、结果三部分通常都要显出来。</p>
+          <p class="e"><b>例</b> Calculate the gradient. → <span class="mono">m = Δy/Δx = (6.8−4.2)/(60−20) = 0.065</span>，单位 Ω/°C。</p>
+          <p class="x">漏单位；有效数字位数比原始数据还多。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Estimate</span><span class="ao a2">AO2</span></div>
+          <p class="p">在合理假设下给出近似值。说明依据是<strong>好做法</strong>——是否算采分点，看该题要求。</p>
+          <p class="e"><b>例</b> Estimate the mass of one page of this book. → 假设一页约 0.1 g，因为 300 页的书约 30 g 量级。</p>
+          <p class="x">只给一个数字、不说怎么估的，读起来和猜没有区别。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Apply</span><span class="ao a2">AO2</span></div>
+          <p class="p">把学过的原理用到新情境，要指出两者哪里对应。</p>
+          <p class="e"><b>例</b> Apply Newton's second law to explain why the trolley accelerates less when loaded. → 力不变、质量变大，所以 a = F/m 变小。</p>
+          <p class="x">只复述原理，没有说明它怎么对应到这个情境。</p></div>
+      </div>
+
+      <div class="gl">AO3 · 分析与评价 —— 要判断，不只是复述</div>
+      <div class="cts">
+        <div class="ct key"><div class="ct-h"><span class="en">Explain</span><span class="ao a3">AO3</span></div>
+          <p class="p">给出<strong>原因或机制</strong>。句法上要能看出因果——用连接词、从句、分词结构或名词化都行，<strong>不要求每次都出现 because</strong>。</p>
+          <p class="e"><b>例</b> Explain why resistance rises with temperature. → 温度升高使晶格离子振动加剧，电子被散射得更频繁，因此电阻增大。</p>
+          <p class="x">只写"resistance went up"——那是 describe。这是整份最常丢的分。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Suggest</span><span class="ao a3">AO3</span></div>
+          <p class="p">提一个<strong>合理但不必唯一正确</strong>的解释或方案。</p>
+          <p class="e"><b>例</b> Suggest one reason for the anomalous result. → 该次读数时温度计未回稳，读数偏低。</p>
+          <p class="x">空着不写。suggest 允许多解，写了就有分，不写是 0。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Deduce</span><span class="ao a3">AO3</span></div>
+          <p class="p">用题目已经给出的信息，推到一个结论。<strong>不引入新信息。</strong></p>
+          <p class="e"><b>例</b> Deduce the resistance at 45 °C from the graph. → 从拟合线上读得约 5.5 Ω。</p>
+          <p class="x">变成凭空猜；或用了题目没给的数据。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Determine</span><span class="ao a3">AO3</span></div>
+          <p class="p">求出一个<strong>唯一答案</strong>，怎么求不管（算、读图、找规律都行）。</p>
+          <p class="e"><b>例</b> Determine the concentration of the acid from the titration data. → 由体积比算出 0.12 mol dm⁻³。</p>
+          <p class="x">只给数值不给过程；或本来可以有多个答案却硬给一个。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Analyse</span><span class="ao a3">AO3</span></div>
+          <p class="p">拆开来看，找出各部分之间的关系或规律。</p>
+          <p class="e"><b>例</b> Analyse the data to explain the difference between the two groups. → 先分组比较均值，再指出离散度差异使结论只能算初步。</p>
+          <p class="x">变成罗列。分析要有"因此"或"这说明"。</p></div>
+        <div class="ct key"><div class="ct-h"><span class="en">Compare</span><span class="ao a3">AO3</span></div>
+          <p class="p"><strong>只要求相同点</strong>，并且全程提及各方。（依据 IB <i>Biology Guide</i>，First assessment 2025，第 124–125 页：Compare＝similarities；要异同的是另一条 <span class="mono">Compare and contrast</span>。其他学科口径见 2.4。）</p>
+          <p class="e"><b>例</b> Compare aerobic and anaerobic respiration. → 两者都以葡萄糖为燃料、都在细胞内进行、都释放能量并生成 ATP。</p>
+          <p class="x">只写不同点。中文"比较"习惯涵盖异同，但英文 <span class="mono">compare</span> 在这里要的是相同点——写差异等于答错题。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Comment</span><span class="ao a3">AO3</span></div>
+          <p class="p">根据题目给的信息作判断，并说明理由。不引外部材料。</p>
+          <p class="e"><b>例</b> Comment on the reliability of this data. → 只做了两次重复，且极差达 0.8 Ω，可靠性有限。</p>
+          <p class="x">写成个人感想（"I think it's quite good"）。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Discuss</span><span class="ao a3">AO3</span></div>
+          <p class="p">正反两面都摆，最后给一个收束性的结论。</p>
+          <p class="e"><b>例</b> Discuss the use of stem cells in medicine. → 一面是再生医学的潜力，另一面是胚胎来源的伦理争议；最后给出有条件的判断。</p>
+          <p class="x">只写一面；或两面写完却没有结论。</p></div>
+        <div class="ct key"><div class="ct-h"><span class="en">Evaluate</span><span class="ao a3">AO3</span></div>
+          <p class="p"><strong>权衡优点与局限，然后下判断。</strong>这两件事通常都要出现；具体要不要写成固定三段，取决于该题的分值结构与要求，不是唯一格式。</p>
+          <p class="e"><b>例</b> Evaluate the validity of this conclusion. → 方法控制了温度，但由于未控制湿度，结论在潮湿环境下不一定成立；总体可信度中等。</p>
+          <p class="x">只给判断不给依据，或只列依据不给判断——两者都可能无法满足完整的评价要求。具体得分看该题的分值与 markscheme，本页不给固定比例。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Design</span><span class="ao a3">AO3</span></div>
+          <p class="p">做出一个可行的方案或模型，要能被别人照着做。</p>
+          <p class="e"><b>例</b> Design an experiment to test how light intensity affects photosynthesis rate. → 含自变量设定、因变量测法、控制变量、步骤与风险。</p>
+          <p class="x">缺变量控制，或缺"怎么测"的具体手段。</p></div>
+        <div class="ct"><div class="ct-h"><span class="en">Construct</span><span class="ao a3">AO3</span></div>
+          <p class="p">用图表或逻辑图的形式把答案呈现出来。</p>
+          <p class="e"><b>例</b> Construct a table to compare the two enzymes. → 画出带表头的对照表，而不是写成段落。</p>
+          <p class="x">仍然用文字段落写，没有构成表格。</p></div>
+      </div>
+
+      <div class="gl">部分科目另见</div>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>动词</th><th>要你做什么</th><th>备注</th></tr></thead>
+          <tbody>
+            <tr><td><span class="en">Derive</span></td><td>通过式子变形得出一个新关系式</td><td>物理、化学常见</td></tr>
+            <tr><td><span class="en">Show that</span></td><td>用完整步骤证明某关系成立</td><td>物理常见</td></tr>
+            <tr><td><span class="en">Compare and contrast</span></td><td>与 compare 类似，但明确要求相同点、不同点都写全</td><td>措辞更严格</td></tr>
+            <tr><td><span class="en">Justify</span></td><td>为已有结论提供证据支持</td><td>方向是"证据 → 结论"</td></tr>
+            <tr><td><span class="en">Predict</span></td><td>按已有规律推断没测过的结果</td><td>须给出依据</td></tr>
+            <tr><td><span class="en">Classify</span></td><td>按给定判据把对象归入类别</td><td>生物常见</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note w"><b>差异提醒：</b>不同科目的指南在个别措辞上会有出入（例如某些词是否列入、释义的详略）。遇到与学校发的材料不一致时，<b>以本校当年的科目指南为准</b>。本页不做强行统一。</div>
+    </div>
+  </div>
+
+  <!-- ==================== 辨析 ==================== -->
+  <div class="ch" id="p2b">
+    <div class="ch-head"><div class="ch-num">二</div><h2>六组容易混的动词</h2></div>
+    <p class="ch-note">只记中文翻译记不住区别。下面每一组都给"题目的差别在哪"，并且都用同一个情境做对照。</p>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">2.2</span><h3>描述 vs 解释 vs 推断 vs 求解</h3></div>
+      <p>假设同一个实验：把金属丝加热，测它的电阻。</p>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>动词</th><th>题目要什么</th><th>同一情境下的答案</th></tr></thead>
+          <tbody>
+            <tr><td><span class="en">Describe</span></td><td>说现象、说趋势，<strong>不要原因</strong></td><td>电阻从 4.2 Ω 升到 6.8 Ω，近似线性上升。</td></tr>
+            <tr><td><span class="en">Explain</span></td><td>给原因或机制，<strong>句法上要看得出因果</strong>（不必固定用 because）</td><td>因为温度升高使晶格振动加剧，电子散射变频繁，所以电阻增大。</td></tr>
+            <tr><td><span class="en">Deduce</span></td><td>用<strong>题里已经有的</strong>信息推一个结论</td><td>已知 40 °C 是 5.2 Ω、50 °C 是 5.8 Ω，推出 45 °C 约 5.5 Ω。</td></tr>
+            <tr><td><span class="en">Determine</span></td><td>求一个<strong>唯一答案</strong>，路径不限</td><td>用整组数据算斜率，得 0.065 Ω/°C。</td></tr>
+            <tr><td><span class="en">Suggest</span></td><td>提一个<strong>可能</strong>的答案，允许多解</td><td>70 °C 那点偏低，可能是温度计还没回稳。</td></tr>
+            <tr><td><span class="en">Estimate</span></td><td>求近似值，<strong>要说假设</strong></td><td>假设趋势线性外推，100 °C 时约 8.6 Ω。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="eg">
+        <div class="bad"><span class="mk">✗</span>题目：<em>Explain why resistance increased.</em>　答案：Resistance increased from 4.2 to 6.8 Ω.</div>
+        <div class="good"><span class="mk">✓</span>题目：<em>Explain why resistance increased.</em>　答案：As temperature rose, lattice ions vibrated more strongly, so conduction electrons were scattered more frequently, which raised the resistance.</div>
+      </div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">2.3</span><h3>评价族的四个词</h3></div>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>动词</th><th>要你做什么</th><th>通常要出现的东西</th></tr></thead>
+          <tbody>
+            <tr><td><span class="en">Evaluate</span></td><td>权衡优点与局限后下判断</td><td>依据 + 局限 + 判断；缺依据或整体判断可能不满足完整评价要求，具体得分看题目与 markscheme</td></tr>
+            <tr><td><span class="en">Assess</span></td><td>判断程度或量级</td><td>一个可比较的尺度（多大、多可靠）</td></tr>
+            <tr><td><span class="en">Discuss</span></td><td>正反两面都给，再收束</td><td>至少两个对立面 + 结论</td></tr>
+            <tr><td><span class="en">Comment</span></td><td>基于给定信息作判断</td><td>判断 + 理由，不引外部材料</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><b>一句话分辨：</b><span class="mono">evaluate</span> 要你下结论，<span class="mono">assess</span> 要你给程度，<span class="mono">discuss</span> 要你摆两面，<span class="mono">comment</span> 要你就题论题。</div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">2.4</span><h3>比较族的四个词</h3></div>
+      <div class="note w"><b>这条指令的定义只能引一处原文：</b>IB <i>Biology Guide</i>（学科：Biology；版本：First assessment 2025；页码 124–125）——<span class="mono">Compare</span> 只要求<strong>相同点</strong>（原文 similarities），<span class="mono">Compare and contrast</span> 要求<strong>相同点与不同点</strong>。两者都要求"全程提及各方"。<br>
+      <b>不要把这一处推广到全部 Group 4。</b>Physics、Chemistry 及其他学科版本是否同措辞，本轮<strong>未取得原文</strong>，一律标 <b>PENDING</b>：用哪一科的材料，就查该科当年版指南末尾的 Glossary of Command Terms，并记下版本、首考年与页码。本页只对 Biology 这一份负责。</div>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>动词</th><th>相同点</th><th>不同点</th><th>出处</th></tr></thead>
+          <tbody>
+            <tr><td><span class="en">Compare</span></td><td>要写，且全程提及各方</td><td><strong>不要求</strong></td><td>Biology 2025 指南 124–125 页</td></tr>
+            <tr><td><span class="en">Compare and contrast</span></td><td>要写</td><td>要写</td><td>同上；是单列的一条，不是 Compare 的加强版</td></tr>
+            <tr><td><span class="en">Contrast</span></td><td>不要求</td><td>只写不同点</td><td>同上</td></tr>
+            <tr><td><span class="en">Distinguish</span></td><td>不要求</td><td>要写，重点在"判别标准"，通常比 contrast 短</td><td>通用口径，未逐条核对</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="eg">
+        <div class="bad"><span class="mk">✗</span>Compare A and B.　→　A is faster. B is slower.（两句平行描述，全句没有比较结构）</div>
+        <div class="bad"><span class="mk">✗</span>Compare A and B.　→　A works at a higher optimum temperature than B.（只写了差异——这题要的是相同点）</div>
+        <div class="good"><span class="mk">✓</span>Compare A and B.　→　Both are proteins that catalyse the same reaction, both lower the activation energy, and both are denatured by boiling.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 二补 MYP ==================== -->
+  <div class="ch" id="p2c">
+    <div class="ch-head"><div class="ch-num">二</div><h2>MYP 是另一套</h2></div>
+    <p class="ch-note">这一节只有一件事要说清楚：<b>不要把 DP 的分组套到 MYP 上。</b></p>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">2.5</span><h3>两套的关系</h3></div>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th></th><th>MYP</th><th>DP</th></tr></thead>
+          <tbody>
+            <tr><td>指令动词来源</td><td>MYP 项目指南里有自己的一套</td><td>各学科指南各有一套，按 AO1/AO2/AO3 分组</td></tr>
+            <tr><td>与本页的关系</td><td>用法有重叠，但不完全一致；本页<b>未</b>收录 MYP 的完整清单</td><td>本页 2.1 的依据</td></tr>
+            <tr><td>遇到出入怎么办</td><td>以学校发的 MYP 材料为准</td><td>以当年学科指南为准</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note w"><b>不强行统一的原因：</b>两套的动词有大量重合（describe、explain、evaluate 等），但分档方式、释义的详略都不同。把它们合成一张表看起来整齐，实际会在两边都用错。所以本页只对 DP 那一套给完整分组，MYP 部分留待学校材料核对后再补。</div>
+    </div>
+  </div>
+
+  <!-- ==================== 三 ==================== -->
+  <div class="ch" id="p3">
+    <div class="ch-head"><div class="ch-num">三</div><h2>词语</h2></div>
+    <p class="ch-note">术语的记法是"认得 + 拆得开"。这一章给四类词，最后给拆词的规律。</p>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">3.1</span><h3>通用科学方法术语</h3><span class="tag tch">教学整理</span></div>
+      <p>不属于任何单一学科，但每一份报告都会用到。这一组复用率最高。</p>
+      <div class="bil">
+        <div><b>hypothesis</b>假设</div>
+        <div><b>prediction</b>预测</div>
+        <div><b>independent variable</b>自变量</div>
+        <div><b>dependent variable</b>因变量</div>
+        <div><b>controlled variable</b>控制变量</div>
+        <div><b>control group</b>对照组</div>
+        <div><b>fair test</b>公平实验：只改变自变量，其余相关变量尽量控制</div>
+        <div><b>validity</b>有效性（有没有测到该测的）</div>
+        <div><b>reliability</b>可靠性（重复是否一致）</div>
+        <div><b>accuracy</b>准确度（离真值多近）</div>
+        <div><b>precision</b>精密度（读数彼此多近）</div>
+        <div><b>resolution</b>分辨率（最小可读刻度）</div>
+        <div><b>calibration</b>校准</div>
+        <div><b>uncertainty</b>不确定度</div>
+        <div><b>systematic error</b>系统误差</div>
+        <div><b>random error</b>随机误差</div>
+        <div><b>raw data</b>原始数据</div>
+        <div><b>processed data</b>处理后的数据</div>
+        <div><b>anomalous result</b>异常结果</div>
+        <div><b>outlier</b>离群值</div>
+        <div><b>trend</b>趋势</div>
+        <div><b>gradient</b>斜率</div>
+        <div><b>intercept</b>截距</div>
+        <div><b>line of best fit</b>最佳拟合线</div>
+        <div><b>correlation</b>相关性</div>
+        <div><b>extrapolate</b>外推（推出测量范围外）</div>
+        <div><b>interpolate</b>内插（在测量范围内推）</div>
+        <div><b>repeat reading</b>重复读数</div>
+        <div><b>mean / median / mode</b>平均 / 中位 / 众数</div>
+        <div><b>range</b>极差</div>
+        <div><b>support</b>支持（假设）</div>
+        <div><b>refute</b>否定（假设）</div>
+        <div><b>consistent with</b>与…一致</div>
+        <div><b>within the range tested</b>在所测范围内</div>
+      </div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">3.2</span><h3>三科核心术语</h3><span class="tag tch">教学整理</span></div>
+      <p>筛选标准：<strong>DP 分科后仍会继续使用的骨架词</strong>，不是某一章的专有名物。具体章节的名词以学校课程为准。</p>
+
+      <div class="gl">物理</div>
+      <div class="bil">
+        <div><b>acceleration</b>加速度</div><div><b>amplitude</b>振幅</div><div><b>capacitance</b>电容</div>
+        <div><b>charge</b>电荷</div><div><b>current</b>电流</div><div><b>density</b>密度</div>
+        <div><b>displacement</b>位移</div><div><b>efficiency</b>效率</div><div><b>energy</b>能量</div>
+        <div><b>force</b>力</div><div><b>frequency</b>频率</div><div><b>friction</b>摩擦</div>
+        <div><b>gravity</b>重力</div><div><b>half-life</b>半衰期</div><div><b>impulse</b>冲量</div>
+        <div><b>inertia</b>惯性</div><div><b>kinetic energy</b>动能</div><div><b>magnetic field</b>磁场</div>
+        <div><b>mass</b>质量</div><div><b>moment</b>力矩</div><div><b>momentum</b>动量</div>
+        <div><b>period</b>周期</div><div><b>potential difference</b>电势差</div><div><b>potential energy</b>势能</div>
+        <div><b>power</b>功率</div><div><b>pressure</b>压强</div><div><b>reflection</b>反射</div>
+        <div><b>refraction</b>折射</div><div><b>resistance</b>电阻</div><div><b>resultant force</b>合力</div>
+        <div><b>speed</b>速率</div><div><b>temperature</b>温度</div><div><b>tension</b>张力</div>
+        <div><b>terminal velocity</b>终端速度</div><div><b>thermal energy</b>热能</div><div><b>velocity</b>速度（矢量）</div>
+        <div><b>voltage</b>电压</div><div><b>wavelength</b>波长</div><div><b>weight</b>重力</div>
+        <div><b>work</b>功</div>
+      </div>
+
+      <div class="gl">化学</div>
+      <div class="bil">
+        <div><b>acid</b>酸</div><div><b>alkali / base</b>碱</div><div><b>atom</b>原子</div>
+        <div><b>atomic number</b>原子序数</div><div><b>bond</b>化学键</div><div><b>catalyst</b>催化剂</div>
+        <div><b>compound</b>化合物</div><div><b>concentration</b>浓度</div><div><b>covalent bond</b>共价键</div>
+        <div><b>decomposition</b>分解</div><div><b>dilute</b>稀释</div><div><b>electrolysis</b>电解</div>
+        <div><b>electron</b>电子</div><div><b>element</b>元素</div><div><b>endothermic</b>吸热的</div>
+        <div><b>exothermic</b>放热的</div><div><b>formula</b>化学式</div><div><b>ion</b>离子</div>
+        <div><b>ionic bond</b>离子键</div><div><b>isotope</b>同位素</div><div><b>mass number</b>质量数</div>
+        <div><b>mixture</b>混合物</div><div><b>mole</b>摩尔</div><div><b>molecule</b>分子</div>
+        <div><b>neutralisation</b>中和</div><div><b>oxidation</b>氧化</div><div><b>periodic table</b>元素周期表</div>
+        <div><b>pH</b>酸碱度</div><div><b>precipitate</b>沉淀</div><div><b>product</b>生成物</div>
+        <div><b>reactant</b>反应物</div><div><b>reduction</b>还原</div><div><b>relative atomic mass</b>相对原子质量</div>
+        <div><b>salt</b>盐</div><div><b>solute</b>溶质</div><div><b>solution</b>溶液</div>
+        <div><b>solvent</b>溶剂</div><div><b>soluble</b>可溶的</div><div><b>synthesis</b>合成</div>
+        <div><b>yield</b>产率</div>
+      </div>
+
+      <div class="gl">生物</div>
+      <div class="bil">
+        <div><b>absorption</b>吸收</div><div><b>active transport</b>主动运输</div><div><b>aerobic</b>有氧的</div>
+        <div><b>allele</b>等位基因</div><div><b>anaerobic</b>无氧的</div><div><b>cell membrane</b>细胞膜</div>
+        <div><b>chloroplast</b>叶绿体</div><div><b>chromosome</b>染色体</div><div><b>cytoplasm</b>细胞质</div>
+        <div><b>decomposer</b>分解者</div><div><b>diffusion</b>扩散</div><div><b>DNA</b>脱氧核糖核酸</div>
+        <div><b>dominant</b>显性的</div><div><b>ecosystem</b>生态系统</div><div><b>enzyme</b>酶</div>
+        <div><b>gene</b>基因</div><div><b>genotype</b>基因型</div><div><b>homeostasis</b>稳态</div>
+        <div><b>hormone</b>激素</div><div><b>immunity</b>免疫力</div><div><b>meiosis</b>减数分裂</div>
+        <div><b>mitochondrion</b>线粒体</div><div><b>mitosis</b>有丝分裂</div><div><b>nucleus</b>细胞核</div>
+        <div><b>organ</b>器官</div><div><b>organelle</b>细胞器</div><div><b>osmoregulation</b>渗透调节</div>
+        <div><b>osmosis</b>渗透</div><div><b>phenotype</b>表现型</div><div><b>photosynthesis</b>光合作用</div>
+        <div><b>producer</b>生产者</div><div><b>consumer</b>消费者</div><div><b>protein</b>蛋白质</div>
+        <div><b>recessive</b>隐性的</div><div><b>respiration</b>呼吸作用</div><div><b>substrate</b>底物</div>
+        <div><b>tissue</b>组织</div><div><b>transport</b>运输</div><div><b>variation</b>变异</div>
+        <div><b>selective breeding</b>选择性育种</div>
+      </div>
+
+      <div class="gl">仪器与技术</div>
+      <div class="bil">
+        <div><b>ammeter</b>电流表</div><div><b>balance</b>天平</div><div><b>beaker</b>烧杯</div>
+        <div><b>Bunsen burner</b>本生灯</div><div><b>burette</b>滴定管</div><div><b>clamp stand</b>铁架台</div>
+        <div><b>conical flask</b>锥形瓶</div><div><b>data logger</b>数据记录仪</div><div><b>goggles</b>护目镜</div>
+        <div><b>measuring cylinder</b>量筒</div><div><b>microscope</b>显微镜</div><div><b>Petri dish</b>培养皿</div>
+        <div><b>pipette</b>移液管</div><div><b>power supply</b>电源</div><div><b>ruler</b>刻度尺</div>
+        <div><b>stopwatch</b>秒表</div><div><b>test tube</b>试管</div><div><b>thermometer</b>温度计</div>
+        <div><b>tripod</b>三脚架</div><div><b>voltmeter</b>电压表</div>
+      </div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">3.3</span><h3>同一个词，三科意思不同</h3><span class="tag con">惯例</span></div>
+      <p>这类错位最隐蔽：句子读起来通顺，概念却是错的，评卷按概念错误计分（不是语言错误）。</p>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>词</th><th>物理</th><th>化学</th><th>生物 / 其他</th></tr></thead>
+          <tbody>
+            <tr><td><span class="en">base</span></td><td>底座、基点</td><td>碱</td><td>碱基（DNA base）</td></tr>
+            <tr><td><span class="en">cell</span></td><td>电池</td><td>电解池</td><td>细胞</td></tr>
+            <tr><td><span class="en">nucleus</span></td><td>原子核</td><td>原子核</td><td>细胞核</td></tr>
+            <tr><td><span class="en">resistance</span></td><td>电阻</td><td>—</td><td>抗性（antibiotic resistance）</td></tr>
+            <tr><td><span class="en">potential</span></td><td>电势</td><td>—</td><td>潜力（potential energy 势能）</td></tr>
+            <tr><td><span class="en">medium</span></td><td>介质</td><td>介质</td><td>培养基</td></tr>
+            <tr><td><span class="en">solution</span></td><td>解法</td><td>溶液</td><td>解决方案（日常）</td></tr>
+            <tr><td><span class="en">power</span></td><td>功率</td><td>—</td><td>幂（数学）</td></tr>
+            <tr><td><span class="en">current</span></td><td>电流</td><td>—</td><td>当前的（current research）</td></tr>
+            <tr><td><span class="en">field</span></td><td>场</td><td>—</td><td>野外（fieldwork）</td></tr>
+            <tr><td><span class="en">charge</span></td><td>电荷</td><td>电荷</td><td>收费、指控（日常）</td></tr>
+            <tr><td><span class="en">culture</span></td><td>—</td><td>—</td><td>培养物 / 文化</td></tr>
+            <tr><td><span class="en">conductor</span></td><td>导体</td><td>—</td><td>指挥（音乐）</td></tr>
+            <tr><td><span class="en">matter</span></td><td>物质</td><td>物质</td><td>事项、要紧（日常）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">3.4</span><h3>十五组容易混的词对</h3><span class="tag con">惯例</span></div>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>词对</th><th>区别</th></tr></thead>
+          <tbody>
+            <tr><td><span class="en">mass / weight</span></td><td>质量是物质的量（kg）；重量是质量受引力产生的力（N）</td></tr>
+            <tr><td><span class="en">heat / temperature</span></td><td>热量是传递的能量（J）；温度反映物质的冷热程度——<strong>在理想气体模型中</strong>，它与粒子的平均平动动能成正比</td></tr>
+            <tr><td><span class="en">speed / velocity</span></td><td>速率没有方向；速度有方向</td></tr>
+            <tr><td><span class="en">distance / displacement</span></td><td>路程是走过的总长度；位移是起点到终点的直线</td></tr>
+            <tr><td><span class="en">accuracy / precision</span></td><td>准确是离真值近；精密是几次读数彼此近。可以精密但不准</td></tr>
+            <tr><td><span class="en">melt / dissolve</span></td><td>熔化是加热变液态；溶解是分散进溶剂，不需要加热到熔点</td></tr>
+            <tr><td><span class="en">absorb / adsorb</span></td><td>吸收是进到内部；吸附是停在表面</td></tr>
+            <tr><td><span class="en">respiration / breathing</span></td><td>呼吸作用是细胞内的化学反应；呼吸是通气动作</td></tr>
+            <tr><td><span class="en">gene / locus / allele</span></td><td>基因是一段有特定功能的 DNA 序列；基因座（locus）是这个基因在染色体上的位置；等位基因是同一基因座上这个基因的不同形式</td></tr>
+            <tr><td><span class="en">solute / solvent / solution</span></td><td>被溶的 / 起溶的 / 两者形成的均匀体系</td></tr>
+            <tr><td><span class="en">mixture / compound</span></td><td>混合物能靠物理方法分开；化合物必须化学变化</td></tr>
+            <tr><td><span class="en">mitosis / meiosis</span></td><td>有丝分裂的子细胞<strong>染色体数目不变</strong>；减数分裂的子细胞<strong>染色体数目减半</strong>。动物生殖中减数分裂产物是配子，这是典型情境，不是定义</td></tr>
+            <tr><td><span class="en">hypothesis / prediction / theory</span></td><td>假设是可检验的说法；预测是由假设推出的具体结果；理论是经反复验证的解释体系</td></tr>
+            <tr><td><span class="en">observation / inference</span></td><td>观察是看到的；推断是由看到的推出来的</td></tr>
+            <tr><td><span class="en">renewable / sustainable</span></td><td>可再生是能被补充；可持续是补充得不比用得慢</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">3.5</span><h3>拆词的规律</h3><span class="tag con">惯例</span></div>
+      <p>科学术语绝大部分由希腊、拉丁词根拼成。认得约三十个部件，遇到没见过的词也能猜出大意。</p>
+      <div class="bil">
+        <div><b>bio-</b>生命</div><div><b>cyt-</b>细胞</div><div><b>therm-</b>热</div>
+        <div><b>photo-</b>光</div><div><b>hydr-</b>水</div><div><b>aer-</b>气</div>
+        <div><b>gen-</b>产生</div><div><b>morph-</b>形态</div><div><b>electr-</b>电</div>
+        <div><b>hyper- / hypo-</b>过多 / 不足</div><div><b>endo- / exo-</b>向内 / 向外</div><div><b>iso-</b>相等</div>
+        <div><b>mono- / poly-</b>单 / 多</div><div><b>ana- / cata-</b>向上 / 向下</div><div><b>-lysis</b>分解</div>
+        <div><b>-synthesis</b>合成</div><div><b>-ase</b>酶</div><div><b>-ose</b>糖</div>
+        <div><b>-meter</b>测量器</div><div><b>-graph</b>记录</div><div><b>-ity</b>性质</div>
+      </div>
+      <div class="eg">
+        <div class="good"><span class="mk">拆</span><span class="mono">electro-lysis</span> = 电 + 分解 → 用电把物质分解<br>
+        <span class="mono">exo-therm-ic</span> = 向外 + 热 + 形容词 → 放热的<br>
+        <span class="mono">hypo-tonic</span> = 不足 + 张力 → 浓度较低的</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 四 ==================== -->
+  <div class="ch" id="p4">
+    <div class="ch-head"><div class="ch-num">四</div><h2>写作：位置、规范、句式</h2></div>
+    <p class="ch-note">前两章是"词"，这一章是"句子和段落"。按报告的位置组织，每个位置写什么、用什么句子。</p>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">4.1</span><h3>一份报告的位置</h3><span class="tag tch">教学整理</span></div>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>位置</th><th>要写什么</th><th>对应标准</th></tr></thead>
+          <tbody>
+            <tr><td>研究问题</td><td>自变量和因变量之间是什么关系</td><td>B</td></tr>
+            <tr><td>假设</td><td>预测 + 为什么这么预测（科学理由）</td><td>B</td></tr>
+            <tr><td>变量</td><td>三个变量各是哪个，各怎么测、怎么控制</td><td>B</td></tr>
+            <tr><td>方法</td><td>别人照着能做出同样结果的步骤</td><td>B</td></tr>
+            <tr><td>数据</td><td>表和图，带单位、带精度</td><td>C</td></tr>
+            <tr><td>处理</td><td>算平均值、算斜率、看趋势</td><td>C</td></tr>
+            <tr><td>结论</td><td>假设成立吗？证据是什么？适用范围到哪</td><td>C</td></tr>
+            <tr><td>评价</td><td>误差从哪来、会往哪偏、怎么改</td><td>C</td></tr>
+            <tr><td>影响</td><td>这项科学用在哪、解决了什么、又带来什么</td><td>D</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">4.2</span><h3>假设的三段</h3><span class="tag tch">建议写法</span></div>
+      <p>一个写得完整的假设通常含三段。这是<strong>写作建议，不是 IB 的评分条目</strong>——某一次作业是否因为缺了某段而降档，取决于那次发布的 Criterion 说明与教师判断。</p>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>段</th><th>写什么</th><th>句式</th></tr></thead>
+          <tbody>
+            <tr><td>条件</td><td>自变量往上还是往下</td><td><span class="en">If ___ increases, ...</span></td></tr>
+            <tr><td>预测</td><td>因变量会怎么变（方向 + 形态）</td><td><span class="en">then ___ will increase steadily, ...</span></td></tr>
+            <tr><td>机制</td><td>根据哪条科学原理</td><td><span class="en">because ___.</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="eg">
+        <div class="bad"><span class="mk">✗</span>If the temperature increases, the resistance will increase.</div>
+        <div class="good"><span class="mk">✓</span>If the temperature of the wire increases, its resistance will increase approximately linearly, <em>because</em> higher temperature makes the lattice ions vibrate more, which scatters conduction electrons more frequently.</div>
+      </div>
+      <div class="note">缺机制段的那一句本身不算错，只是<b>少了唯一能与"科学原理"对应的部分</b>，因此它能承载的东西更少。这是内容强度的差别，不是合规与否的差别。</div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">4.3</span><h3>数据的三条规矩</h3><span class="tag con">惯例</span></div>
+      <p>这一节的每一条都是<strong>科学界的通行做法</strong>，不是 IB 的统一硬性规定。老师或某科指南另有要求时，以当次要求为准。</p>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>项目</th><th>通常做法</th><th>常见问题</th></tr></thead>
+          <tbody>
+            <tr><td>单位</td><td>表头写"量 / 单位"，不写在每个数字后面；数值与单位符号之间空一格</td><td>每个数字都跟单位，表头很乱</td></tr>
+            <tr><td>有效数字<br>（乘除）</td><td>按<strong>有效数字位数</strong>最少的那一项定</td><td>把加减规则套到乘除上</td></tr>
+            <tr><td>有效数字<br>（加减）</td><td>按<strong>小数位数</strong>最少的那一项定</td><td>按有效数字位数定，结果多出无意义的小数</td></tr>
+            <tr><td>中间计算</td><td>多留一位，只在最后一步取舍</td><td>每一步都四舍五入，误差累积</td></tr>
+            <tr><td>不确定度</td><td>通行做法是保留一位、与结果末位对齐（如 <span class="mono">4.23 ± 0.05</span>）；<strong>部分学科或考试局要求两位或另有规定</strong></td><td>写成 <span class="mono">4.234 ± 0.0512</span></td></tr>
+            <tr><td>图的选择</td><td>先问两个变量各自是<strong>连续量还是分类量</strong>：都是连续 → 散点图；一方是分类 → 柱状图；连续量随时间 → 折线图</td><td>背口诀而不看变量性质，该画散点图画成柱状，读不出斜率</td></tr>
+            <tr><td>图的三件套</td><td>两轴都要名称和单位；刻度等距；异常点要标出来</td><td>只有数字没有轴名</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note w"><b>为什么改成"先看变量性质"：</b>机械口诀（"连续量就散点"这类）在边界情况会出错，例如时间被分成若干离散档位时，柱状也说得通。判断依据应当是数据本身的性质，而不是背下来的对应表。</div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">4.4</span><h3>结论与评价</h3></div>
+      <p>结论由三段组成：<strong>判断</strong> → <strong>证据</strong>（具体数值或斜率）→ <strong>限定</strong>（适用范围、偏离点）。</p>
+      <p>判断不是只有两种。<strong>四种都可以写</strong>，选哪一种取决于数据实际支持到哪里：</p>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>判断</th><th>什么时候用</th><th>句式</th></tr></thead>
+          <tbody>
+            <tr><td>支持</td><td>趋势与预测一致，数据点贴合</td><td><span class="en">The hypothesis is supported within ___.</span></td></tr>
+            <tr><td>部分支持</td><td>在所测范围的一部分成立，另一部分偏离</td><td><span class="en">The hypothesis holds between ___ and ___, but not beyond ___.</span></td></tr>
+            <tr><td>不支持</td><td>趋势与预测方向相反或显著偏离</td><td><span class="en">The hypothesis is not supported: ___ instead of ___.</span></td></tr>
+            <tr><td>数据不足以判断</td><td>离散过大、点数太少、异常值主导</td><td><span class="en">The data are insufficient to accept or reject the hypothesis, because ___.</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="eg">
+        <div class="bad"><span class="mk">✗</span>The hypothesis was correct.</div>
+        <div class="good"><span class="mk">✓</span>The hypothesis is supported within 20–60 °C: resistance rose from 4.2 to 6.8 Ω, giving a gradient of 0.065 Ω/°C with R² = 0.98. Above 70 °C the trend flattens, so the linear relationship does not extend to that range.</div>
+      </div>
+      <div class="gl">误差怎么分：两个维度</div>
+      <p>「类型」和「成因」是两个问题，不要放进同一张表。<strong>类型</strong>看偏离方向是否一致，只有两种；<strong>成因</strong>回答从哪来，仪器、方法、操作、环境都可能。</p>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>类型</th><th>判据</th><th>对结果的影响</th><th>怎么改</th></tr></thead>
+          <tbody>
+            <tr><td>系统误差</td><td>每次都往同一方向偏，可重复</td><td>整体偏移；零点偏移不改变斜率，<strong>比例因子误差会改变斜率</strong></td><td>校准仪器、扣除零点</td></tr>
+            <tr><td>随机误差</td><td>有时偏高有时偏低，方向不定</td><td>数据分散，影响精度</td><td>增加重复次数取平均</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>可能成因</th><th>例子</th><th>通常表现成哪一类</th></tr></thead>
+          <tbody>
+            <tr><td>仪器</td><td>未校准、零点偏移、分辨率不足</td><td>多为系统误差；分辨率不足引起的波动可表现为随机</td></tr>
+            <tr><td>方法</td><td>没算散热、取样不均、前提假设不成立</td><td>多为系统误差，可能同时影响斜率和截距</td></tr>
+            <tr><td>操作</td><td>视差读数、计时慢半拍、没按步骤做</td><td>两种都可能：稳定偏向一侧→系统；时紧时松→随机</td></tr>
+            <tr><td>环境</td><td>室温漂移、湿度、气流</td><td>多为随机；单向持续漂移可算系统</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note w"><b>操作问题（human error）为什么不算第三类：</b>它是<b>成因</b>，不是<b>类型</b>。操作不规范既可能造成系统偏差（每次都多读 0.2 mL），也可能造成随机偏差（读数时紧时松）。所以写评价时应说明"这个操作问题<b>表现成了哪一种</b>"，而不是单列一类。<br><br>只写 <span class="mono">human error</span>，等于只说了成因，没说类型、没说机制、也没说怎么改。</div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">4.5</span><h3>四十二句</h3><span class="tag tch">教学整理</span></div>
+      <p>按功能分七组，每组对应报告的一个位置。</p>
+      <div class="sg">
+        <div class="h">陈述变量</div>
+        <div class="it"><span class="en">The independent variable was ___, measured with ___ to a resolution of ___.</span><span class="cn">自变量是___，用___测，分辨率___。</span></div>
+        <div class="it"><span class="en">The dependent variable was ___, measured in ___.</span><span class="cn">因变量是___，以___为单位测量。</span></div>
+        <div class="it"><span class="en">___ was kept constant at ___ by ___.</span><span class="cn">___由___保持在___。</span></div>
+        <div class="it"><span class="en">Each condition was repeated ___ times, and the mean was used.</span><span class="cn">每个条件重复___次，取平均。</span></div>
+        <div class="it"><span class="en">A control group was included, in which ___.</span><span class="cn">设了对照组，其中___。</span></div>
+        <div class="it"><span class="en">Readings were taken at intervals of ___.</span><span class="cn">每隔___读取一次。</span></div>
+        <div class="h">描述趋势</div>
+        <div class="it"><span class="en">As ___ increased, ___ increased steadily.</span><span class="cn">随___增大，___稳定上升。</span></div>
+        <div class="it"><span class="en">___ rose sharply between ___ and ___.</span><span class="cn">___在___到___之间急剧上升。</span></div>
+        <div class="it"><span class="en">The relationship was approximately linear over the range tested.</span><span class="cn">在所测范围内近似线性。</span></div>
+        <div class="it"><span class="en">___ reached a maximum at ___, after which it declined.</span><span class="cn">___在___处最大，之后下降。</span></div>
+        <div class="it"><span class="en">Beyond ___, the trend flattened.</span><span class="cn">超过___后趋于平缓。</span></div>
+        <div class="it"><span class="en">There was no consistent trend across the range.</span><span class="cn">整个范围内没有一致趋势。</span></div>
+        <div class="it"><span class="en">The data showed considerable scatter, particularly at ___.</span><span class="cn">数据离散明显，尤其在___。</span></div>
+        <div class="h">陈述数据</div>
+        <div class="it"><span class="en">The mean value was ___, with a range of ___.</span><span class="cn">平均值___，极差___。</span></div>
+        <div class="it"><span class="en">The gradient of the line of best fit was ___.</span><span class="cn">拟合线斜率是___。</span></div>
+        <div class="it"><span class="en">The reading at ___ was markedly lower than expected.</span><span class="cn">___处读数明显低于预期。</span></div>
+        <div class="it"><span class="en">___ accounted for ___% of the total.</span><span class="cn">___占总量的___%。</span></div>
+        <div class="it"><span class="en">The value was recorded as ___ ± ___.</span><span class="cn">该值记为___ ± ___。</span></div>
+        <div class="h">建立因果</div>
+        <div class="it"><span class="en">This is because ___.</span><span class="cn">这是因为___。</span></div>
+        <div class="it"><span class="en">This occurs as a result of ___.</span><span class="cn">这源于___。</span></div>
+        <div class="it"><span class="en">This can be explained by ___.</span><span class="cn">这可由___解释。</span></div>
+        <div class="it"><span class="en">___ leads to ___, which in turn causes ___.</span><span class="cn">___导致___，进而引起___。</span></div>
+        <div class="it"><span class="en">A possible mechanism is that ___.</span><span class="cn">一个可能的机制是___。</span></div>
+        <div class="it"><span class="en">The increase in ___ reduces ___, thereby ___.</span><span class="cn">___的增加减少了___，从而使___。</span></div>
+        <div class="h">表达误差</div>
+        <div class="it"><span class="en">A systematic error may have arisen from ___, which would have raised all readings by about ___.</span><span class="cn">系统误差可能来自___，会使所有读数整体偏高约___。</span></div>
+        <div class="it"><span class="en">Random error was reduced by repeating each measurement ___ times.</span><span class="cn">通过重复___次降低随机误差。</span></div>
+        <div class="it"><span class="en">The main source of uncertainty was ___, estimated at ___.</span><span class="cn">主要不确定度来源是___，估计___。</span></div>
+        <div class="it"><span class="en">This would affect ___ but not ___.</span><span class="cn">这影响___，但不影响___。</span></div>
+        <div class="it"><span class="en">Parallax when reading the meniscus may have introduced ___.</span><span class="cn">读液面时的视差可能引入___。</span></div>
+        <div class="it"><span class="en">The result deviates from the trend by ___, which is outside the estimated uncertainty.</span><span class="cn">该结果偏离趋势___，超出估计的不确定度。</span></div>
+        <div class="h">建立限定</div>
+        <div class="it"><span class="en">Within the range tested, ___.</span><span class="cn">在所测范围内，___。</span></div>
+        <div class="it"><span class="en">This conclusion applies only to ___.</span><span class="cn">该结论只适用于___。</span></div>
+        <div class="it"><span class="en">The relationship may not hold beyond ___.</span><span class="cn">该关系在___之外可能不成立。</span></div>
+        <div class="it"><span class="en">Under these conditions, ___ is expected.</span><span class="cn">在这些条件下，预期出现___。</span></div>
+        <div class="it"><span class="en">The sample size was insufficient to establish ___.</span><span class="cn">样本量不足以确立___。</span></div>
+        <div class="it"><span class="en">This result is consistent with ___, but does not establish ___.</span><span class="cn">该结果与___一致，但不能证明___。</span></div>
+        <div class="h">讨论影响</div>
+        <div class="it"><span class="en">___ is used in ___ to address the problem of ___.</span><span class="cn">___被用于___，以应对___问题。</span></div>
+        <div class="it"><span class="en">This has significant economic implications, because ___.</span><span class="cn">这有显著经济意义，因为___。</span></div>
+        <div class="it"><span class="en">From an ethical standpoint, ___ raises questions about ___.</span><span class="cn">从伦理看，___引发关于___的问题。</span></div>
+        <div class="it"><span class="en">The environmental cost is ___, whereas the benefit is ___.</span><span class="cn">环境代价___，而收益___。</span></div>
+        <div class="it"><span class="en">However, this approach is limited by ___.</span><span class="cn">然而这方法受限于___。</span></div>
+        <div class="it"><span class="en">On balance, the benefits outweigh the risks, provided that ___.</span><span class="cn">总体而言，只要___，收益大于风险。</span></div>
+      </div>
+    </div>
+
+    <div class="s">
+      <div class="s-head"><span class="s-num">4.6</span><h3>中英写法的四处不同</h3><span class="tag con">惯例</span></div>
+      <div class="tscroll">
+        <table class="t1">
+          <thead><tr><th>差别</th><th>中文习惯</th><th>英文要的</th></tr></thead>
+          <tbody>
+            <tr><td>因果</td><td>靠语序（"温度升高，电阻变大"）</td><td>因果关系要<strong>在句法上清晰</strong>，否则读成两个并列事实。<strong>但不必每次都用一个固定连接词</strong>：连词（because／since）、从句（which causes…）、分词结构（resulting in…）、名词化（the increase in… leads to…）都能承担</td></tr>
+            <tr><td>主语</td><td>可以说"我觉得"</td><td>以现象作主语，不用 <span class="en">I think</span> 作证据</td></tr>
+            <tr><td>限定</td><td>常省略</td><td>结论要带 <span class="en">within the range tested</span> 这类边界</td></tr>
+            <tr><td>名词化</td><td>动作用动词</td><td>过程转成名词才能被比较：<span class="en">react → reaction</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 附录 ==================== -->
+  <div class="ch" id="p5">
+    <div class="ch-head"><div class="ch-num">附</div><h2>依据与边界</h2></div>
+    <p class="ch-note">这一页说明哪些内容可以核对、哪些是通行做法、哪些是本页自己的编排。</p>
+
+    <div class="appx">
+      <h4><span class="tag off">官方</span>　可以核对的部分</h4>
+      <ul>
+        <li>MYP 科学四条标准的名称、各自的焦点、每条满分 8 分。</li>
+        <li>DP 指令动词按 AO1 / AO2 / AO3 三组的<strong>大框架</strong>，以及各词的基本释义。本页归组按学科指南末尾的 command terms 表整理，<strong>其中只有 Biology（2025 首考）第 124–125 页的比较类两条经原文核对</strong>；各学科、各版本的收录范围与归组并不完全一致，本页不能代替任一学科的官方词表。</li>
+        <li><strong>指令动词的 AO 分组 ≠ 学科只有三个 AO。</strong>以 Biology 2025 指南为例，该科共设四条 Assessment Objective，其中 <strong>AO4 涉调查技能</strong>，而 command terms 表只把动词归入 AO1–AO3。（AO4 章节页码未记录，待核。）</li>
+        <li><strong><span class="mono">Compare</span> 与 <span class="mono">Compare and contrast</span> 的分工</strong>：IB <i>Biology Guide</i>（学科 Biology／First assessment 2025／第 124–125 页）——<span class="mono">Compare</span> 只要求相同点，<span class="mono">Compare and contrast</span> 要求相同点与不同点，两者都要求全程提及各方。<b>该口径只覆盖 Biology 一个学科一个版本</b>；Physics、Chemistry 及其他版本的同类表述本轮未取得原文，标 <b>PENDING</b>，不得据此推断为 Group 4 统一规则。</li>
+      </ul>
+    </div>
+
+    <div class="appx">
+      <h4><span class="tag con">惯例</span>　通行做法，非 IB 明文</h4>
+      <ul>
+        <li>单位写法、有效数字规则（乘除按有效数字位数、加减按小数位）、不确定度的表示方式。</li>
+        <li>误差按<strong>方向是否一致</strong>分成系统误差与随机误差两类；"操作问题（human error）"是成因，不是第三类，它会表现为前两者之一。</li>
+        <li>图表选择的判断依据（连续量 / 分类量 / 时间序列）与"轴名 + 单位"的要求。</li>
+        <li>科学术语的词根拆解方式。</li>
+      </ul>
+    </div>
+
+    <div class="appx">
+      <h4><span class="tag tch">教学整理</span>　本页自己的编排</h4>
+      <ul>
+        <li>"三层语言"的划分，以及"四标准 × 三层"的对应矩阵。</li>
+        <li>术语表的筛选口径与分组（按"DP 分科后仍使用的骨架词"选，非课纲全量）。</li>
+        <li>四十二句的句式表与七组分类。</li>
+        <li>指令动词卡上的"易错"提示，来自常见答题偏差的归纳，不是官方评分说明。</li>
+      </ul>
+    </div>
+
+    <div class="appx">
+      <h4><span class="tag tch">未收录 / 待核</span>　明确留白</h4>
+      <ul>
+        <li><strong>MYP 指令动词的完整清单未收录。</strong>MYP 有独立的一套，与 DP 有重叠但不完全一致。为避免错误合并，本页只对 DP 那一套做完整分组；MYP 部分以学校发放的材料为准。</li>
+        <li><strong>各科指南之间的措辞差异未逐条比对。</strong>个别动词是否列入、释义详略，物理 / 化学 / 生物之间可能有出入，遇到不一致时以本校当年的科目指南为准。</li>
+        <li><strong>术语表不是课纲词表。</strong>具体章节的专有名词（某个细胞器、某个具体反应）不在此列。</li>
+      </ul>
+    </div>
+
+    <div class="appx" style="background:var(--soft2);border-color:#cfe6e2">
+      <h4>怎么对这页做校对</h4>
+      <ul>
+        <li>看某一个指令动词的解释时，先确认它旁边标的是 AO1 / AO2 / AO3 里的哪一组——分组错了，释义一般也跟着错。</li>
+        <li>凡是标 <span class="tag con">惯例</span> 的条目，如果学校老师给了不同写法（例如有效数字的取法），以老师的要求为准，本页不争。</li>
+        <li>凡是标 <span class="tag tch">教学整理</span> 的条目，可以整块替换，不影响正确性，只影响好不好记。</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
