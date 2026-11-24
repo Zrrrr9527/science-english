@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IB 科学英语 · 范文与例句 v1.1</title>
+<style>
+:root{
+  --bg:#f7f7f4;--paper:#fff;--ink:#1a1b19;--ink2:#43463f;--ink3:#7d827a;--ink4:#a8ada4;
+  --line:#e4e4dd;--line2:#eef0ea;
+  --accent:#0f6e63;--accent2:#0a4f47;--soft:#eaf4f2;--soft2:#f4faf9;
+  --warn:#8f5606;--warn-soft:#fbf4e8;--warn-line:#ecdcc0;
+  --gray-soft:#f2f2ee;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:15.5px;line-height:1.76;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:860px;margin:0 auto;padding:28px 20px 80px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+a{color:var(--accent2);text-decoration:none;border-bottom:1px solid #cfe4e0}
+td a{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.6px}
+
+/* 封面 */
+.cover{padding:6px 0 24px;border-bottom:1px solid var(--line)}
+.cover .kick{font-size:12px;letter-spacing:.2em;color:var(--ink3);margin-bottom:12px}
+.cover h1{font-size:28px;line-height:1.3;margin:0 0 10px;letter-spacing:-.5px;font-weight:700}
+.cover .lead{font-size:15px;color:var(--ink2);margin:0;max-width:680px}
+.ver{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-size:12.5px}
+.ver span{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px 11px;color:var(--ink3)}
+.ver span b{color:var(--ink);font-weight:600}
+
+/* 标记 */
+.tag{display:inline-block;font-size:11px;line-height:1.5;padding:1px 7px;border-radius:5px;white-space:nowrap;vertical-align:1px;font-weight:600;letter-spacing:.02em}
+.tag.off{background:#e8eef2;color:#2c5566;border:1px solid #d3e0e7}
+.tag.org{background:var(--warn-soft);color:var(--warn);border:1px solid var(--warn-line)}
+.tag.teach{background:var(--gray-soft);color:#5d6159;border:1px solid #e0e0d8}
+.tag.pend{background:#f7eaea;color:#8a3b34;border:1px solid #eed3cf}
+
+/* 导航 */
+.nav{position:sticky;top:0;z-index:30;background:rgba(247,247,244,.95);
+  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);margin:0 -20px 28px;padding:9px 20px;
+  overflow-x:auto;white-space:nowrap;-ms-overflow-style:none;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{display:inline-block;margin-right:7px;padding:4px 12px;font-size:13px;color:var(--ink2);
+  text-decoration:none;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
+.nav a:active{background:var(--soft);color:var(--accent2)}
+
+/* 章 / 节 */
+.ch{margin:48px 0 0;scroll-margin-top:62px}
+.ch-head{display:flex;align-items:flex-start;gap:13px;padding-bottom:11px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+.ch-num{font-size:32px;line-height:1;font-weight:200;color:var(--ink4);letter-spacing:-1px;flex:0 0 auto;padding-top:2px}
+.ch-head h2{font-size:19.5px;margin:2px 0 0;font-weight:700;letter-spacing:-.2px;line-height:1.4}
+.ch-note{font-size:13.5px;color:var(--ink3);margin:9px 0 24px;line-height:1.7}
+.ch-note b{color:var(--ink2);font-weight:600}
+
+.s{margin:0 0 30px;scroll-margin-top:62px}
+.s-head{display:flex;align-items:baseline;gap:9px;margin-bottom:10px;flex-wrap:wrap}
+.s-num{font-size:12.5px;color:var(--accent);font-weight:700;flex:0 0 auto}
+.s-head h3{font-size:16.5px;margin:0;font-weight:600}
+.s-head .fn{font-size:12px;color:var(--ink3);font-family:ui-monospace,Menlo,monospace}
+.s p{margin:0 0 10px;color:var(--ink2)}
+.s p:last-child{margin-bottom:0}
+
+/* 表 */
+.tscroll{overflow-x:auto;margin:13px -2px;padding:0 2px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;background:var(--paper);font-size:14px}
+table.t1{min-width:600px}
+thead th{text-align:left;padding:9px 12px;background:#fafaf7;border:1px solid var(--line);
+  font-size:12.5px;color:var(--ink3);font-weight:600;white-space:nowrap}
+tbody td{padding:9px 12px;border:1px solid var(--line);vertical-align:top;line-height:1.68;color:var(--ink2)}
+tbody td:first-child{color:var(--ink)}
+tbody tr:nth-child(even) td{background:#fcfcfa}
+td .en,th .en{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--accent2)}
+
+/* 提示 */
+.note{border-left:3px solid var(--accent);background:var(--soft2);padding:11px 15px;border-radius:0 8px 8px 0;
+  margin:12px 0;font-size:13.8px;line-height:1.72;color:var(--ink2)}
+.note b{color:var(--accent2)}
+.note.w{border-left-color:#c9902f;background:var(--warn-soft);color:#6d4204}
+.note.w b{color:var(--warn)}
+.note.r{border-left-color:#b5564c;background:#fdf4f3;color:#7c3a32}
+.note.r b{color:#8a3b34}
+
+/* 分组标题 */
+.gl{display:flex;align-items:center;gap:9px;margin:20px 0 8px;font-size:13px;color:var(--ink3);font-weight:600;letter-spacing:.05em}
+.gl::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* 例句卡 */
+.sxl{display:grid;gap:9px;margin:13px 0}
+.sx{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:11px 14px}
+.sx-h{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:7px;font-size:11.5px}
+.sx-h .id{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--accent);font-weight:700}
+.sx-h .fn{background:var(--soft);color:var(--accent2);padding:1px 7px;border-radius:4px;font-weight:600}
+.sx-h .tp{color:var(--ink3)}
+.sx-h .st{color:var(--ink4)}
+.sx .en{display:block;font-size:14.2px;line-height:1.72;color:var(--ink);margin:0 0 7px;padding-left:11px;border-left:2px solid #cfe4e0}
+.sx .cn{font-size:13px;color:var(--ink2);line-height:1.68;margin:0}
+.sx .cn b{color:var(--ink3);font-weight:600;font-size:11.5px;letter-spacing:.04em}
+.sx .cn .bad{color:var(--warn)}
+
+/* 短答 / 范文卡 */
+.er{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:18px 0}
+.er-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;
+  border-bottom:1px solid var(--line2);padding-bottom:9px;margin-bottom:12px}
+.er-h h4{margin:0;font-size:15.5px;font-weight:600}
+.er-h .id{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;color:var(--accent);font-weight:700}
+.er-meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px;font-size:11.5px}
+.er-meta span{background:#fafaf7;border:1px solid var(--line);border-radius:999px;padding:2px 9px;color:var(--ink3)}
+.er-meta span b{color:var(--ink2);font-weight:600}
+.qa{background:#fbfbf9;border-left:2px solid #d9e4e2;padding:11px 14px;border-radius:0 7px 7px 0;margin:12px 0;font-size:14px;line-height:1.8;color:var(--ink)}
+.qa .lb{display:block;font-size:11.5px;color:var(--ink3);font-weight:600;letter-spacing:.07em;margin-bottom:5px}
+.qa p{margin:0 0 9px;color:var(--ink)}
+.qa p:last-child{margin:0}
+.qa.sys{border-left-color:#c9902f;background:var(--warn-soft)}
+.qa.sys p{color:#5f3a03}
+.ol{margin:8px 0 12px;padding-left:20px;font-size:13.8px;color:var(--ink2);line-height:1.72}
+.ol li{margin-bottom:4px}
+.ol li:last-child{margin-bottom:0}
+.ol b{color:var(--ink)}
+.mini{font-size:12.5px;color:var(--ink3);line-height:1.68;margin:8px 0 0}
+.mini b{color:var(--ink2);font-weight:600}
+.kl{display:grid;gap:7px;margin:10px 0}
+.kl .it{font-size:13.4px;line-height:1.7;color:var(--ink2);background:#fbfbf9;border-radius:7px;padding:8px 12px}
+.kl .it .q{display:block;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.6px;color:var(--accent2);margin-bottom:3px}
+.kl .it b{color:var(--ink3);font-weight:600;font-size:11.5px;letter-spacing:.04em}
+
+/* 质量对照 */
+.qc{display:grid;gap:8px;margin:12px 0}
+.qc>div{font-size:13.8px;padding:11px 14px;border-radius:8px;line-height:1.74;border:1px solid}
+.qc .lv{display:inline-block;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;margin-right:8px;letter-spacing:.04em}
+.qc .l1{background:#fdf3f2;border-color:#f3d9d5;color:#7c3a32}
+.qc .l1 .lv{background:#f6dcd7;color:#7c3a32}
+.qc .l2{background:var(--warn-soft);border-color:var(--warn-line);color:#6d4204}
+.qc .l2 .lv{background:#f0e0c4;color:#6d4204}
+.qc .l3{background:var(--soft);border-color:#cbe5e1;color:#0a4c45}
+.qc .l3 .lv{background:#cbe5e1;color:#0a4c45}
+.qc .why{display:block;margin-top:5px;font-size:12.6px;opacity:.92}
+
+/* 自检 */
+.chk{display:grid;gap:9px;margin:12px 0}
+.chk .it{display:grid;grid-template-columns:20px 1fr;gap:11px;background:var(--paper);
+  border:1px solid var(--line);border-radius:9px;padding:11px 14px;font-size:13.8px;line-height:1.7}
+.chk .bx{width:17px;height:17px;border:1.5px solid #c8ccc4;border-radius:4px;margin-top:5px}
+.chk .t b{color:var(--ink)}
+.chk .t em{display:block;font-style:normal;font-size:12.6px;color:var(--ink3);margin-top:2px}
+
+/* 附录 */
+.appx{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:17px 19px;margin:12px 0}
+.appx h4{margin:0 0 8px;font-size:14.5px}
+.appx ul{margin:0 0 14px;padding-left:19px;font-size:13.8px;color:var(--ink2);line-height:1.75}
+.appx ul:last-child{margin-bottom:0}
+.appx li{margin-bottom:5px}
+.appx li:last-child{margin-bottom:0}
+
+footer{margin-top:46px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink3);line-height:1.8}
+
+@media (max-width:680px){
+  .wrap{padding:22px 15px 62px}
+  .cover h1{font-size:23px}
+  .ch-num{font-size:25px}
+  .nav{margin:0 -15px 22px;padding:8px 15px}
+  .er{padding:14px 15px}
+}
+@media print{
+  body{background:#fff;font-size:10pt}
+  .wrap{max-width:none;padding:0}
+  .nav{display:none}
+  .ch{break-before:page;margin-top:0}
+  .ch:first-of-type{break-before:auto}
+  table,.sx,.er,.qc>div,.note,.chk .it{break-inside:avoid;page-break-inside:avoid}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="cover">
+  <div class="kick">IB MYP / DP SCIENCE · 教学应用层</div>
+  <h1>科学英语 · 范文与例句</h1>
+  <p class="lead">前三页说明「科学上什么是正确的」「题目要求做什么」；这一页只做一件事：把这两件事变成一句句可以照着写的英文。全部内容为教学示例，不是 IB 官方答案，也不冒充 markscheme。</p>
+  <div class="ver">
+    <span>版本 <b>v1.1</b></span>
+    <span>更新 <b>2026-11-24</b></span>
+    <span>单句 <b>36</b></span>
+    <span>短答 <b>12</b></span>
+    <span>范文 <b>6</b></span>
+    <span>质量对照 <b>6 组</b></span>
+    <span>性质 <b>教学应用层</b></span>
+  </div>
+</div>
+
+<div class="note w" style="margin-top:18px"><b>v1.1 定点修订（2026-11-24，五处，均不扩章、不增范例）：</b>① <b>ER-BIO-01</b> 把 <span class="mono">undigested material excreted as faeces</span> 改为 <span class="mono">egested as faeces</span>——粪便是未消化物质经<b>排遗</b>排出，不是代谢废物经排泄排出，egestion 与 excretion 不能互换；② <b>SA-PHY-04</b> 题目要求 <span class="mono">one reason</span>，原答案给了两个，已改为只给空气阻力，并修正「整个下落过程加速度都小于 g」的说法——从静止释放瞬间 v = 0、阻力为零，加速度仍为 g；两个原因与「哪一端延迟」的辨析移入下方提示框；③ <b>ER-PHY-01</b> 数据改为与恒定摩擦模型完全自洽（1.21 → 1.18 m s⁻²），使三行 <span class="mono">F / a</span> 与所提模型逐行对上，不再只押一行；并补「真实数据还含随机散布，不能全归因于恒定摩擦」的边界；④ <b>§0.2</b> 删去「同义改写常常扣分」，改为「关键术语用错或改变科学含义时可能失分」；⑤ <b>ER-PHY-01 首段</b>删去 <span class="mono">through the origin</span>——它与后文「模型给出 F 轴截距 0.01 N」直接矛盾；改为 <span class="mono">straight-line relationship / increases approximately linearly</span>，结论句的 proportional 一并改为 linear，并补「linear ≠ proportional」一条辨析。</div>
+
+<div class="nav">
+  <a href="#c0">使用指南</a>
+  <a href="#c1">1 句子库</a>
+  <a href="#c2">2 短答范例</a>
+  <a href="#c3">3 完整范文</a>  <a href="#c4">4 质量对照</a>
+  <a href="#c5">5 自我检查</a>
+  <a href="#c6">6 索引与来源</a>
+</div>
+
+<!-- ============ 0 ============ -->
+<div class="ch" id="c0">
+  <div class="ch-head"><div class="ch-num">0</div><h2>使用指南</h2></div>
+  <p class="ch-note">先读这一页，再读例句。否则很容易把「某篇范文这样写」误当成「题目要求这样写」——这是本页最想防的一件事。</p>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">0.1</span><h3>四页的分工</h3></div>
+    <div class="tscroll">
+      <table class="t1">
+        <thead><tr><th>页面</th><th>回答的问题</th><th>本页如何引用它</th></tr></thead>
+        <tbody>
+          <tr><td>知识体系</td><td>科学上什么是正确的？边界在哪？</td><td>概念、术语、模型条件一律以它为准；本页不另立定义</td></tr>
+          <tr><td>标准_v2</td><td>这个指令动词要你做什么？</td><td>答题要素以它为准；本页只把要素写成句子</td></tr>
+          <tr><td>映射清单</td><td>两份文件之间哪里一致、哪里待核</td><td>本页不参与映射，避免多一层口径</td></tr>
+          <tr><td><b>本页</b></td><td>实际答案长什么样？为什么这样写？</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><b>冲突时按这个顺序处理：</b>科学概念 → 知识体系；指令动词与答题要求 → 标准_v2；本页的句子只是示例，<b>不得反过来修改前两页的规则</b>。若发现本页与它们冲突，改本页。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">0.2</span><h3>MYP 与 DP 的差别不在难度，在要求</h3></div>
+    <div class="tscroll">
+      <table class="t1">
+        <thead><tr><th></th><th>MYP</th><th>DP</th></tr></thead>
+        <tbody>
+          <tr><td>句子长度</td><td>短句为主，一句一个要点</td><td>可以有从句与名词化，但每个成分要能指认</td></tr>
+          <tr><td>术语密度</td><td>够用即可，重点是机制说清；逐步建立准确术语习惯</td><td>关键术语必须准确；是否接受同义表达，取决于该题要求与评分标准</td></tr>
+          <tr><td>数据</td><td>引用关键数值说明趋势</td><td>数值、单位、有效数字、不确定度都要对上</td></tr>
+          <tr><td>限定</td><td>能指出一个局限</td><td>限定要指向结论的适用范围，不是贴一句「可能有误差」</td></tr>
+          <tr><td>评价</td><td>说出好在哪、差在哪</td><td>依据 + 局限 + 判断，且改进要有针对性</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note w"><b>不要把 DP 的写法直接压给 MYP 学生。</b>同一条指令，MYP 达到「说清」即可；把 DP 的复杂度当统一标准，会把学生推向长句堆砌——那恰好是表达效率的反面。</div>
+    <div class="note"><b>「同义改写会扣分」这句话要说准。</b>DP 并不禁止同义表达。判断标准是<b>有没有改变或稀释科学含义</b>：把 <span class="mono">egestion</span> 写成 <span class="mono">excretion</span>、把 <span class="mono">mass</span> 写成 <span class="mono">weight</span>，是术语错误；把 <span class="mono">the rate increases as temperature rises</span> 改写成 <span class="mono">higher temperatures give faster rates</span>，科学上等价，是否接受取决于该题要求与 markscheme。准确的说法只有一句：<b>关键术语用错或改变了科学含义，可能失分</b>——不是「换一种说法就扣分」。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">0.3</span><h3>三种内容怎么读</h3></div>
+    <div class="tscroll">
+      <table class="t1">
+        <thead><tr><th>类型</th><th>体量</th><th>读法</th></tr></thead>
+        <tbody>
+          <tr><td>单句例句（§1）</td><td>36 句，按表达功能分 9 类</td><td>看句子在承担什么功能、结构怎么搭；<b>不要整句背</b>，要能换内容套结构</td></tr>
+          <tr><td>短答范例（§2）</td><td>12 篇，1–4 分规模</td><td>对照「答案结构」看要点怎么排；错例是重点，先认出错的再写好</td></tr>
+          <tr><td>完整范文（§3）</td><td>6 篇，6–9 分规模</td><td>看段落之间怎么承接、数据怎么被用来支持判断</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">0.4</span><h3>Level 1 / 2 / 3 是什么，不是什么</h3></div>
+    <div class="qc">
+      <div class="l1"><span class="lv">Level 1</span>不充分：有科学概念错误，或没回答题目真正问的东西。<span class="why">它的用处是让你认出「看起来像答案、其实不是」的写法。</span></div>
+      <div class="l2"><span class="lv">Level 2</span>发展中：概念基本正确，但证据、机制、推理或结论有缺口。<span class="why">多数学生的实际位置；从 L2 到 L3 靠补链条，不靠换高级词。</span></div>
+      <div class="l3"><span class="lv">Level 3</span>较强：概念准确、符合指令动词要求、证据与推理充分、表达不绕。<span class="why">注意：它只表示「本页标准下较好」，不等于 IB 某个分数段。</span></div>
+    </div>
+    <div class="note r"><b>这不是 IB 评分等级。</b>三个等级只用于本页内部比较答案质量，与 IB 的 1–7 分、与任何 markscheme 的分档都没有换算关系。真实得分只看题目与该题 markscheme。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">0.5</span><h3>来源性质：本页没有一条标「官方」</h3></div>
+    <p>每条内容都带一个来源标记。本页所有题目与答案的性质如下：</p>
+    <div class="tscroll">
+      <table class="t1">
+        <thead><tr><th>标记</th><th>含义</th><th>本页数量</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag off">Official</span></td><td>可追溯到官方公开题目</td><td><b>0</b></td></tr>
+          <tr><td><span class="tag org">Adapted</span></td><td>基于官方题目改编，须说明改编处</td><td><b>0</b></td></tr>
+          <tr><td><span class="tag teach">Original</span></td><td>自编教学题目</td><td><b>全部</b></td></tr>
+          <tr><td><span class="tag teach">Model answer</span></td><td>教学参考答案，不是官方评分答案</td><td><b>全部</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note w"><b>为什么全部是自编：</b>本轮没有取得可追溯、可注明试卷年份与题号的官方公开题目，因此不把任何一条标成 Official，也不做「改编自某年真题」的模糊表述。<b>标不出来的，就不标。</b>等拿到可核对的题源，再加 Official / Adapted 两类，并注明试卷、年份、题号。</div>
+  </div>
+</div>
+
+<!-- ============ 1 ============ -->
+<div class="ch" id="c1">
+  <div class="ch-head"><div class="ch-num">1</div><h2>科学英语句子库</h2></div>
+  <p class="ch-note">按<b>表达功能</b>组织，不按字母序。36 句，9 类，每类 4 句。每句只承担一个功能——这是刻意的：一句话同时干三件事，学生就学不到结构。</p>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">1.1</span><h3>定义与分类</h3><span class="fn">Defining &amp; Classifying</span></div>
+    <p>定义句的骨架只有两个位置：<span class="mono">X is …</span> 后面跟一个名词短语（类别），再用从句或分词补上「限定条件」。缺限定条件，定义就宽到没有信息。</p>
+    <div class="sxl">
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-001</span><span class="fn">Defining</span><span class="tp">Diffusion</span><span class="st">MYP / DP</span></div>
+        <p class="en">Diffusion is the net movement of particles from a region of higher concentration to a region of lower concentration, down a concentration gradient.</p>
+        <p class="cn"><b>拆解</b> 类别（net movement）+ 方向（from … to …）+ 限定（down a gradient）。三个成分缺一不可。<br><b>易错</b> <span class="bad">Diffusion is when particles move.</span> 用 when 从句定义，等于只说「粒子会动」。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-002</span><span class="fn">Defining</span><span class="tp">Catalyst</span><span class="st">MYP / DP</span></div>
+        <p class="en">A catalyst is a substance that increases the rate of a reaction without being consumed by the reaction.</p>
+        <p class="cn"><b>拆解</b> that 定语从句给功能，without being consumed 是排除项——把「反应后还在」这个关键属性单独顶出来。<br><b>易错</b> 漏掉 without being consumed，于是把任何加速反应的东西都叫催化剂。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-CHE-003</span><span class="fn">Defining</span><span class="tp">Isotope</span><span class="st">DP</span></div>
+        <p class="en">An isotope is a form of an element with the same number of protons but a different number of neutrons.</p>
+        <p class="cn"><b>拆解</b> same … but different … 是定义对比型概念的固定结构，比两句并列清楚得多。<br><b>易错</b> 写成 different atomic mass，把结果当定义。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-BIO-004</span><span class="fn">Classifying</span><span class="tp">Classification</span><span class="st">MYP</span></div>
+        <p class="en">Organisms are classified into groups according to shared characteristics, such as cell structure and method of nutrition.</p>
+        <p class="cn"><b>拆解</b> be classified into … according to … 是分类句的标准骨架，后面接判据而不是例子清单。<br><b>易错</b> 只列类群名（「分为五界」），不说按什么分。</p>
+      </div>
+    </div>
+    <div class="note"><b>这一类只做一件事：</b>给「是什么」。降低活化能、怎么工作，属于 1.3，不属于定义。定义里塞机制，采分点不会因此变多，反而容易在限定条件上出错。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">1.2</span><h3>描述特征与现象</h3><span class="fn">Describing</span></div>
+    <p>描述只回答「是什么、怎么样、趋势如何」，<b>不给原因</b>。最好的描述句都带坐标：从多少到多少、在哪一段变平、比例是正还是反。</p>
+    <div class="sxl">
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-PHY-005</span><span class="fn">Describing</span><span class="tp">Resistance–temperature</span><span class="st">DP</span></div>
+        <p class="en">As the temperature rises from 20 °C to 60 °C, the resistance increases steadily from 4.2 Ω to 6.8 Ω.</p>
+        <p class="cn"><b>拆解</b> As 引导自变量区间，主句给因变量区间与方式（steadily）。一句话同时交代方向、幅度、起点终点。<br><b>易错</b> <span class="bad">The resistance increases a lot.</span> 幅度不可核，量级错也无法被发现。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-BIO-006</span><span class="fn">Describing</span><span class="tp">Photosynthesis rate</span><span class="st">MYP / DP</span></div>
+        <p class="en">The rate of photosynthesis rises steeply between 0 °C and 20 °C, then levels off above about 35 °C.</p>
+        <p class="cn"><b>拆解</b> 分段描述：先给上升段，再用 levels off 给平台段。分段是描述曲线的核心动作。<br><b>易错</b> 只说 rises，漏掉平台——平台往往才是题目真正在考的现象。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-CHE-007</span><span class="fn">Describing</span><span class="tp">Precipitation</span><span class="st">MYP</span></div>
+        <p class="en">A white precipitate forms immediately, and the solution changes from colourless to pale blue.</p>
+        <p class="cn"><b>拆解</b> 观察用一般现在时；变化用 from … to …。观察句不写推断，看到什么写什么。<br><b>易错</b> 写成 <span class="bad">a blue solid is produced</span>，把推断（固体）当观察（沉淀）。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-PHY-008</span><span class="fn">Describing</span><span class="tp">Ohm's law</span><span class="st">DP</span></div>
+        <p class="en">The current is directly proportional to the potential difference across the resistor.</p>
+        <p class="cn"><b>拆解</b> directly proportional to 是比例关系的标准说法，含「过原点」的含义，比 increases with 精确。<br><b>易错</b> 把 directly 与 inversely 混用；或对非线性元件也用这句。</p>
+      </div>
+    </div>
+    <div class="note"><b>边界：</b>描述句里一旦出现 because / so / which causes，就跨到 1.3 了。多数题目分值只够描述，越界写的因果既不加分，还常因机制写错而失分。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">1.3</span><h3>解释原因与机制</h3><span class="fn">Explaining</span></div>
+    <p>解释＝把「观察到的现象」接到「看不见的机制」上。判断标准很简单：把这句话里的现象拿掉，机制还能独立成立；机制拿掉，现象就变成孤立的描述。</p>
+    <div class="sxl">
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-BIO-009</span><span class="fn">Explaining</span><span class="tp">Diffusion &amp; temperature</span><span class="st">MYP / DP</span></div>
+        <p class="en">A higher temperature increases the average kinetic energy of the particles, so they move faster and diffuse more quickly.</p>
+        <p class="cn"><b>拆解</b> 自变量 → 微观量（动能）→ 运动状态 → 宏观速率。四步链条，so 只承担第三到第四步。<br><b>易错</b> <span class="bad">Heat makes diffusion stronger.</span> 「stronger」不是扩散的量度。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-CHE-010</span><span class="fn">Explaining</span><span class="tp">Rate &amp; concentration</span><span class="st">DP</span></div>
+        <p class="en">A higher concentration means more particles per unit volume, which leads to more frequent collisions and therefore a faster reaction.</p>
+        <p class="cn"><b>拆解</b> 浓度 → 数密度 → 碰撞频率 → 速率。注意：<b>浓度不改变单个粒子的能量</b>，只改变碰撞机会；写成「粒子能量更高」是科学错误。<br><b>易错</b> 把浓度说成「酸性更强」（strong 指电离程度，不是浓度）。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-PHY-011</span><span class="fn">Explaining</span><span class="tp">Filament lamp</span><span class="st">DP</span></div>
+        <p class="en">When the lamp is switched on, the potential difference drives a current through the filament, heating it until it glows.</p>
+        <p class="cn"><b>拆解</b> When 从句给条件，主句用 drives → heating → until 三段推进，动作有先后。<br><b>易错</b> 写成 electricity flows out of the wire，把电流当物质。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-BIO-012</span><span class="fn">Explaining</span><span class="tp">Enzyme action</span><span class="st">DP</span></div>
+        <p class="en">The binding of the substrate to the active site lowers the activation energy required for the reaction.</p>
+        <p class="cn"><b>拆解</b> 整句用名词化（the binding of …）作主语——这正是 6.3 讲的手段：动作变名词，句子就能承载更长的因果链而不用从句。<br><b>易错</b> 名词化堆到读不出施动者，例如 <span class="bad">the lowering of the activation energy by the binding</span> 再加三层修饰。</p>
+      </div>
+    </div>
+    <div class="note"><b>不要求固定连接词。</b>so / because / which leads to / resulting in / 名词化，都能承担因果，只要句法上看得出来。要求「必须出现 because」，是把一种手段当成了唯一手段——这一点与知识体系 §6.1、标准_v2 §4.6 一致。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">1.4</span><h3>表达因果关系</h3><span class="fn">Cause &amp; Effect</span></div>
+    <p>1.3 讲机制怎么搭，这一类只讲一件事：<b>同一条因果，可以有多少种合法写法</b>。四种手段轮流用，句子才不会一个腔调。</p>
+    <div class="sxl">
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-013</span><span class="fn">连词</span><span class="tp">Exothermic</span><span class="st">MYP</span></div>
+        <p class="en">The solution became warmer because the reaction is exothermic.</p>
+        <p class="cn"><b>拆解</b> 最直白的一种：主句给现象，because 从句给原因。适合短答，不适合连用三次。<br><b>易错</b> 倒装成 <span class="bad">Because the reaction is exothermic.</span> 单独成句，缺主句。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-014</span><span class="fn">分词结构</span><span class="tp">Exothermic</span><span class="st">MYP / DP</span></div>
+        <p class="en">The reaction is exothermic, causing the temperature of the solution to rise.</p>
+        <p class="cn"><b>拆解</b> causing 分词短语把结果挂到主句上，句子更紧，因果仍清楚。注意 causing 的逻辑主语必须是主句整件事。<br><b>易错</b> 悬垂分词：<span class="bad">Being exothermic, the temperature rose.</span> 温度不是放热的主体。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-015</span><span class="fn">关系从句</span><span class="tp">Enzyme concentration</span><span class="st">DP</span></div>
+        <p class="en">An increase in enzyme concentration raises the rate of reaction, which in turn increases the volume of gas collected per minute.</p>
+        <p class="cn"><b>拆解</b> which 指代前面整句，in turn 标明这是链条的第二环——多步因果时特别有用。<br><b>易错</b> which 指代不明，读者不知道它指酶浓度还是反应速率。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-016</span><span class="fn">名词化</span><span class="tp">Yield loss</span><span class="st">DP</span></div>
+        <p class="en">The decrease in yield can be attributed to the loss of product during filtration.</p>
+        <p class="cn"><b>拆解</b> be attributed to 把因果写成「归因」，适合评价与讨论段，语气比 because 更审慎。<br><b>易错</b> 滥用 attributed to 而造成因果含糊——归因不等于证明。</p>
+      </div>
+    </div>
+    <div class="note w"><b>这四种都不是「高级写法」。</b>短答里 because 完全够用；范文里交替使用是为了读起来不单调。为了显高级而把 because 改成分词，改错了反而丢分。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">1.5</span><h3>比较与区别</h3><span class="fn">Comparing &amp; Contrasting</span></div>
+    <p>这一类最容易被中文习惯带偏，所以先看口径再看句子。</p>
+    <div class="note r"><b>口径（只对 Biology 负责）：</b>IB <i>Biology Guide</i>，学科 Biology，版本 First assessment 2025，<b>第 124–125 页</b>：<span class="mono">Compare</span> 只要求<b>相同点</b>（原文 similarities），<span class="mono">Compare and contrast</span> 才要求相同点与不同点；两者都要求全程提及各方。<br><b>Physics、Chemistry 及其他版本是否同措辞，本轮未取得原文，一律 PENDING</b>——用哪一科的材料，就查该科当年版指南末尾的 Glossary of Command Terms，并记下版本、首考年、页码。不要把这一处推广成「科学课统一要求」。</div>
+    <div class="sxl">
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-017</span><span class="fn">Compare</span><span class="tp">Respiration</span><span class="st">DP</span></div>
+        <p class="en">Both aerobic and anaerobic respiration release energy from glucose, and both produce ATP.</p>
+        <p class="cn"><b>拆解</b> 每条相同点都必须带 both，这样「全程提及各方」是结构自带的，不用另外提醒。<br><b>易错</b> 只写差异。按 Biology 2025 的口径，<span class="mono">Compare</span> 要的是相同点，只写差异属于答错题，不是「少写一半」。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-018</span><span class="fn">Contrast</span><span class="tp">Respiration</span><span class="st">DP</span></div>
+        <p class="en">Aerobic respiration requires oxygen and produces carbon dioxide and water, whereas anaerobic respiration does not require oxygen and produces lactate in muscle cells.</p>
+        <p class="cn"><b>拆解</b> whereas 前后两项一一对应（氧气／产物），平行结构让差别自己显形。<br><b>易错</b> 在 contrast 题里写相同点——无效作答，不采分。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-019</span><span class="fn">Compare and contrast</span><span class="tp">Respiration</span><span class="st">DP</span></div>
+        <p class="en">Both processes begin with glycolysis in the cytoplasm; however, only aerobic respiration uses oxygen as the final electron acceptor.</p>
+        <p class="cn"><b>拆解</b> 分号 + however 把「同」与「异」压进一句，两端都有标记，读者不会漏掉一边。<br><b>易错</b> 写成三段：相同点一段、不同点一段、最后再总结一遍——重复且浪费时间。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-020</span><span class="fn">Distinguish</span><span class="tp">Osmosis</span><span class="st">MYP / DP</span></div>
+        <p class="en">The key difference is that osmosis involves water only and requires a partially permeable membrane, whereas diffusion can involve any particle and needs no membrane.</p>
+        <p class="cn"><b>拆解</b> The key difference is that … 先把判别标准顶出来，再给两侧证据。distinguish 要的正是「判别标准」，不是两段定义。<br><b>易错</b> 各写一遍定义就结束，读者仍不知道按什么区分。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">1.6</span><h3>表达数据与趋势</h3><span class="fn">Data &amp; Trends</span></div>
+    <p>数据句的价值在于「可核对」：读者能顺着你的句子回到表里找到那个数。凡是不能核对的表述，都不算数据句。</p>
+    <div class="sxl">
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-021</span><span class="fn">Trend</span><span class="tp">Rate &amp; time</span><span class="st">DP</span></div>
+        <p class="en">The mean time decreases from 12.4 s to 6.1 s as the concentration doubles, which is consistent with an inversely proportional relationship.</p>
+        <p class="cn"><b>拆解</b> 数值 + 自变量变化 + 关系判断，三件事一句说完。用 consistent with 而不是 proves，留了余地。<br><b>易错</b> 只说 decreases，不给数，也不给倍数关系。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-022</span><span class="fn">Quantifying</span><span class="tp">Rate &amp; concentration</span><span class="st">DP</span></div>
+        <p class="en">The average rate increases by a factor of 2.0 when the concentration is doubled.</p>
+        <p class="cn"><b>拆解</b> by a factor of 2.0 是量化倍数的标准说法，比 more than before 精确一个量级。<br><b>易错</b> 写成 twice faster（英语里歧义：是速度两倍还是快两倍）。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-023</span><span class="fn">Correlation</span><span class="tp">Correlation vs causation</span><span class="st">DP</span></div>
+        <p class="en">There is a positive correlation between temperature and rate, but the data do not establish that the temperature causes the change.</p>
+        <p class="cn"><b>拆解</b> 前半给相关，后半用 do not establish 明确划界——这正是 §5.4「相关不等于因果」的句子形态。<br><b>易错</b> 直接写 temperature causes … ，把相关当因果。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-024</span><span class="fn">Trend shape</span><span class="tp">Linearity</span><span class="st">DP</span></div>
+        <p class="en">The relationship is approximately linear up to 30 °C; beyond this point the curve flattens.</p>
+        <p class="cn"><b>拆解</b> approximately 修饰 linear（承认偏差），分号切出两段，flattens 一个字给出形状变化。<br><b>易错</b> 用 linear 却不加 approximately，数据一有弯就自相矛盾。</p>
+      </div>
+    </div>
+    <div class="note"><b>有效数字与不确定度属通行惯例，不是唯一规则。</b>同一条数据，不同学科、不同老师的取舍可能不同（§5.2 已标为惯例）。本页示例统一按「结果与最不精确的输入同位」处理，遇到本学科另有规定，以本学科为准。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">1.7</span><h3>表达证据与推论</h3><span class="fn">Evidence &amp; Inference</span></div>
+    <p>这一类的核心是<b>动词的强度</b>：support / suggest / indicate / be consistent with 各表示不同程度，用错了就是夸大证据。</p>
+    <div class="sxl">
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-025</span><span class="fn">Supporting</span><span class="tp">Hypothesis</span><span class="st">DP</span></div>
+        <p class="en">The data support the hypothesis that the rate increases with temperature, since all three trials show the same trend.</p>
+        <p class="cn"><b>拆解</b> support 是「支持」不是「证明」；since 从句给出支持的具体理由（三次一致），而不是重复结论。<br><b>易错</b> 写成 the data prove the hypothesis。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-026</span><span class="fn">Suggesting</span><span class="tp">Denaturation</span><span class="st">DP</span></div>
+        <p class="en">This suggests that the enzyme is denatured above 50 °C, although the data do not show the shape of the active site.</p>
+        <p class="cn"><b>拆解</b> suggests + although 限定，把一个合理推断和一个「数据看不到的东西」同时交代清楚。<br><b>易错</b> 只写 suggests 不写 although，推断被读成结论。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-027</span><span class="fn">Insufficient</span><span class="tp">Evidence limits</span><span class="st">DP</span></div>
+        <p class="en">The evidence is insufficient to conclude that the two variables are causally linked, because only one concentration was tested.</p>
+        <p class="cn"><b>拆解</b> insufficient to conclude 是「证据不足」的准确说法；because 给出不足在哪（只有一个浓度），可核对。<br><b>易错</b> 写 the experiment is wrong——否定实验，而不是指出证据范围。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-028</span><span class="fn">Consistency</span><span class="tp">Collision theory</span><span class="st">DP</span></div>
+        <p class="en">These results are consistent with collision theory, in which a higher particle density increases the frequency of successful collisions.</p>
+        <p class="cn"><b>拆解</b> be consistent with 是最稳的一档：既用了理论，又不声称理论被证实。<br><b>易错</b> 通篇 consistent with，最后不给任何判断，读者不知道你倾向哪一边。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">1.8</span><h3>表达限制与不确定性</h3><span class="fn">Limitations &amp; Uncertainty</span></div>
+    <p>limitation 要写成「什么没被控制／没被测量 → 结果往哪个方向偏」，只写「有误差」等于什么都没说。</p>
+    <div class="sxl">
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-029</span><span class="fn">Uncertainty</span><span class="tp">Measurement</span><span class="st">DP</span></div>
+        <p class="en">The reading is 12.4 cm with an uncertainty of ±0.1 cm, which corresponds to about 0.8 % of the measured value.</p>
+        <p class="cn"><b>拆解</b> 数值 + ± 不确定度 + 相对不确定度，三层递进。0.1/12.4 ≈ 0.8 %，可复核。<br><b>易错</b> 写 ±0.1 却不给单位；或把相对不确定度算成 0.1/12.4 % 之外的数。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-030</span><span class="fn">Error type</span><span class="tp">Systematic vs random</span><span class="st">DP</span></div>
+        <p class="en">A systematic error shifts all readings in the same direction, whereas random errors scatter the readings around the true value.</p>
+        <p class="cn"><b>拆解</b> 一句给出两类误差的判别标准（方向是否一致），而不是各举三个例子。<br><b>易错</b> 把「操作问题」当第三类。按 §4.8，操作是<b>成因</b>，不是类型。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-031</span><span class="fn">Limitation</span><span class="tp">Energy transfer</span><span class="st">DP</span></div>
+        <p class="en">One limitation is that heat loss to the surroundings was not measured, so the calculated energy change is likely to be an underestimate.</p>
+        <p class="cn"><b>拆解</b> 结构是「哪件事没做 → 结果往哪偏」。方向（underestimate）是这句话真正的信息量。<br><b>易错</b> <span class="bad">There was some human error.</span> 无成因、无方向、无机制。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-032</span><span class="fn">Sampling</span><span class="tp">Repeats</span><span class="st">MYP / DP</span></div>
+        <p class="en">Because only three repeats were taken, the mean may not reliably represent the population.</p>
+        <p class="cn"><b>拆解</b> 把「重复次数少」与「代表性不足」连起来，而不是只说「样本小」。<br><b>易错</b> 认为多测几次就能提高准确度——重复只降低随机误差。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">1.9</span><h3>表达评价与判断</h3><span class="fn">Evaluation &amp; Judgement</span></div>
+    <p>评价句必须同时含三样：依据、局限、判断。缺依据＝空口表态，缺判断＝只列优缺点。</p>
+    <div class="sxl">
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-033</span><span class="fn">Judgement</span><span class="tp">Method suitability</span><span class="st">DP</span></div>
+        <p class="en">The method is suitable for measuring the overall trend, but it cannot resolve differences smaller than 0.2 s.</p>
+        <p class="cn"><b>拆解</b> suitable for X, but cannot Y——把适用范围与失效边界一次说清，这是最省字的评价句。<br><b>易错</b> 写 it is good and bad，两个形容词都不指向具体能力。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-034</span><span class="fn">Overall judgement</span><span class="tp">Conclusion strength</span><span class="st">DP</span></div>
+        <p class="en">Overall, the data provide moderate support for the hypothesis, although the small sample size limits how far the conclusion can be generalised.</p>
+        <p class="cn"><b>拆解</b> Overall 标记这是总评；moderate support 给强度；although 从句给这个强度的上限在哪。<br><b>易错</b> 总评里再复述一遍数据，独占篇幅却不增加判断。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-035</span><span class="fn">Improvement</span><span class="tp">Priority of fixes</span><span class="st">DP</span></div>
+        <p class="en">The improvement would be most effective if the largest source of error were addressed first, namely heat loss through the lid.</p>
+        <p class="cn"><b>拆解</b> 改进要给优先级：先治最大的误差源，而不是罗列五条改进。<br><b>易错</b> 五条改进平铺，读者不知道哪条真管用。</p>
+      </div>
+      <div class="sx">
+        <div class="sx-h"><span class="id">SE-GEN-036</span><span class="fn">Balance</span><span class="tp">Trade-off</span><span class="st">DP</span></div>
+        <p class="en">On balance, the advantages of using a data logger outweigh the disadvantages, because it removes reaction-time error, even though it adds cost.</p>
+        <p class="cn"><b>拆解</b> On balance 明确表态；outweigh 给出权衡方向；even though 承认代价——三件事一句完成。<br><b>易错</b> 只写 advantages and disadvantages，最后不给倾向。</p>
+      </div>
+    </div>
+    <div class="note"><b>不要在答案里自己给分。</b>缺少依据或整体判断，可能无法满足完整评价的要求；但具体给几分取决于题目与该题 markscheme，本页不代替评分标准，也不写「缺一半就丢一半分」这类换算。</div>
+  </div>
+</div>
+
+<!-- ============ 2 ============ -->
+<div class="ch" id="c2">
+  <div class="ch-head"><div class="ch-num">2</div><h2>指令动词短答范例</h2></div>
+  <p class="ch-note">12 篇，生物学 4 / 化学 4 / 物理学 4，覆盖 <b>10 个指令动词</b>（Define、Explain、Compare、Analyse、Identify、Calculate、Distinguish、Describe、Determine、Suggest）。<b>Explain 出现三次是刻意的</b>：同一个动词在三科里的写法差别最大，比多收三个冷门动词有用。</p>
+
+  <div class="note w"><b>先说清楚「没做什么」：</b>标准_v2 收了 25 个核心词、知识体系收 38 个条目，本页 V1 只做 12 篇，<b>不假装覆盖全部</b>。未做：<span class="mono">State</span>、<span class="mono">Outline</span>、<span class="mono">List</span>、<span class="mono">Label</span>、<span class="mono">Annotate</span>、<span class="mono">Contrast</span>、<span class="mono">Predict</span>、<span class="mono">Evaluate</span>、<span class="mono">Justify</span>——留到 V1.1 按需补，不在这里用「略」字糊过去。</div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">2.0</span><h3>按指令动词索引</h3></div>
+    <p>卡片正文按<b>学科</b>排列（做作业时按学科找更快），这张表按<b>指令动词</b>索引（想弄清某个动词要什么时用这张）。两种走法指向同一批卡片。</p>
+    <div class="tscroll">
+      <table class="t1">
+        <thead><tr><th>指令动词</th><th>AO</th><th>篇目</th><th>这一篇真正在教的东西</th></tr></thead>
+        <tbody>
+          <tr><td><span class="en">Define</span></td><td>AO1</td><td><a href="#sa-bio-01">SA-BIO-01</a></td><td>定义只给「是什么」，不塞机制</td></tr>
+          <tr><td><span class="en">Describe</span></td><td>AO2</td><td><a href="#sa-phy-01">SA-PHY-01</a></td><td>描述要给方向、是否线性、曲率</td></tr>
+          <tr><td><span class="en">Identify</span></td><td>AO2</td><td><a href="#sa-che-01">SA-CHE-01</a></td><td>指出就好，不要越界解释</td></tr>
+          <tr><td><span class="en">Explain</span></td><td>AO2</td><td><a href="#sa-bio-02">SA-BIO-02</a> · <a href="#sa-che-02">SA-CHE-02</a> · <a href="#sa-phy-03">SA-PHY-03</a></td><td>同一动词在三科的写法差异（机制链怎么排）</td></tr>
+          <tr><td><span class="en">Compare</span></td><td>AO3</td><td><a href="#sa-bio-03">SA-BIO-03</a></td><td>只要求相同点，答案形态由指令词决定</td></tr>
+          <tr><td><span class="en">Distinguish</span></td><td>AO2</td><td><a href="#sa-che-04">SA-CHE-04</a></td><td>先立判别标准，再展开两侧</td></tr>
+          <tr><td><span class="en">Analyse</span></td><td>AO3</td><td><a href="#sa-bio-04">SA-BIO-04</a></td><td>趋势分段 + 数值 + 机制，不逐点复述</td></tr>
+          <tr><td><span class="en">Calculate</span></td><td>AO2</td><td><a href="#sa-che-03">SA-CHE-03</a></td><td>方程式与摩尔比先写，单位一路跟</td></tr>
+          <tr><td><span class="en">Determine</span></td><td>AO2</td><td><a href="#sa-phy-02">SA-PHY-02</a></td><td>公式、代入、单位，三步留痕</td></tr>
+          <tr><td><span class="en">Suggest</span></td><td>AO3</td><td><a href="#sa-phy-04">SA-PHY-04</a></td><td>成因 + 机制 + 方向，缺方向即不成立</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><b>AO 一列只说明「该动词在指令词分组里的位置」，不代表这门学科只有三个评估目标。</b>标准_v2 §2.1 已写明：指令词分 AO1–AO3，不等于学科只有三个 AO；以 Biology 2025 为例，该科另设 AO4（调查技能）。本页不画 AO 表，也不代建任何学科的归组。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">2.1</span><h3>Biology</h3></div>
+
+    <div class="er" id="sa-bio-01">
+      <div class="er-h"><h4>Define · 酶的活性位点</h4><span class="id">SA-BIO-01</span></div>
+      <div class="er-meta"><span>学科 <b>Biology</b></span><span>阶段 <b>MYP / DP</b></span><span>指令动词 <b>Define · AO1</b></span><span>主题 <b>Enzymes</b></span><span>来源 <b>Original / Model answer</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目</span>
+        <p>Define the term <span class="mono">active site</span>.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>The active site is the region of an enzyme where the substrate binds; its shape is complementary to the substrate, so only specific substrates can bind.</p>
+      </div>
+      <div class="gl">答案结构</div>
+      <ol class="ol">
+        <li>部位：酶上的一个区域（不是「酶本身」）。</li>
+        <li>功能：底物在这里结合。</li>
+        <li>关键限定：形状与底物<b>互补</b>，因此有专一性。</li>
+      </ol>
+      <div class="gl">为什么这是合格答案</div>
+      <ol class="ol">
+        <li>三个采分要素齐：位置 + 结合 + 互补性。</li>
+        <li><b>没有</b>写「降低活化能」。那是机制，属于 Explain，写进 Define 不额外得分，还容易把定义写成解释。</li>
+        <li>用 complementary 而不是 same shape——「互补」才是准确的关系。</li>
+      </ol>
+      <div class="gl">常见失分写法</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>The active site is where the enzyme works.<span class="why">「works」不是可判定的描述；没有底物、没有互补性，等于换了说法重复题目。</span></div>
+        <div class="l2"><span class="lv">△</span>The active site is the part of the enzyme that fits the substrate.<span class="why">方向对了，但 fits 是口语；且未说明「只有特定底物能结合」这一专一性来源。</span></div>
+      </div>
+      <p class="mini"><b>对应标准</b> 标准_v2 §2.1（Define · AO1）｜<b>对应知识体系</b> §3.2 检索类、§2.5 生物术语｜<b>质量等级</b> Level 3</p>
+    </div>
+
+    <div class="er" id="sa-bio-02">
+      <div class="er-h"><h4>Explain · 自然选择如何改变种群</h4><span class="id">SA-BIO-02</span></div>
+      <div class="er-meta"><span>学科 <b>Biology</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Explain · AO2</b></span><span>主题 <b>Natural selection</b></span><span>来源 <b>Original / Model answer</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目</span>
+        <p>Explain how natural selection can lead to changes in a population over many generations.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>A population contains variation in inherited characteristics. Individuals whose characteristics make them better adapted to the environment are more likely to survive and reproduce, and they pass the alleles for these characteristics to their offspring. Over many generations, the frequency of these alleles in the population increases.</p>
+      </div>
+      <div class="gl">答案结构</div>
+      <ol class="ol">
+        <li>起点：种群内存在<b>可遗传</b>的变异。</li>
+        <li>选择：带有有利特征的个体更可能存活并繁殖。</li>
+        <li>传递：这些特征通过等位基因传给后代。</li>
+        <li>结果：<b>种群中</b>该等位基因的频率上升。</li>
+      </ol>
+      <div class="gl">为什么这是合格答案</div>
+      <ol class="ol">
+        <li>主体始终是<b>种群</b>，不是个体；变化发生在世代之间，不是某一代之内。</li>
+        <li>用 alleles 而不是 genes 指「传给后代的版本」——按知识体系 §2.6，gene 是有特定功能的 DNA 序列，allele 才是同一基因座上的不同形式。</li>
+        <li>因果用 pass … to …、Over many generations 这类结构承担，<b>没有堆 because</b>——符合 §6.1「因果必须在句法上清晰，但不限定手段」。</li>
+      </ol>
+      <div class="gl">常见失分写法</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>The animals adapt because they need to survive.<span class="why">把进化写成个体「因为需要」而主动改变：目的论 + 无遗传机制 + 无世代。三个错误叠在一句里。</span></div>
+        <div class="l2"><span class="lv">△</span>Some animals are stronger, so they survive and the population changes.<span class="why">有选择但缺「可遗传」与「频率」；stronger 不是选择所依据的特征类型。</span></div>
+      </div>
+      <p class="mini"><b>对应标准</b> 标准_v2 §2.1（Explain · AO2）｜<b>对应知识体系</b> §3.4 解释类、§2.6 同词异义（gene / allele）｜<b>质量等级</b> Level 3</p>
+    </div>
+
+    <div class="er" id="sa-bio-03">
+      <div class="er-h"><h4>Compare · 有氧与无氧呼吸</h4><span class="id">SA-BIO-03</span></div>
+      <div class="er-meta"><span>学科 <b>Biology</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Compare · AO3</b></span><span>主题 <b>Respiration</b></span><span>来源 <b>Original / Model answer</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目</span>
+        <p>Compare aerobic and anaerobic respiration.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>Both aerobic and anaerobic respiration begin with glycolysis in the cytoplasm, and both release energy from glucose by transferring it to ATP. In both cases the energy released per mole of glucose is small compared with the total energy available in the glucose molecule, and in both cases the reactions are catalysed by enzymes.</p>
+      </div>
+      <div class="gl">答案结构</div>
+      <ol class="ol">
+        <li>每一条都必须是<b>共同点</b>，而且每条都出现 both。</li>
+        <li>共同点按层次排：起始步骤 → 能量载体 → 酶催化。</li>
+        <li>不出现 however / whereas / unlike——本题不是要差异。</li>
+      </ol>
+      <div class="gl">为什么这是合格答案（也是这一篇最该看的地方）</div>
+      <div class="note r" style="margin:8px 0"><b>本题的答案形态由指令词决定，不是由「比较」这个中文词决定。</b>依据 IB <i>Biology Guide</i>（Biology；First assessment 2025；第 124–125 页）：<span class="mono">Compare</span> 只要求<b>相同点</b>，<span class="mono">Compare and contrast</span> 才要求异同。两者都要求全程提及各方。<br>所以这里只写共同点，是<b>照题目要求作答</b>；把它写成「异同各一半」，反而偏题。<br><b>若你的考卷不是 Biology，或不是这一版指南</b>：Physics、Chemistry 及其他版本本轮未取得原文，<b>PENDING</b>，须查该科当年版 Glossary of Command Terms——本页不把这个口径推广出去。</div>
+      <div class="gl">同题改写：如果题目写 Compare and contrast</div>
+      <div class="qa">
+        <span class="lb">改写方式（只加一处）</span>
+        <p>Both processes begin with glycolysis in the cytoplasm; <b>however</b>, only aerobic respiration uses oxygen as the final electron acceptor, so it releases far more energy per mole of glucose.</p>
+      </div>
+      <div class="gl">常见失分写法</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>Aerobic needs oxygen, anaerobic does not. Aerobic makes more ATP.<span class="why">这题要的是相同点，整段只写差异——属于答错题，不是「少写一半」。</span></div>
+        <div class="l2"><span class="lv">△</span>Both release energy. However, one needs oxygen.<span class="why">前面写同、后面写异，等于自行把题目改成 compare and contrast；评分只看题目要求的那个指令。</span></div>
+      </div>
+      <p class="mini"><b>对应标准</b> 标准_v2 §2.4（比较族四词）｜<b>对应知识体系</b> §3.6 比较类｜<b>质量等级</b> Level 3｜<b>口径状态</b> Biology 已核（pp.124–125）；Physics / Chemistry <span class="tag pend">PENDING</span></p>
+    </div>
+
+    <div class="er" id="sa-bio-04">
+      <div class="er-h"><h4>Analyse · 温度对酶活性的影响</h4><span class="id">SA-BIO-04</span></div>
+      <div class="er-meta"><span>学科 <b>Biology</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Analyse · AO3</b></span><span>主题 <b>Enzyme activity</b></span><span>来源 <b>Original（数据自编，内部自洽）</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目</span>
+        <p>The table shows the volume of gas collected per minute by an enzyme-catalysed reaction at different temperatures. Analyse the data.</p>
+        <div class="tscroll" style="margin:8px 0 0">
+          <table class="t1" style="min-width:0">
+            <thead><tr><th>温度 / °C</th><th>10</th><th>20</th><th>30</th><th>40</th><th>50</th><th>60</th></tr></thead>
+            <tbody><tr><td>气体 / cm³ min⁻¹</td><td>12</td><td>28</td><td>46</td><td>52</td><td>30</td><td>6</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>The rate rises from 12 cm³ min⁻¹ at 10 °C to a maximum of 52 cm³ min⁻¹ at 40 °C, then falls sharply to 6 cm³ min⁻¹ at 60 °C. The initial rise indicates that the particles have more kinetic energy, so enzyme–substrate collisions become more frequent. The fall above 40 °C indicates that the enzyme is denaturing, so fewer active sites are available for the substrate to bind to.</p>
+      </div>
+      <div class="gl">答案结构</div>
+      <ol class="ol">
+        <li>描述：三段趋势，每段带数值（上升 → 峰值 → 陡降）。</li>
+        <li>解释上升段：动能 → 碰撞频率。</li>
+        <li>解释下降段：变性 → 有效活性位点减少。</li>
+        <li>不解释「为什么 40 °C 是最适温度」——数据只能说明此处速率最高，不能说明最适温度的理论值。</li>
+      </ol>
+      <div class="gl">为什么这是合格答案</div>
+      <ol class="ol">
+        <li>每个数字都能回到表里核对；趋势被切成三段而不是一句「先升后降」。</li>
+        <li>用 <b>denaturing</b>（构象改变、活性位点失去形状）而不是 <span class="mono">the enzyme dies</span>——酶不是生物体，「死亡」不是可用概念。</li>
+        <li>下降的原因归到「可用活性位点减少」，而不是笼统的「高温破坏酶」。</li>
+      </ol>
+      <div class="gl">常见失分写法</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>The numbers go up then down. High temperature kills the enzyme.<span class="why">只复述形状不解释；且「杀死酶」是概念错误——变性是空间结构改变，不是死亡。</span></div>
+        <div class="l2"><span class="lv">△</span>The rate is highest at 40 °C because that is the optimum temperature.<span class="why">循环论证：用「最适温度」解释「速率最高」，两者是同一件事。</span></div>
+      </div>
+      <p class="mini"><b>对应标准</b> 标准_v2 §2.1（Analyse · AO3）｜<b>对应知识体系</b> §3.7 分析类、§1.3｜<b>质量等级</b> Level 3</p>
+    </div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">2.2</span><h3>Chemistry</h3></div>
+
+    <div class="er" id="sa-che-01">
+      <div class="er-h"><h4>Identify · 谁是还原剂</h4><span class="id">SA-CHE-01</span></div>
+      <div class="er-meta"><span>学科 <b>Chemistry</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Identify · AO2</b></span><span>主题 <b>Redox</b></span><span>来源 <b>Original / Model answer</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目</span>
+        <p>In the reaction <span class="mono">Zn + CuSO₄ → ZnSO₄ + Cu</span>, identify the reducing agent.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>Zinc (Zn).</p>
+      </div>
+      <div class="gl">答案结构</div>
+      <ol class="ol">
+        <li>只给对象。Identify 是「从若干可能里指出正确的那一个」，不是解释。</li>
+        <li>若题目另有说明（例如「identify and explain」或分值 ≥2），再补一句理由。</li>
+      </ol>
+      <div class="gl">为什么这是合格答案</div>
+      <ol class="ol">
+        <li>没有把 identify 做成 explain。多写的氧化数变化不会加分，反而占掉后面题目的时间。</li>
+        <li>答案唯一且可判：Zn 失电子被氧化，因此是还原剂（使 Cu²⁺ 被还原）。</li>
+      </ol>
+      <div class="note w" style="margin:10px 0"><b>这类题最典型的浪费：</b>学生看到 redox 就默写「升失氧、降得还」整套口诀。指令词是 Identify，采分点只有一个词。<b>先看动词，再决定写多少。</b></div>
+      <div class="gl">常见失分写法</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>CuSO₄, because it is reduced.<span class="why">把「被还原的物质」与「还原剂」搞反。还原剂自己<b>被氧化</b>。</span></div>
+        <div class="l2"><span class="lv">△</span>Zn, because it loses two electrons and its oxidation number increases from 0 to +2, so it is oxidised and therefore acts as a reducing agent.<span class="why">全部正确，但 1 分题写 30 个词；只有分值或题目要求时才值得。</span></div>
+      </div>
+      <p class="mini"><b>对应标准</b> 标准_v2 §2.1（Identify · AO2）｜<b>对应知识体系</b> §3.2 检索类｜<b>质量等级</b> Level 3（就本题分值而言）</p>
+    </div>
+
+    <div class="er" id="sa-che-02">
+      <div class="er-h"><h4>Explain · 浓度如何影响反应速率</h4><span class="id">SA-CHE-02</span></div>
+      <div class="er-meta"><span>学科 <b>Chemistry</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Explain · AO2</b></span><span>主题 <b>Reaction rates</b></span><span>来源 <b>Original / Model answer</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目</span>
+        <p>Explain why increasing the concentration of hydrochloric acid increases the rate of its reaction with magnesium.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>A higher concentration means more hydrogen ions per unit volume of solution. With more particles in the same volume, collisions between hydrogen ions and the magnesium surface occur more frequently, so more collisions per second have enough energy to react, and the rate of reaction increases.</p>
+      </div>
+      <div class="gl">答案结构</div>
+      <ol class="ol">
+        <li>浓度 → <b>数密度</b>（每单位体积的粒子数）。</li>
+        <li>数密度 → 碰撞<b>频率</b>。</li>
+        <li>频率 → 单位时间内有效碰撞数增加 → 速率上升。</li>
+      </ol>
+      <div class="gl">为什么这是合格答案</div>
+      <ol class="ol">
+        <li>机制链完整，且每一步都能单独拿出来判分。</li>
+        <li><b>没有</b>说「粒子的能量变高」——这是最重要的一处准确性：提高浓度不改变单个粒子的动能分布，只增加单位体积内的粒子数，从而增加碰撞频率。把两者混起来，是这一类题最常见的科学错误。</li>
+        <li>写 successful collisions（超过活化能的碰撞），而不是所有碰撞。</li>
+      </ol>
+      <div class="gl">常见失分写法</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>Because the acid is stronger, so it reacts faster.<span class="why">strong 指酸的电离程度（如 HCl 与 CH₃COOH 之别），不是浓度。混用这两个词在化学里是概念错误。</span></div>
+        <div class="l1"><span class="lv">✗</span>More particles have more energy, so they collide harder.<span class="why">浓度不改变单个粒子的能量；「撞得更狠」也不是速率理论里的量。</span></div>
+        <div class="l2"><span class="lv">△</span>More particles means more collisions, so the reaction is faster.<span class="why">链条对，但缺「每单位体积」与「有效碰撞」，两句都太松，遇到 3 分题会少给一点。</span></div>
+      </div>
+      <p class="mini"><b>对应标准</b> 标准_v2 §2.1（Explain · AO2）｜<b>对应知识体系</b> §3.4 解释类、§2.6 同词异义（strong / concentrated）｜<b>质量等级</b> Level 3</p>
+    </div>
+
+    <div class="er" id="sa-che-03">
+      <div class="er-h"><h4>Calculate · 滴定求浓度</h4><span class="id">SA-CHE-03</span></div>
+      <div class="er-meta"><span>学科 <b>Chemistry</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Calculate · AO2</b></span><span>主题 <b>Acid–base titration</b></span><span>来源 <b>Original（数据自编，内部自洽）</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目</span>
+        <p>25.0 cm³ of sodium hydroxide solution is neutralised by 23.45 cm³ of 0.100 mol dm⁻³ hydrochloric acid. Calculate the concentration of the sodium hydroxide solution.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>NaOH + HCl → NaCl + H₂O, so the reacting ratio is 1 : 1.</p>
+        <p>n(HCl) = c × V = 0.100 × 23.45 / 1000 = 2.345 × 10⁻³ mol</p>
+        <p>n(NaOH) = 2.345 × 10⁻³ mol</p>
+        <p>c(NaOH) = n / V = 2.345 × 10⁻³ / (25.0 / 1000) = 0.0938 mol dm⁻³</p>
+      </div>
+      <div class="gl">答案结构</div>
+      <ol class="ol">
+        <li>写方程式，明确摩尔比（1:1）。这一步不写，后面的计算即使对也缺依据。</li>
+        <li>n = cV，<b>体积换算成 dm³</b>。</li>
+        <li>按比例转成 n(NaOH)。</li>
+        <li>c = n/V，给单位，保留三位有效数字。</li>
+      </ol>
+      <div class="gl">为什么这是合格答案</div>
+      <ol class="ol">
+        <li>三处体积都做了 /1000，单位一路跟着。</li>
+        <li>结果 0.0938 是三位有效数字，与 0.100 mol dm⁻³（三位）一致；23.45 cm³ 有四位，不限制结果。按 §5.2，这是<b>通行惯例</b>，不是唯一规则——若本学科要求不同，以本学科为准。</li>
+        <li>没有写成 0.09380：滴定读到 0.05 cm³ 的量级，写五位有效数字是虚假精度。</li>
+      </ol>
+      <div class="gl">常见失分写法</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>0.100 × 23.45 = 2.345, then 2.345 / 25.0 = 0.0938 mol dm⁻³<span class="why">数值碰巧对，但两个体积都没换算成 dm³——换一组数据就错 1000 倍。过程分拿不到，方法也没建立。</span></div>
+        <div class="l1"><span class="lv">✗</span>0.0938 mol dm⁻³, because NaOH has two OH groups.<span class="why">NaOH 只有一个 OH⁻；把它当二元碱会算出 0.0469。方程式已给出 1:1，不该凭印象套。</span></div>
+        <div class="l2"><span class="lv">△</span>0.094 mol dm⁻³<span class="why">数值可以接受，但丢了有效数字的推理；若题目明确要求三位有效数字，这一分就没有。</span></div>
+      </div>
+      <p class="mini"><b>对应标准</b> 标准_v2 §2.1（Calculate · AO2）、§4.3｜<b>对应知识体系</b> §3.5 计算与推理类、§5.2 有效数字｜<b>质量等级</b> Level 3</p>
+    </div>
+
+    <div class="er" id="sa-che-04">
+      <div class="er-h"><h4>Distinguish · 离子键与共价键</h4><span class="id">SA-CHE-04</span></div>
+      <div class="er-meta"><span>学科 <b>Chemistry</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Distinguish · AO2</b></span><span>主题 <b>Bonding</b></span><span>来源 <b>Original / Model answer</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目</span>
+        <p>Distinguish between ionic bonding and covalent bonding.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>The distinguishing criterion is what happens to the electrons. In ionic bonding, electrons are transferred from one atom to another, producing oppositely charged ions that are held together by electrostatic attraction. In covalent bonding, electrons are shared between atoms, and the bonded particles are atoms rather than ions.</p>
+      </div>
+      <div class="gl">答案结构</div>
+      <ol class="ol">
+        <li>第一句先给<b>判别标准</b>（电子是转移还是共用）——这是 distinguish 与 contrast 的差别所在。</li>
+        <li>两侧各一句，都用同一个维度描述，便于并排比较。</li>
+        <li>补一句结果差异（粒子是离子还是原子），让标准落到可观察层面。</li>
+      </ol>
+      <div class="gl">为什么这是合格答案</div>
+      <ol class="ol">
+        <li>先立标准再展开，读者不需要自己归纳。</li>
+        <li>没有用「金属 + 非金属」当唯一判据——那只是常见情形，不是定义。AlCl₃ 就是反例：由金属与非金属组成，却以共价性为主。</li>
+      </ol>
+      <div class="gl">常见失分写法</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>Ionic bonds are strong and covalent bonds are weak.<span class="why">强度不是区分标准，而且反例很多（金刚石是共价晶体，很硬）。</span></div>
+        <div class="l2"><span class="lv">△</span>Ionic bonding happens between metals and non-metals, covalent bonding happens between non-metals.<span class="why">作为经验规律常被接受，但它是<b>伴随现象</b>而非判别依据；只写这个，遇到 AlCl₃ 就讲不通。</span></div>
+      </div>
+      <p class="mini"><b>对应标准</b> 标准_v2 §2.1（Distinguish · AO2）｜<b>对应知识体系</b> §3.6 比较类（Distinguish 条）、§3.9 易混对子｜<b>质量等级</b> Level 3</p>
+    </div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">2.3</span><h3>Physics</h3></div>
+
+    <div class="er" id="sa-phy-01">
+      <div class="er-h"><h4>Describe · 灯丝的 I–V 曲线</h4><span class="id">SA-PHY-01</span></div>
+      <div class="er-meta"><span>学科 <b>Physics</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Describe · AO2</b></span><span>主题 <b>Electrical characteristics</b></span><span>来源 <b>Original / Model answer</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目</span>
+        <p>The graph shows how the current through a filament lamp varies with the potential difference across it. Describe the relationship shown.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>The current increases as the potential difference increases, but not proportionally. The gradient of the curve decreases at higher values of potential difference, so equal increases in potential difference produce smaller and smaller increases in current.</p>
+      </div>
+      <div class="gl">答案结构</div>
+      <ol class="ol">
+        <li>方向：电流随电压增大而增大。</li>
+        <li>是否线性：<b>不是</b>正比（not proportionally）。</li>
+        <li>曲率方向：梯度随电压增大而减小。</li>
+      </ol>
+      <div class="gl">为什么这是合格答案</div>
+      <ol class="ol">
+        <li>三条信息都是图上能直接读出的，没有越界去解释原因（那是 explain）。</li>
+        <li>用「梯度减小」描述弯曲方向，比「越来越平」更可判。</li>
+        <li>没有写「电阻随电压增大而减小」——那是错误方向，也是这一类题最常见的科学错误（正确：灯丝温度升高 → 电阻增大）。</li>
+      </ol>
+      <div class="gl">常见失分写法</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>The current goes up. The resistance decreases as voltage increases.<span class="why">前句太笼统，后句方向反了。灯丝是正温度系数，越热电阻越大，曲线才向下弯。</span></div>
+        <div class="l2"><span class="lv">△</span>The graph is a curve, not a straight line.<span class="why">只说形状，没有给出「怎么弯」以及「弯意味着什么数量关系」。</span></div>
+      </div>
+      <p class="mini"><b>对应标准</b> 标准_v2 §2.1（Describe · AO2）｜<b>对应知识体系</b> §3.3 描述类、§5.4 相关与因果｜<b>质量等级</b> Level 3</p>
+    </div>
+
+    <div class="er" id="sa-phy-02">
+      <div class="er-h"><h4>Determine · 从图像求电阻</h4><span class="id">SA-PHY-02</span></div>
+      <div class="er-meta"><span>学科 <b>Physics</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Determine · AO2</b></span><span>主题 <b>Ohm's law</b></span><span>来源 <b>Original（数据自编）</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目</span>
+        <p>A fixed resistor is connected in a circuit. At a potential difference of 2.0 V the current is 0.40 A. Determine the resistance of the resistor.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>R = V / I = 2.0 / 0.40 = 5.0 Ω</p>
+      </div>
+      <div class="gl">答案结构</div>
+      <ol class="ol">
+        <li>写公式（或直接写成 V/I 的形式）。</li>
+        <li>代入数值，带单位。</li>
+        <li>结果给单位，位数与输入一致（2.0 与 0.40 都是两位有效数字）。</li>
+      </ol>
+      <div class="gl">为什么这是合格答案</div>
+      <ol class="ol">
+        <li>过程可复核：读者能看出 5.0 从哪来。</li>
+        <li>若元件是灯丝这类非线性元件，同一算法给的是<b>该工作点的电阻</b>，不是常数——这一点要在需要时说清，否则「电阻是 5.0 Ω」会被读成元件属性。</li>
+      </ol>
+      <div class="gl">常见失分写法</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>5<span class="why">无单位。物理量的单位是采分点，不是装饰。</span></div>
+        <div class="l2"><span class="lv">△</span>R = 0.40 / 2.0 = 0.20 Ω<span class="why">公式倒置。检查办法：电阻越大电流应越小，用数量级先自检一遍。</span></div>
+      </div>
+      <p class="mini"><b>对应标准</b> 标准_v2 §2.1（Determine · AO2）｜<b>对应知识体系</b> §3.5 计算与推理类、§5.2 有效数字｜<b>质量等级</b> Level 3</p>
+    </div>
+
+    <div class="er" id="sa-phy-03">
+      <div class="er-h"><h4>Explain · 为什么会达到终端速度</h4><span class="id">SA-PHY-03</span></div>
+      <div class="er-meta"><span>学科 <b>Physics</b></span><span>阶段 <b>MYP / DP</b></span><span>指令动词 <b>Explain · AO2</b></span><span>主题 <b>Forces and motion</b></span><span>来源 <b>Original / Model answer</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目</span>
+        <p>Explain why a skydiver falling through the air reaches a terminal velocity.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>As the skydiver falls, the speed increases, so the air resistance acting upwards increases. The resultant force therefore decreases. When the air resistance equals the weight, the resultant force is zero, so the acceleration is zero and the skydiver continues to fall at a constant speed — the terminal velocity.</p>
+      </div>
+      <div class="gl">答案结构</div>
+      <ol class="ol">
+        <li>速度上升 → 空气阻力上升（阻力随速度增大）。</li>
+        <li>阻力上升 → 合力减小（重力不变）。</li>
+        <li>阻力 = 重力 → 合力为零 → 加速度为零。</li>
+        <li>结论：<b>匀速</b>下落，这个速度叫终端速度。</li>
+      </ol>
+      <div class="gl">为什么这是合格答案</div>
+      <ol class="ol">
+        <li>链条四步齐全，每一步都是可单独判分的环节。</li>
+        <li>终点是「匀速」而不是「停止」——这是本类题最常错的一处措辞。</li>
+        <li>全程没有说重力变小。重力始终是 mg，变的是阻力。</li>
+      </ol>
+      <div class="gl">常见失分写法</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>The skydiver stops accelerating because gravity runs out.<span class="why">重力不会「用完」。加速度为零是因为合力为零，不是重力消失。</span></div>
+        <div class="l1"><span class="lv">✗</span>Air resistance pushes the person up, so they stop.<span class="why">停在半空是错的：合力为零时物体保持匀速，不是静止。</span></div>
+        <div class="l2"><span class="lv">△</span>Air resistance increases until it is equal to gravity.<span class="why">只说到了「相等」，没有推出「合力为零 → 加速度为零 → 匀速」，结论缺最后一环。</span></div>
+      </div>
+      <p class="mini"><b>对应标准</b> 标准_v2 §2.1（Explain · AO2）｜<b>对应知识体系</b> §3.4 解释类、§5.1 七个基本量｜<b>术语</b> 统一用「终端速度 / terminal velocity」，不用「收尾速度」｜<b>质量等级</b> Level 3</p>
+    </div>
+
+    <div class="er" id="sa-phy-04">
+      <div class="er-h"><h4>Suggest · 为什么测得 g 偏小</h4><span class="id">SA-PHY-04</span></div>
+      <div class="er-meta"><span>学科 <b>Physics</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Suggest · AO3</b></span><span>主题 <b>Free fall</b></span><span>来源 <b>Original（数据自编）</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目</span>
+        <p>A student determines g by timing a metal ball falling 1.00 m from rest, and obtains 9.2 m s⁻². The accepted value is 9.81 m s⁻². Suggest one reason for the difference.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>Air resistance acted on the ball once it began moving, reducing its acceleration below g. The ball therefore took longer to fall than it would have in a vacuum, resulting in a lower calculated value of g.</p>
+      </div>
+      <div class="gl">答案结构</div>
+      <ol class="ol">
+        <li><b>只给一个成因</b>——题目写的是 <span class="mono">one reason</span>，把篇幅留给这一个原因的机制与方向，比并列两个更贴合题干。</li>
+        <li>机制分两步：阻力使加速度小于 g → 同样 1.00 m 的下落用时更长。</li>
+        <li><b>说方向、落到数上</b>：g = 2s/t²，t 偏大则算出的 g 偏小，与题目给的 9.2 &lt; 9.81 一致。</li>
+      </ol>
+      <div class="gl">为什么这是合格答案</div>
+      <ol class="ol">
+        <li>三件事齐：成因、机制、方向。按 §4.8，缺方向就不构成完整的误差陈述。</li>
+        <li><b>机制起点没写错</b>：从静止释放的瞬间 v = 0，空气阻力为零，加速度仍为 g；阻力是<b>随速度建立起来</b>的，所以只能说「开始运动后」小于 g，不能说「整个下落过程都小于 g」——这是本题最容易写偏的一处。</li>
+        <li>用 g = 2s/t² 反推可验证：t 偏大 → g 偏小，方向与 9.2 &lt; 9.81 对得上。</li>
+      </ol>
+      <div class="note"><b>若题目改成 <span class="mono">Suggest two reasons</span>，第二个这样补：</b>A delay in stopping the timer would also lower the result, because it makes the measured time longer. 它是<b>系统性</b>的——每次都往同一方向偏，增加重复次数不会消除。注意方向要看<b>哪一端</b>延迟：起表延迟使 t 偏短、算出的 g 偏<b>大</b>，与题目给的方向相反。第二个原因超出题干要求，还多了一处可能写错方向的地方。</div>
+      <div class="note w"><b>一处必须让学生知道的边界：</b>按 1.00 m 落程、金属球的尺度估算，空气阻力一般只能解释 <b>1 % 量级</b>的偏低，而本题的差额是 6 %。所以空气阻力在这里是<b>方向正确、机制正确</b>的成因，却未必是<b>量级上</b>的主因——真正的大头更可能在计时或落程测量。Suggest one reason 只要求给出一个成立的成因；若题目升级为 Evaluate，这句边界就必须写出来，否则是用「我想到一个原因」冒充「我找到了主要原因」。</div>
+      <div class="gl">常见失分写法</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>Human error.<span class="why">这不是答案，是「我还不知道原因」的同义说法。没有成因、没有机制、没有方向。</span></div>
+        <div class="l1"><span class="lv">✗</span>The student measured the height wrongly, so g is smaller.<span class="why">方向不确定：按 g = 2s/t²，记录的高度偏大则 g 偏大、偏小则 g 偏小。只说「高度测错」既没给方向，也就无法解释题目给出的「偏小」。</span></div>
+        <div class="l2"><span class="lv">△</span>Air resistance slowed the ball down.<span class="why">有成因，但没连到「测得的 g 偏小」这个具体结论上。</span></div>
+      </div>
+      <p class="mini"><b>对应标准</b> 标准_v2 §2.1（Suggest · AO3）｜<b>对应知识体系</b> §4.8 误差的类型与成因（两维度）、§4.9 影响维度｜<b>质量等级</b> Level 3</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 3 ============ -->
+<div class="ch" id="c3">
+  <div class="ch-head"><div class="ch-num">3</div><h2>完整科学答案范文</h2></div>
+  <p class="ch-note">6 篇：Biology 2 / Chemistry 2 / Physics 2。<b>Integrated / Environmental Science 这一组本轮未做</b>，标 V1.1——为了凑数写一篇没有数据的泛论，不如不写。所有数据均为自编但内部自洽，可直接复算。</p>
+
+  <div class="note"><b>范文的作用是让你看见推理的形状，不是让你背段落。</b>每篇后面都给了「常见失分版本」——先认错，比先背对更有用。段落分析里那五个标签（Claim / Evidence / Reasoning / Qualification / Conclusion）是<b>教学分析工具</b>，不是所有科学题都必须套的五段格式；短答显然用不上。</div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">3.1</span><h3>Biology</h3></div>
+
+    <div class="er" id="er-bio-01">
+      <div class="er-h"><h4>生态系统中的能量传递</h4><span class="id">ER-BIO-01</span></div>
+      <div class="er-meta"><span>学科 <b>Biology</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Analyse</b></span><span>主题 <b>Energy flow</b></span><span>来源 <b>Original（数据自编，内部自洽）</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目背景</span>
+        <p>A grassland ecosystem receives 1 200 000 kJ m⁻² yr⁻¹ of light energy. The energy present in each trophic level over one year is:</p>
+        <div class="tscroll" style="margin:8px 0 0">
+          <table class="t1" style="min-width:0">
+            <thead><tr><th>营养级</th><th>能量 / kJ m⁻² yr⁻¹</th></tr></thead>
+            <tbody>
+              <tr><td>Producers</td><td>48 000</td></tr>
+              <tr><td>Primary consumers</td><td>4 800</td></tr>
+              <tr><td>Secondary consumers</td><td>480</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <span class="lb" style="margin-top:10px">题目</span>
+        <p>Analyse the transfer of energy through this food chain, and explain why the number of trophic levels in an ecosystem is limited.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>The producers fix 48 000 kJ m⁻² yr⁻¹ out of the 1 200 000 kJ m⁻² yr⁻¹ of light incident on the area, so the efficiency of energy capture is about 4.0 %.</p>
+        <p>Of the energy in the producers, 4 800 kJ m⁻² yr⁻¹ is transferred to primary consumers, which is 10 % of the energy available at the previous level. Only 480 kJ m⁻² yr⁻¹ reaches secondary consumers, again about 10 %.</p>
+        <p>The energy that is not transferred is lost mainly as heat released by respiration, and some energy leaves the food chain in undigested material egested as faeces. Neither form is available to the next trophic level, so the energy passed on is always much smaller than the energy received.</p>
+        <p>Because roughly 90 % of the energy is lost at each transfer, the energy available falls by about a factor of ten at every level. After four or five transfers the remaining energy is too small to support a viable population, which is why food chains rarely contain more than about five trophic levels.</p>
+        <p>The 10 % figure is an approximation: transfer efficiency varies between organisms and between ecosystems, and the values here apply to this site in this year rather than to food chains in general.</p>
+      </div>
+      <div class="gl">段落结构分析</div>
+      <ol class="ol">
+        <li><b>量化起点</b>：把 4.0 % 算出来，而不是只说「光合作用效率低」。</li>
+        <li><b>量化传递</b>：两个 10 % 分别从相邻两级算出，可复核。</li>
+        <li><b>机制</b>：能量去了哪里——呼吸放热、未消化物质随粪便<b>排遗</b>（egestion）。这一步把「损失」变成可解释的过程。</li>
+        <li><b>推论</b>：90 % 损失 → 每级降到十分之一 → 四到五级后不足以支撑种群 → 食物链长度受限。</li>
+        <li><b>限定</b>：10 % 是近似值，只适用于本地当年。</li>
+      </ol>
+      <div class="gl">关键句拆解</div>
+      <div class="kl">
+        <div class="it"><span class="q">The producers fix 48 000 … out of the 1 200 000 … incident on the area, so the efficiency … is about 4.0 %.</span><b>作用</b> 分子分母都在句子里，读者能立刻验算；so 只连接「算式」与「结论」，不承担机制。<b>结构</b> out of 比 from 更适合表示占比。</div>
+        <div class="it"><span class="q">Neither form is available to the next trophic level, so the energy passed on is always much smaller than the energy received.</span><b>作用</b> 用 Neither 收束前面两条损失路径，避免「还有……」的松散感。<b>结构</b> passed on / received 前后对照，都是过去分词作定语。</div>
+        <div class="it"><span class="q">Because roughly 90 % of the energy is lost at each transfer, the energy available falls by about a factor of ten at every level.</span><b>作用</b> 一个百分比换成一个倍数，读者对量级才有感觉。<b>结构</b> falls by a factor of ten 是标准表述，比 becomes ten times smaller 清楚。</div>
+        <div class="it"><span class="q">… which is why food chains rarely contain more than about five trophic levels.</span><b>作用</b> which is why 把前面的量化结论收成一句解释，收尾干净。<b>注意</b> rarely + about 两个软化词同时出现，正是为了不把结论说成定律。</div>
+      </div>
+      <div class="gl">科学准确性检查</div>
+      <ul class="ol">
+        <li>48 000 / 1 200 000 = 4.0 %；4 800 / 48 000 = 10 %；480 / 4 800 = 10 %。<b>三处算术均已复核。</b></li>
+        <li>「能量以热的形式损失」——热是传递中的能量，说 lost as heat 成立；不说 energy is destroyed（违反能量守恒）。</li>
+        <li><b>egestion ≠ excretion</b>：粪便是<b>未消化</b>的食物残余，经<b>排遗</b>（egestion）离开消化道，这部分物质<b>从未进入细胞代谢</b>；excretion（排泄）指代谢废物（CO₂、尿素）的排出。两者机制与来源都不同，不能互换——写 <span class="mono">excreted as faeces</span> 是把两件事压成一件事。同理，尿液是排泄产物，粪便不是。</li>
+        <li>「四到五级」用 rarely / about 限定，未写成「必然不超过五级」。</li>
+        <li>未把 10 % 说成普适常数（生态学中传递效率常见区间约 5–20 %，但本页不引用未核实的区间，只说明「随生物与生态系统而变」）。</li>
+      </ul>
+      <div class="gl">答题质量分析</div>
+      <p><b>优势</b>：每一段都在推进，没有一段只是复述表格；数据始终服务于「为什么级数有限」这个真问题。<b>可改进</b>：若题目分值更高，可补一句「呼吸速率随温度上升会提高传递效率的波动」，但要注明这是推断而非本数据所示。</p>
+      <div class="gl">常见失分版本</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>Energy is passed along the food chain. Some energy is lost as heat. That is why there are not many trophic levels.<span class="why">三句全是常识，没有一个数据，也没有量化损失比例；「not many」不可判。这类答案通常只拿到「知道能量会损失」这一档。</span></div>
+        <div class="l2"><span class="lv">△</span>The energy goes down from 48 000 to 4 800 to 480, so 90 % is lost at each level. This limits the food chain.<span class="why">数据用上了，方向也对，但缺机制（热与排泄物）与限定；且未说明「为什么 90 % 会导致级数有限」。</span></div>
+      </div>
+      <div class="gl">迁移练习</div>
+      <p>若初级消费者的传递效率提高到 20 %（其余不变），次级消费者可获得多少能量？食物链长度预期如何变化？为什么这个变化不能无限外推？</p>
+      <p class="mini"><b>参考答案要点</b> 48 000 × 20 % = 9 600；9 600 × 10 % = 960 kJ m⁻² yr⁻¹（原为 480，翻倍）。可支撑的级数可能增加一级，但受个体体型、代谢率与顶级捕食者所需活动范围限制，不能按比例无限外推——效率提高不改变「每级损失大部分」这一结构。</p>
+    </div>
+
+    <div class="er" id="er-bio-02">
+      <div class="er-h"><h4>细胞为什么小：表面积与体积之比</h4><span class="id">ER-BIO-02</span></div>
+      <div class="er-meta"><span>学科 <b>Biology</b></span><span>阶段 <b>MYP / DP</b></span><span>指令动词 <b>Explain</b></span><span>主题 <b>Cell size</b></span><span>来源 <b>Original（模型数据自洽）</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目背景</span>
+        <p>Three cube models have sides of 1 cm, 2 cm and 3 cm.</p>
+        <div class="tscroll" style="margin:8px 0 0">
+          <table class="t1" style="min-width:0">
+            <thead><tr><th>边长 / cm</th><th>表面积 / cm²</th><th>体积 / cm³</th><th>表面积 : 体积</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>6</td><td>1</td><td>6 : 1</td></tr>
+              <tr><td>2</td><td>24</td><td>8</td><td>3 : 1</td></tr>
+              <tr><td>3</td><td>54</td><td>27</td><td>2 : 1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <span class="lb" style="margin-top:10px">题目</span>
+        <p>Using the data, explain why most cells are small.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>For a cube of side 1 cm the surface area is 6 cm² and the volume is 1 cm³, so the surface area to volume ratio is 6 : 1. Doubling the side to 2 cm gives 24 cm² and 8 cm³, a ratio of 3 : 1, and tripling it to 3 cm gives 2 : 1.</p>
+        <p>The ratio falls as the object becomes larger because surface area increases with the square of the linear dimension, whereas volume increases with its cube.</p>
+        <p>A cell depends on its surface to take in oxygen and nutrients and to remove waste products. The rate at which these substances can cross the membrane is proportional to the surface area, but the amount of material the cell must exchange is proportional to its volume.</p>
+        <p>As the cell grows, therefore, the surface area available per unit of volume falls, and diffusion across the membrane can no longer supply the contents fast enough. This is why most cells stay small, and why cells that exchange large amounts of material have adaptations such as microvilli or a flattened shape that increase the surface area relative to the volume.</p>
+        <p>The cube model is a simplification: real cells are not cubes, and some large cells meet their requirements by having a long thin shape, a folded membrane, or a very low metabolic rate.</p>
+      </div>
+      <div class="gl">段落结构分析</div>
+      <ol class="ol">
+        <li><b>读数据</b>：三组比值逐个写出，不加解释。</li>
+        <li><b>几何原因</b>：平方 vs 立方，一句话给清为什么必然下降。</li>
+        <li><b>生物学需求</b>：交换随面积，需求随体积。</li>
+        <li><b>结论</b>：单位体积可用面积下降 → 扩散供不上 → 细胞保持小。</li>
+        <li><b>限定</b>：立方体是模型；真实大细胞有替代策略。</li>
+      </ol>
+      <div class="gl">关键句拆解</div>
+      <div class="kl">
+        <div class="it"><span class="q">… because surface area increases with the square of the linear dimension, whereas volume increases with its cube.</span><b>作用</b> 这是全篇的「为什么」，用 whereas 把两个不同的幂次并排，读者一眼看出差距会扩大。<b>结构</b> increases with the square / cube of … 是数学关系的标准表达。</div>
+        <div class="it"><span class="q">The rate at which these substances can cross the membrane is proportional to the surface area, but the amount … is proportional to its volume.</span><b>作用</b> 同一句式重复一次，只改「速率/总量」与「面积/体积」，对照关系由结构本身承担。<b>结构</b> 两个 is proportional to 是刻意的平行。</div>
+        <div class="it"><span class="q">As the cell grows, therefore, the surface area available per unit of volume falls …</span><b>作用</b> therefore 接的是前面两段的推理，不是本段新信息；这类位置用 therefore 才不显得硬。<b>结构</b> available per unit of volume 比 surface area to volume ratio 更口语，适合收束。</div>
+        <div class="it"><span class="q">… and why cells that exchange large amounts of material have adaptations such as microvilli or a flattened shape …</span><b>作用</b> 用「适应」反证原理：正因为比值限制存在，才有针对它的结构。<b>结构</b> such as 引例，避免把例子写成定义。</div>
+      </div>
+      <div class="gl">科学准确性检查</div>
+      <ul class="ol">
+        <li>6/1 = 6；24/8 = 3；54/27 = 2。<b>三组比值已复核。</b></li>
+        <li>「交换速率与表面积成正比、需求量与体积成正比」是教学层面的近似表述，不是定量定律；文中用 proportional to 而未给系数，成立。</li>
+        <li>未说「大细胞无法存活」——真实存在大细胞（如卵细胞、神经细胞），文中以限定段处理，未把模型结论当普遍事实。</li>
+      </ul>
+      <div class="gl">答题质量分析</div>
+      <p><b>优势</b>：数据 → 几何 → 生物需求 → 结论，四步没有跳；限定段不是客套，而是指出了模型的两处偏离（形状、代谢率）。<b>可改进</b>：若题目给了真实细胞的测量值，应先核对该细胞是否近似立方体，否则比值不可直接套用。</p>
+      <div class="gl">常见失分版本</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>Cells are small because if they were big they would burst.<span class="why">与表面积体积比无关，且「变大就会破裂」不是细胞保持小的原因（破裂涉及渗透，不是尺寸）。</span></div>
+        <div class="l2"><span class="lv">△</span>Small cells have a bigger surface area to volume ratio, so diffusion is faster.<span class="why">结论对，但没解释「比值为什么随尺寸下降」，也没说「为什么这会影响细胞」；两句都停在标签层面。</span></div>
+      </div>
+      <div class="gl">迁移练习</div>
+      <p>边长 4 cm 的立方体，表面积与体积之比是多少？把这个趋势画成图，横轴边长、纵轴比值，曲线形状说明什么？</p>
+      <p class="mini"><b>参考答案要点</b> 96 / 64 = 1.5 : 1。曲线是 6/x 型，随边长增大迅速下降并趋近于零——说明尺寸稍大，比值就掉得很快，这正是细胞尺寸受限的几何根源。</p>
+    </div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">3.2</span><h3>Chemistry</h3></div>
+
+    <div class="er" id="er-che-01">
+      <div class="er-h"><h4>浓度对反应速率的影响</h4><span class="id">ER-CHE-01</span></div>
+      <div class="er-meta"><span>学科 <b>Chemistry</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Analyse</b></span><span>主题 <b>Rates of reaction</b></span><span>来源 <b>Original（数据自编，内部自洽）</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目背景</span>
+        <p>0.50 g of magnesium ribbon reacts with 25 cm³ of hydrochloric acid. The time taken to collect 20 cm³ of hydrogen is recorded:</p>
+        <div class="tscroll" style="margin:8px 0 0">
+          <table class="t1" style="min-width:0">
+            <thead><tr><th>c(HCl) / mol dm⁻³</th><th>0.50</th><th>1.00</th><th>2.00</th></tr></thead>
+            <tbody><tr><td>时间 / s</td><td>96</td><td>48</td><td>24</td></tr></tbody>
+          </table>
+        </div>
+        <span class="lb" style="margin-top:10px">题目</span>
+        <p>Analyse the effect of concentration on the rate of this reaction, and explain the effect in terms of collision theory.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>The average rate was calculated as 20 cm³ divided by the time taken, giving 0.21, 0.42 and 0.83 cm³ s⁻¹ for 0.50, 1.00 and 2.00 mol dm⁻³ respectively.</p>
+        <p>Doubling the concentration from 0.50 to 1.00 mol dm⁻³ doubled the average rate, and doubling it again to 2.00 mol dm⁻³ doubled the rate once more. Within the range tested, the average rate is therefore directly proportional to the concentration of the acid.</p>
+        <p>Increasing the concentration increases the number of hydrogen ions per unit volume. With more particles in the same volume, collisions between hydrogen ions and the magnesium surface occur more frequently, so more collisions per second have enough energy to react and the rate increases. The energy of an individual ion is not changed by concentration; it is the number of collisions that changes.</p>
+        <p>These are average rates over the whole reaction rather than initial rates, and the surface area of the magnesium was not controlled between trials. The conclusion therefore applies to these conditions and should be tested with the surface area held constant before it is treated as a general relationship.</p>
+      </div>
+      <div class="gl">段落结构分析</div>
+      <ol class="ol">
+        <li><b>算速率</b>：20 / t，三个值全部给出，后文才有依据。</li>
+        <li><b>找关系</b>：倍数对倍数，得出「正比」。</li>
+        <li><b>给机制</b>：数密度 → 碰撞频率 → 有效碰撞 → 速率。</li>
+        <li><b>主动排错</b>：明确「单个离子的能量不变」——把最容易被误用的解释先关掉。</li>
+        <li><b>限定</b>：平均速率 ≠ 初始速率；表面积未控制。</li>
+      </ol>
+      <div class="gl">关键句拆解</div>
+      <div class="kl">
+        <div class="it"><span class="q">… giving 0.21, 0.42 and 0.83 cm³ s⁻¹ for 0.50, 1.00 and 2.00 mol dm⁻³ respectively.</span><b>作用</b> 三个结果与三个条件用 respectively 对齐，省掉三句话。<b>注意</b> 顺序必须与前面一致，否则 respectively 会制造歧义。</div>
+        <div class="it"><span class="q">Within the range tested, the average rate is therefore directly proportional to the concentration of the acid.</span><b>作用</b> Within the range tested 前置，先把适用范围框住再下结论——这是本段最值钱的一个短语。<b>结构</b> therefore 承接倍数关系，不承担新推理。</div>
+        <div class="it"><span class="q">The energy of an individual ion is not changed by concentration; it is the number of collisions that changes.</span><b>作用</b> 用分号做「排除 + 立正」的组合，再用 it is … that 强调句锁定真正变化的量。<b>效果</b> 主动把学生的常见误解写出来并否掉。</div>
+        <div class="it"><span class="q">These are average rates over the whole reaction rather than initial rates …</span><b>作用</b> rather than 引入对照概念，一句话说明数据的性质边界。<b>延伸</b> 若题目要求比较「速率」，需先确认是平均速率还是初始速率，两者在反应后段差别很大。</div>
+      </div>
+      <div class="gl">科学准确性检查</div>
+      <ul class="ol">
+        <li>20/96 = 0.208 → 0.21；20/48 = 0.417 → 0.42；20/24 = 0.833 → 0.83。<b>三处已复核。</b></li>
+        <li>「速率与浓度成正比」只在数据范围内成立；文中用 Within the range tested 限定，未外推为普遍定律。</li>
+        <li>未说「浓度提高使粒子能量增大」——已明确否定，这句是本题的科学核心。</li>
+        <li>未把「平均速率」当「初始速率」；这处区分在多数答案里被忽略。</li>
+      </ul>
+      <div class="gl">答题质量分析</div>
+      <p><b>优势</b>：把「算出来的数」和「说出来的机制」分成两段，互不干扰；限定段指出表面积未控制，这是数据本身的真实缺陷，而不是套话。<b>可改进</b>：严格说，用「收集 20 cm³ 的时间」比较速率，前提是三次反应都到达同一产气量；若镁量不足，第三次可能未反应完全，这一点可再补一句。</p>
+      <div class="gl">常见失分版本</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>Higher concentration reacts faster because the acid is stronger and there are more collisions.<span class="why">strong 与 concentrated 混用（概念错误）；「more collisions」缺「单位体积」与「有效」，机制部分不得分。</span></div>
+        <div class="l2"><span class="lv">△</span>The time goes from 96 s to 48 s to 24 s, so doubling the concentration doubles the rate. This is because more particles collide.<span class="why">关系找对了，但没算速率、没给碰撞理论的完整链条，也没提任何限定。</span></div>
+      </div>
+      <div class="gl">迁移练习</div>
+      <p>若改用 1.00 mol dm⁻³ 的酸，但把镁条剪成原来一半长（表面积减半），预期收集 20 cm³ 所需时间约为多少？为什么？</p>
+      <p class="mini"><b>参考答案要点</b> 约 96 s。表面积减半使可反应的界面减半，速率约为 1.00 mol dm⁻³ 原条件的一半（0.42 → 约 0.21 cm³ s⁻¹），故时间加倍回到约 96 s。这里体现的是「速率取决于碰撞频率，而碰撞发生在表面上」——与浓度作用的机制同源，但作用点不同。</p>
+    </div>
+
+    <div class="er" id="er-che-02">
+      <div class="er-h"><h4>滴定结果与准确性评价</h4><span class="id">ER-CHE-02</span></div>
+      <div class="er-meta"><span>学科 <b>Chemistry</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Calculate + Evaluate</b></span><span>主题 <b>Titration</b></span><span>来源 <b>Original（数据自编，内部自洽）</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目背景</span>
+        <p>25.0 cm³ portions of sodium hydroxide solution of unknown concentration are titrated with 0.100 mol dm⁻³ hydrochloric acid, using phenolphthalein. Three titres are obtained: 23.40, 23.50 and 23.45 cm³.</p>
+        <span class="lb" style="margin-top:10px">题目</span>
+        <p>Calculate the concentration of the sodium hydroxide solution, and evaluate the accuracy of the result.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>NaOH + HCl → NaCl + H₂O, so the reacting ratio is 1 : 1. The mean titre is (23.40 + 23.50 + 23.45) / 3 = 23.45 cm³.</p>
+        <p>n(HCl) = c × V = 0.100 × 0.02345 = 2.345 × 10⁻³ mol, so n(NaOH) = 2.345 × 10⁻³ mol and c(NaOH) = 2.345 × 10⁻³ / 0.0250 = 0.0938 mol dm⁻³.</p>
+        <p>The precision is good: the three titres agree within 0.10 cm³, which is about 0.4 % of the mean. Precision alone, however, does not establish accuracy, because a repeated mistake repeats itself consistently.</p>
+        <p>The largest source of uncertainty is the end point. A pale pink that persisted for about 30 s was taken as the end point; if the student consistently stopped slightly early, every titre would be too small and the calculated concentration would be systematically too low. This is a systematic error, and taking more repeats would not remove it.</p>
+        <p>Reading the burette at eye level to the bottom of the meniscus reduces parallax error, and rinsing the burette with the acid before filling prevents dilution of the titrant, which would make the titre too large. Because the result is quoted to three significant figures, an uncertainty of one drop (about 0.05 cm³, 0.2 %) does not change the first three figures; the value is therefore reliable at that precision, but its accuracy would only be confirmed against a standard solution of known concentration.</p>
+      </div>
+      <div class="gl">段落结构分析</div>
+      <ol class="ol">
+        <li><b>方程式与比例</b>：先立依据。</li>
+        <li><b>计算链</b>：均值 → n(HCl) → 比例 → c。四步都留痕。</li>
+        <li><b>精度</b>：用极差 0.10 cm³ 与相对值 0.4 % 量化。</li>
+        <li><b>准确度</b>：指出终点判断是主要不确定源，并给出<b>方向</b>（偏小）与类型（系统误差）。</li>
+        <li><b>改进与边界</b>：视差、润洗各自对应一种具体误差；末尾区分「该精度下可靠」与「准确度需标准溶液确认」。</li>
+      </ol>
+      <div class="gl">关键句拆解</div>
+      <div class="kl">
+        <div class="it"><span class="q">The precision is good: the three titres agree within 0.10 cm³, which is about 0.4 % of the mean.</span><b>作用</b> 用冒号把判断与证据直接连上，再用相对值给出量级。<b>注意</b> agree within 是描述精密度的标准说法，不能换成 are accurate。</div>
+        <div class="it"><span class="q">Precision alone, however, does not establish accuracy, because a repeated mistake repeats itself consistently.</span><b>作用</b> 这是本题最关键的一句：把 precision 与 accuracy 分开，并给出「为什么重复不能救准确度」的机制。<b>结构</b> 插入 however 打破顺承，避免读者把前句当结论。</div>
+        <div class="it"><span class="q">If the student consistently stopped slightly early, every titre would be too small and the calculated concentration would be systematically too low.</span><b>作用</b> 条件句 + 双重结果 + 方向标记（too small / too low），一步给出可判定的推理。<b>语法</b> 第二类条件句（would）用于假设性推理，不用 will。</div>
+        <div class="it"><span class="q">… rinsing the burette with the acid before filling prevents dilution of the titrant, which would make the titre too large.</span><b>作用</b> 改进措施必须连到它防的是哪一种偏差，否则只是操作清单。<b>注意</b> which would 用虚拟，因为这是「若未做则会发生」。</div>
+      </div>
+      <div class="gl">科学准确性检查</div>
+      <ul class="ol">
+        <li>均值 (23.40 + 23.50 + 23.45)/3 = 70.35/3 = 23.45。<b>已复核。</b></li>
+        <li>n = 0.100 × 0.02345 = 2.345 × 10⁻³ mol；c = 2.345 × 10⁻³ / 0.0250 = 0.0938 mol dm⁻³。<b>已复核。</b></li>
+        <li>NaOH 只有一个 OH⁻，与 HCl 为 1:1；未套用「二元碱」的错误比例。</li>
+        <li>「终点偏早 → 滴定体积偏小 → 计算浓度偏低」方向正确（V 减小，c 同比减小）。</li>
+        <li>「未用酸润洗 → 滴定剂被稀释 → 需要更多体积 → 浓度偏高」方向正确。</li>
+      </ul>
+      <div class="gl">答题质量分析</div>
+      <p><b>优势</b>：把「精密度好」与「结果准确」明确切开，这是绝大多数答案缺失的一层；改进措施都带机制，不是操作清单。<b>可改进</b>：可补一句「三次滴定的极差 0.10 cm³ 相对于一滴 0.05 cm³ 说明操作稳定」，把精密度判断再说实一点。</p>
+      <div class="gl">常见失分版本</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>The result is accurate because three titrations were done and they were close together.<span class="why">把精密度当准确度。三次一致只说明重复性好；若每次都偏向同一侧，结果可以既精密又错误。</span></div>
+        <div class="l2"><span class="lv">△</span>The concentration is 0.0938 mol dm⁻³. There may be some errors in the experiment.<span class="why">算对了，但评价部分只有一句无方向的「可能有误差」；没有指出哪一步、偏向哪边、怎么改。</span></div>
+      </div>
+      <div class="gl">迁移练习</div>
+      <p>若滴定管洗净后未用 0.100 mol dm⁻³ 盐酸润洗即装液，计算出的氢氧化钠浓度会偏高还是偏低？请给出推理链。</p>
+      <p class="mini"><b>参考答案要点</b> 偏高。残留水稀释了盐酸，实际 c(HCl) &lt; 0.100 mol dm⁻³；为中和同样的 NaOH 需要更大体积，而计算时仍代入 0.100，故 n(HCl) 被高估，c(NaOH) 随之偏高。这是<b>系统误差</b>，方向单一，多做几次不会消除。</p>
+    </div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">3.3</span><h3>Physics</h3></div>
+
+    <div class="er" id="er-phy-01">
+      <div class="er-h"><h4>合力与加速度：数据是否支持 F = ma</h4><span class="id">ER-PHY-01</span></div>
+      <div class="er-meta"><span>学科 <b>Physics</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Analyse + Evaluate</b></span><span>主题 <b>Newton's second law</b></span><span>来源 <b>Original（数据自编，按恒定摩擦模型构造）</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目背景</span>
+        <p>A trolley of mass 0.50 kg is pulled along a horizontal track by a falling mass. The applied force and the resulting acceleration are recorded:</p>
+        <div class="tscroll" style="margin:8px 0 0">
+          <table class="t1" style="min-width:0">
+            <thead><tr><th>F / N</th><th>0.20</th><th>0.40</th><th>0.60</th></tr></thead>
+            <tbody><tr><td>a / m s⁻²</td><td>0.38</td><td>0.78</td><td>1.18</td></tr></tbody>
+          </table>
+        </div>
+        <span class="lb" style="margin-top:10px">题目</span>
+        <p>Analyse the relationship between the applied force and the acceleration, and evaluate the extent to which the data support Newton's second law.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>For each pair of values, F / a gives 0.526, 0.513 and 0.508 kg respectively, which is close to the mass of the trolley, 0.50 kg. Plotting acceleration against force gives an approximately straight-line relationship, suggesting that acceleration increases approximately linearly with the applied force.</p>
+        <p>The values of F / a are not exactly constant: they fall steadily from 0.526 to 0.508 kg as the force increases. This pattern is consistent with a small constant friction force that was not included when the resultant force was calculated. The true resultant force is F − f, so dividing the applied force by the acceleration overestimates the mass, and the overestimate becomes proportionally smaller as F becomes larger.</p>
+        <p>Because the mass obtained from F / a exceeds 0.50 kg by about 5 % at the smallest force, the data support an approximately linear relationship over this range, though not an exactly proportional one. A constant friction force of 0.01 N accounts for all three rows. Taking m = 0.50 kg and a = (F − 0.01) / 0.50 gives 0.38, 0.78 and 1.18 m s⁻², which reproduces all three rows to the precision of the table; the same model also fixes the intercept at F = 0.01 N, so the line does not pass exactly through the origin.</p>
+        <p>The data therefore provide moderate support for Newton's second law over this range of forces. A stronger test would require either measuring the friction force directly or repeating the experiment with the track levelled and lubricated, so that the applied force and the resultant force can be treated as equal.</p>
+      </div>
+      <div class="gl">段落结构分析</div>
+      <ol class="ol">
+        <li><b>检验常数</b>：逐组算 F/a，看是否等于质量。</li>
+        <li><b>发现偏差</b>：0.526 → 0.513 → 0.508 单调递减，是趋势，不是随机跳动。</li>
+        <li><b>给机制</b>：未计入的摩擦 → F/a 系统性高估 → 大力时相对影响小。</li>
+        <li><b>定量验证</b>：反推 f = 0.01 N，再用同一模型逐组复算，三行全部对上；并指出同一模型给出 F 轴截距 0.01 N，故直线不过原点。</li>
+        <li><b>结论与改进</b>：moderate support，并指出怎样才算更强的检验。</li>
+      </ol>
+      <div class="gl">关键句拆解</div>
+      <div class="kl">
+        <div class="it"><span class="q">For each pair of values, F / a gives 0.526, 0.513 and 0.508 kg respectively, which is close to the mass of the trolley, 0.50 kg.</span><b>作用</b> 不是直接说「符合 F = ma」，而是先构造一个可比较的量（F/a 的单位是 kg），让「符合」变成可验证的。<b>结构</b> 单位本身就是论据。</div>
+        <div class="it"><span class="q">This pattern is consistent with a small constant friction force that was not included …</span><b>作用</b> consistent with 是最稳的一档表述：既提出解释，又不声称已证明。<b>注意</b> pattern 一词点明「有趋势」而非「有误差」——趋势才指向系统偏差。</div>
+        <div class="it"><span class="q">… so dividing the applied force by the acceleration overestimates the mass, and the overestimate becomes proportionally smaller as F becomes larger.</span><b>作用</b> 前半给方向，后半给「为什么大力时看起来更准」，两件事用同一句完成。<b>结构</b> proportionally smaller 是关键词，少了它，读者会以为偏差随机。</div>
+        <div class="it"><span class="q">A constant friction force of 0.01 N accounts for all three rows …</span><b>作用</b> 从「有偏差」推进到「一个数解释全部三行」，评价才落地——只押一行是凑，押三行才是模型。<b>语法</b> 用一般现在时 accounts for，把一个已定的参数当工具来检验；若只是提出尚未算过的可能，才用 would / could account for 留退路。</div>
+      </div>
+      <div class="gl">科学准确性检查</div>
+      <ul class="ol">
+        <li>0.20/0.38 = 0.526；0.40/0.78 = 0.513；0.60/1.18 = 0.508。<b>三组均大于 0.50 kg，且随 F 单调递减</b>——「偏大」与「越拉越准」两个方向都对。</li>
+        <li>模型 a = (F − 0.01)/0.50 逐组复算：0.19/0.50 = 0.38、0.39/0.50 = 0.78、0.59/0.50 = 1.18，与表中三行在给定精度内全部一致。<b>已复核——数据与所提模型自洽，不再是「押一行」。</b></li>
+        <li>摩擦使 F/a &gt; m 的方向正确：真实 a 小于 F/m，故 F/a 偏大。</li>
+        <li><b>linear ≠ proportional</b>：a = 2F − 0.02 是一条直线，但不过原点（a = 0 时 F = 0.01 N），所以只能说 linear relationship，不能说 proportional relationship。只有截距为零时，这两个说法才可以互换——首段原来写 through the origin，正是把「线性」提前说成了「正比」。</li>
+        <li><b>本组数据是刻意构造的</b>：只含 f = 0.01 N 这一项系统偏差，不含随机散布，为的是让趋势可读。真实测量里两类效应叠加，<b>不能把全部偏差都归给恒定摩擦</b>——这时要看残差是「单调趋势」还是「随机跳动」，随机部分只能靠重复取平均压缩。</li>
+        <li>未说「F = ma 被证明」；用 moderate support，并指出需要更严格的检验。</li>
+      </ul>
+      <div class="gl">答题质量分析</div>
+      <p><b>优势</b>：把「偏差」当作线索而不是缺陷——0.526 → 0.508 的单调递减正是摩擦存在的证据，这一层是本题的区分点。<b>可改进</b>：若能用最小二乘拟合给出斜率并报不确定度，结论会更硬；但中学阶段用逐点 F/a 已足够。</p>
+      <div class="gl">常见失分版本</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>The graph is a straight line, so Newton's second law is proved.<span class="why">「证明」过强；且完全忽略 F/a 从 0.526 到 0.508 的系统偏差，等于放过数据里唯一的信息。</span></div>
+        <div class="l2"><span class="lv">△</span>F/a is about 0.5, so the mass is 0.5 kg and the experiment worked.<span class="why">算对了但没有评价：没有指出偏差方向、没有解释、没有改进方向，因此拿不到评价部分的分。</span></div>
+      </div>
+      <div class="gl">迁移练习</div>
+      <p>若轨道被垫高一端，使小车受到一个沿运动方向、大小 0.05 N 的持续分力，用同样方法算出的 F/a 会偏大还是偏小？为什么？</p>
+      <p class="mini"><b>参考答案要点</b> 偏小。此时真实合力为 F + 0.05，加速度比无分力时更大；而计算仍用 F，故 F/a 小于真实质量。与摩擦的情形方向相反——这两题放在一起，才能看出「评价误差方向」靠的是对合力构成的判断，不是记结论。</p>
+    </div>
+
+    <div class="er" id="er-phy-02">
+      <div class="er-h"><h4>能量转化与守恒：预测值与实测值的差</h4><span class="id">ER-PHY-02</span></div>
+      <div class="er-meta"><span>学科 <b>Physics</b></span><span>阶段 <b>DP</b></span><span>指令动词 <b>Calculate + Evaluate</b></span><span>主题 <b>Conservation of energy</b></span><span>来源 <b>Original（数据自编，内部自洽）</b></span></div>
+      <div class="qa sys">
+        <span class="lb">题目背景</span>
+        <p>A ball of mass 0.20 kg is released from rest at a height of 1.20 m above the ground. Its speed just before landing is measured as 4.60 m s⁻¹. Take g = 9.81 m s⁻².</p>
+        <span class="lb" style="margin-top:10px">题目</span>
+        <p>Calculate the speed predicted by conservation of energy, and evaluate the difference between the prediction and the measurement.</p>
+      </div>
+      <div class="qa">
+        <span class="lb">参考答案</span>
+        <p>The loss of gravitational potential energy is mgh = 0.20 × 9.81 × 1.20 = 2.35 J. If air resistance is negligible, this is converted entirely into kinetic energy, so ½mv² = 2.35 J and v = √(2 × 2.35 / 0.20) = 4.85 m s⁻¹.</p>
+        <p>The measured speed, 4.60 m s⁻¹, is 0.25 m s⁻¹ lower than the prediction, which corresponds to a kinetic energy of ½ × 0.20 × 4.60² = 2.12 J.</p>
+        <p>About 0.23 J, or roughly 10 %, of the potential energy is therefore not present as kinetic energy at the point of measurement. This is consistent with work done against air resistance: the air exerts a force opposite to the motion, transferring energy to the surrounding air rather than destroying it, so the total energy is still conserved.</p>
+        <p>The loss is a systematic shortfall rather than random scatter, so repeating the drop would not remove it; it would be expected to be proportionally larger for a lighter ball or one with a larger area, since both increase the effect of air resistance relative to the weight.</p>
+        <p>The conclusion assumes that the ball was released from rest and that the speed was measured at the same height as the ground reference used for h. If the speed was recorded slightly before landing, part of the 0.23 J would be due to the measurement position rather than to air resistance.</p>
+      </div>
+      <div class="gl">段落结构分析</div>
+      <ol class="ol">
+        <li><b>算预测值</b>：mgh → ½mv² → v，两步都给数。</li>
+        <li><b>算实测对应能量</b>：把速度差换算成能量差，才有可比的量。</li>
+        <li><b>机制</b>：空气阻力做功；<b>同时纠正</b>「能量消失了」的误解。</li>
+        <li><b>误差性质</b>：系统性的差额，重复不能消除；并预测它在什么条件下更显著。</li>
+        <li><b>限定</b>：测量位置与释放条件两处假设。</li>
+      </ol>
+      <div class="gl">关键句拆解</div>
+      <div class="kl">
+        <div class="it"><span class="q">If air resistance is negligible, this is converted entirely into kinetic energy, so ½mv² = 2.35 J …</span><b>作用</b> 用 If 从句把假设写在计算之前，而不是事后补一句「假设忽略阻力」。<b>结构</b> 条件 + 结论，读者能立刻知道这个数在什么前提下成立。</div>
+        <div class="it"><span class="q">… which corresponds to a kinetic energy of ½ × 0.20 × 4.60² = 2.12 J.</span><b>作用</b> 速度差本身不可比，换算成能量差才能与 2.35 J 并列。<b>结构</b> corresponds to 是「换算」的准确说法，比 means 严谨。</div>
+        <div class="it"><span class="q">… transferring energy to the surrounding air rather than destroying it, so the total energy is still conserved.</span><b>作用</b> 这是全篇的科学底线：能量没有消失，只是转移。<b>注意</b> 前半用分词承接机制，后半用 so 收结论，一句话同时完成解释与纠错。</div>
+        <div class="it"><span class="q">The loss is a systematic shortfall rather than random scatter, so repeating the drop would not remove it …</span><b>作用</b> 把误差分类（系统 vs 随机）与「能不能靠重复解决」直接挂钩——这是评价部分的实质内容。<b>结构</b> rather than 引对照，so 给后果。</div>
+      </div>
+      <div class="gl">科学准确性检查</div>
+      <ul class="ol">
+        <li>mgh = 0.20 × 9.81 × 1.20 = 2.3544 → 2.35 J。<b>已复核。</b></li>
+        <li>v = √(2 × 2.35 / 0.20) = √23.5 = 4.848 → 4.85 m s⁻¹。<b>已复核。</b></li>
+        <li>KE(实测) = ½ × 0.20 × 4.60² = 0.1 × 21.16 = 2.116 → 2.12 J；差额 2.35 − 2.12 = 0.23 J，占 9.8 %。<b>已复核。</b></li>
+        <li>未说 energy is lost / destroyed；明确 total energy is still conserved。</li>
+        <li>全文速度用 m s⁻¹、加速度用 m s⁻²；把速度写成 m s⁻² 是这个领域最常见的一处单位失误，且不会影响数值，因此极难被自己发现。<b>交卷前专门查一遍量纲。</b></li>
+      </ul>
+      <div class="gl">答题质量分析</div>
+      <p><b>优势</b>：把「差 10 %」翻译成「哪些能量去哪了」，并预判这个差额随质量与迎风面积的变化——这是从数据走向模型的一步。<b>可改进</b>：可再算一次终端速度量级，说明 4.60 m s⁻¹ 是否已接近该球的下落极限，从而判断阻力影响是否合理；但这需要球径数据，本题未给。</p>
+      <div class="gl">常见失分版本</div>
+      <div class="qc">
+        <div class="l1"><span class="lv">✗</span>The measured speed is lower, so energy was lost and the law of conservation is not exactly right.<span class="why">双重错误：能量没有消失（转为空气与球的内能），守恒定律也没有「不太对」。这是本题最严重的一类答案。</span></div>
+        <div class="l2"><span class="lv">△</span>v = 4.85 m s⁻¹ but the measured value is 4.60 m s⁻¹, so there is some error from air resistance.<span class="why">两数都算对，但没有量化差额、没有说明能量去向、没有讨论误差性质，评价部分基本空缺。</span></div>
+      </div>
+      <div class="gl">迁移练习</div>
+      <p>若换用质量加倍、外形相同的小球，从同一高度释放，理论落地速度是否改变？实测值与理论值的相对差距会变大还是变小？</p>
+      <p class="mini"><b>参考答案要点</b> 理论速度不变（v = √(2gh)，与质量无关，4.85 m s⁻¹）。相对差距变小：同样的空气阻力对更大重力的相对影响更小，故实测值更接近理论值。这说明本题的 10 % 差额不是常数，而是与「阻力/重力」之比有关。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 4 ============ -->
+<div class="ch" id="c4">
+  <div class="ch-head"><div class="ch-num">4</div><h2>答案质量对照</h2></div>
+  <p class="ch-note">6 组，每组同一道题给三档答案。<b>先说清楚这些错误不是编出来的稻草人</b>：每一处都属于本页反复见到的类型（概念错位、以描述代解释、以数据代结论、以精度代准确度、语法漂亮但逻辑断）。凡是「错误示例」，都指出了错在哪一步，而不只是说「不够好」。</p>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">4.1</span><h3>科学概念错误 · gene / locus / allele</h3></div>
+    <div class="qa sys"><span class="lb">题目</span><p>Explain the difference between a gene, a locus and an allele.</p></div>
+    <div class="qc">
+      <div class="l1"><span class="lv">Level 1</span>A gene is the position on a chromosome, and an allele is a different gene.<span class="why"><b>两处概念错位。</b>①gene 不是位置——位置是 locus；gene 是<b>具有特定功能的 DNA 序列</b>。②等位基因不是「另一个基因」，而是<b>同一基因座上同一基因的不同形式</b>。这类错误一旦形成，后面的遗传题会连环出错。</span></div>
+      <div class="l2"><span class="lv">Level 2</span>A gene codes for a protein, and an allele is a version of a gene.<span class="why">方向正确，两处不足：未说明 gene 是 DNA 序列（只说功能），未说明「同一基因座」这个关键限定——缺了它，allele 与「另一个基因」仍然分不开；locus 也没被交代。</span></div>
+      <div class="l3"><span class="lv">Level 3</span>A gene is a sequence of DNA that carries the information for a particular characteristic or function. A locus is the position that this sequence occupies on a chromosome. An allele is one of the different versions of the same gene found at that locus, so two alleles of the same gene occupy the same locus on homologous chromosomes.<span class="why">三个词各就各位：<b>序列 / 位置 / 版本</b>。最后一句用「同一基因座」把 allele 与 gene 真正分开，并顺带解释了同源染色体上成对出现的原因。</span></div>
+    </div>
+    <div class="note"><b>记忆抓手：</b>gene 是「写了什么」，locus 是「写在哪一页」，allele 是「这一页有几种版本」。三者不在同一层，所以不能说「gene 在 locus 上」之外再加一层「allele 是位置」。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">4.2</span><h3>只描述现象 vs 真正解释机制</h3></div>
+    <div class="qa sys"><span class="lb">题目</span><p>Explain why the rate of diffusion increases with temperature.</p></div>
+    <div class="qc">
+      <div class="l1"><span class="lv">Level 1</span>Diffusion is faster when it is hot.<span class="why">这是同义反复：把题目里的 increases with temperature 换了个说法，没有提供任何新信息。描述题可以这样写，解释题不行。</span></div>
+      <div class="l2"><span class="lv">Level 2</span>Higher temperature makes particles move faster, so diffusion is faster.<span class="why">有机制，但链条只有两环：温度 → 速度 → 更快。缺「平均动能」这一层，也没有回到「净移动／浓度梯度」这个扩散的定义要素，因此只能算部分解释。</span></div>
+      <div class="l3"><span class="lv">Level 3</span>A higher temperature increases the average kinetic energy of the particles, so they move faster. This increases the rate at which particles spread from a region of higher concentration to a region of lower concentration, so the net movement along the concentration gradient is faster.<span class="why">四环齐全：<b>温度 → 平均动能 → 运动速率 → 净移动速率</b>。最后一句回到了扩散的定义（净移动、浓度梯度），所以解释的是「扩散」，而不是「粒子运动」。</span></div>
+    </div>
+    <div class="note w"><b>注意 Level 3 并没有用 because 三次。</b>它用 so、分词与重复主语把因果写清。因果必须在句法上看得出来，但不要求某个固定连接词——这一点与知识体系 §6.1 一致。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">4.3</span><h3>只有结论 vs 证据支持的结论</h3></div>
+    <div class="qa sys"><span class="lb">题目</span><p>In an experiment, the proportion of antibiotic-resistant bacteria in a population was measured over ten generations, with and without the antibiotic. Suggest what the data show about natural selection.</p>
+      <div class="tscroll" style="margin:8px 0 0">
+        <table class="t1" style="min-width:0">
+          <thead><tr><th>世代</th><th>0</th><th>5</th><th>10</th></tr></thead>
+          <tbody>
+            <tr><td>有抗生素 / %</td><td>5</td><td>24</td><td>62</td></tr>
+            <tr><td>无抗生素（对照）/ %</td><td>5</td><td>5</td><td>6</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="qc">
+      <div class="l1"><span class="lv">Level 1</span>The bacteria became resistant because they wanted to survive, so the antibiotic made them stronger.<span class="why">两个错误：目的论（细菌「想要」存活）与拉马克式获得性遗传（抗生素「使」它们变强）。数据完全没用上。</span></div>
+      <div class="l2"><span class="lv">Level 2</span>The proportion of resistant bacteria increased from 5 % to 62 % over ten generations, so resistance increased because of natural selection.<span class="why">数据用上了，但只是复述数字 + 贴一个术语标签。「because of natural selection」不是解释，是把题目问的东西换了个说法；对照组完全没提。</span></div>
+      <div class="l3"><span class="lv">Level 3</span>The proportion of resistant bacteria rose from 5 % to 62 % over ten generations, whereas in the untreated control it remained between 5 % and 6 %. The difference between the two groups indicates that the antibiotic selected for individuals that were already resistant, rather than causing resistance to arise: if the antibiotic itself created resistance, the control would also have shown an increase, and it did not.<span class="why">三个要素齐：<b>数据（两组）+ 对照 + 推论的可检验形式</b>。最后一句用反证（若抗生素直接造成抗性，对照组也应上升）把「选择」与「诱导」分开——这是本题真正的区分点。</span></div>
+    </div>
+    <div class="note"><b>结论要能被反驳。</b>「因为有自然选择」无法被反驳；「对照组没有上升，所以不是抗生素诱导」可以被数据推翻。能写出后者，才是把证据用上了。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">4.4</span><h3>罗列数据 vs 分析数据</h3></div>
+    <div class="qa sys"><span class="lb">题目</span><p>The graph shows the current–potential difference characteristic of a filament lamp: at 1.0 V the current is 0.10 A, at 2.0 V it is 0.15 A, and at 3.0 V it is 0.18 A. Describe and explain the shape of the graph.</p></div>
+    <div class="qc">
+      <div class="l1"><span class="lv">Level 1</span>At 1 V the current is 0.10 A, at 2 V it is 0.15 A, and at 3 V it is 0.18 A.<span class="why">逐点复述，等于把表格读了一遍。没有形状判断，也没有解释——两道题（describe 与 explain）都没答。</span></div>
+      <div class="l2"><span class="lv">Level 2</span>The current increases but the graph curves, so the resistance is not constant.<span class="why">形状判断对，但停在「不恒定」：没给曲率方向（越来越平），也没给原因。而 explain 要的正是原因。</span></div>
+      <div class="l3"><span class="lv">Level 3</span>The current increases with potential difference, but not proportionally: each extra volt produces a smaller increase in current than the one before, so the resistance rises as the lamp gets brighter. This is because a larger current heats the filament, which increases the vibrations of the lattice and therefore the frequency of electron scattering, so the resistance increases.<span class="why">三件事齐：<b>趋势 + 曲率（用增量递减表述）+ 机制</b>。并且「电阻增大」的方向正确——这是本题最常见的错误所在（很多答案写「电阻减小」）。</span></div>
+    </div>
+    <div class="note w"><b>数据不是用来抄的，是用来支撑形状判断的。</b>0.10 → 0.15 → 0.18 的价值在于「每伏增量 0.05 然后 0.03，在变小」，而不在三个数本身。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">4.5</span><h3>优缺点罗列 vs 完整评价</h3></div>
+    <div class="qa sys"><span class="lb">题目</span><p>Evaluate the method used to determine the concentration of the sodium hydroxide solution by titration（三次滴定 23.40 / 23.50 / 23.45 cm³）。</p></div>
+    <div class="qc">
+      <div class="l1"><span class="lv">Level 1</span>The method was good because it was accurate and precise. There were some errors but we repeated it three times so the result is reliable.<span class="why">四个形容词（good / accurate / precise / reliable）全都没有依据；「重复三次所以可靠」把精密度当成了准确度——这是评价题最典型的错法。</span></div>
+      <div class="l2"><span class="lv">Level 2</span>The method is accurate because the three titres were close together. A limitation is that the end point is difficult to see, so the result may not be exact.<span class="why">比 L1 进步（给了证据、指出局限），但两处不足：①仍把「三次接近」当准确度的证据（它只证明精密度）；②局限没有方向——「可能不准」可以是偏高也可以是偏低，读者无法判断。</span></div>
+      <div class="l3"><span class="lv">Level 3</span>The three titres agree within 0.10 cm³, so the precision is good. Accuracy, however, depends on where the end point is judged: a pale pink that persisted for 30 s was taken as the end point, and stopping consistently early would make every titre too small and the calculated concentration systematically too low. The most useful improvement would therefore be a sharper end point — a pH meter or a blank titration — rather than more repeats, which would only reduce random error.<span class="why">四件事齐：<b>依据（极差 0.10）+ 局限（终点判断）+ 方向（偏小→偏低）+ 针对性改进（换判据，而不是多测）</b>。最后一句点明「多测不管用」，说明评价者真的理解误差性质。</span></div>
+    </div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">4.6</span><h3>语法正确但科学逻辑不完整</h3></div>
+    <div class="qa sys"><span class="lb">题目</span><p>Explain what happens to a plant cell placed in pure water.</p></div>
+    <div class="qc">
+      <div class="l1"><span class="lv">Level 1</span>Water enters the cell by osmosis and the cell swells up until it bursts.<span class="why">语法完全正确，科学上错在最后一步：<b>植物细胞有细胞壁，在纯水中不会破裂</b>，而是达到膨压后停止吸水。动物细胞才会胀破。这类答案最危险——读起来通顺，容易被当成对的。</span></div>
+      <div class="l2"><span class="lv">Level 2</span>Pure water has a higher water potential than the cell, so water enters by osmosis and the cell becomes turgid.<span class="why">方向正确（水势差 → 渗透 → 膨压状态），但缺两件事：为什么不会继续膨胀到破裂（细胞壁的对抗压力），以及水势差如何被平衡。逻辑链在最后一步断掉。</span></div>
+      <div class="l3"><span class="lv">Level 3</span>Pure water has a higher water potential than the cell contents, so water enters the cell by osmosis across the partially permeable membrane. As the vacuole expands, the membrane presses against the cell wall, and the wall exerts an opposing pressure on the cell. The cell becomes turgid; it does not burst, because the cell wall resists further expansion, and the inward water potential gradient is balanced by the opposing wall pressure.<span class="why">机制完整到「为什么停」：<b>水势差 → 进水 → 壁压 → 平衡 → 膨压状态</b>。最后一句同时给出「不会破裂」的原因与「何时停止」的判据，逻辑闭合。</span></div>
+    </div>
+    <div class="note"><b>这一组要记住的：</b>句法正确 ≠ 逻辑完整。检查办法是问自己「然后呢」——水一直进，然后呢？如果没有答案，链条就断了。</div>
+  </div>
+</div>
+
+<!-- ============ 5 ============ -->
+<div class="ch" id="c5">
+  <div class="ch-head"><div class="ch-num">5</div><h2>交卷前自我检查</h2></div>
+  <p class="ch-note">七条，按顺序过。每条后面那句「怎么查」是关键——只给问题不给查法，检查表就变成心理安慰。</p>
+
+  <div class="chk">
+    <div class="it"><div class="bx"></div><div class="t"><b>1. 我回答的是题目真正问的那件事吗？</b><em>怎么查：把指令动词圈出来，再用一句话说出它要什么。说不出来，说明还没读懂题；说得出来但与答案不符，说明写偏了。</em></div></div>
+    <div class="it"><div class="bx"></div><div class="t"><b>2. 科学概念和术语是否准确？</b><em>怎么查：挑出三个关键词，各自说一句定义。凡是说不清「它是什么」的，通常就是被误用的那个（gene / locus、heat / temperature、precision / accuracy 是高发区）。</em></div></div>
+    <div class="it"><div class="bx"></div><div class="t"><b>3. 证据、数据或推理够不够？</b><em>怎么查：每个结论后面找一句支撑。找不出来的结论，要么删掉，要么补证据；两者都做不到，就改成「可能」并说明缺什么。</em></div></div>
+    <div class="it"><div class="bx"></div><div class="t"><b>4. 因果关系在句法上看得出来吗？</b><em>怎么查：把两句之间的连接词遮住，看还能不能读出「谁导致谁」。读不出来就是并列，需要补标记——连词、从句、分词、名词化都行，不限定某一个词。</em></div></div>
+    <div class="it"><div class="bx"></div><div class="t"><b>5. 题目要求的比较对象或评价维度，有没有漏掉？</b><em>怎么查：回题目数一数它点了几个对象、几个维度。compare 题只写一侧、evaluate 题只写优点，都是漏项，不是「写得少」。</em></div></div>
+    <div class="it"><div class="bx"></div><div class="t"><b>6. 单位、有效数字和符号是否正确？</b><em>怎么查：逐个数字看单位；再看结果的位数有没有超过输入。化学式与离子电荷另查一遍——下标与上标写错，通常整题判错。</em></div></div>
+    <div class="it"><div class="bx"></div><div class="t"><b>7. 有没有为了显高级而加的长句？</b><em>怎么查：把每个从句删掉，看信息是否丢失。不丢信息的，删。句子长不等于得分高，反而更容易在指代和悬垂结构上出错。</em></div></div>
+  </div>
+
+  <div class="note"><b>如果只剩 60 秒：</b>只查第 1 条和第 5 条。这两条决定「答对题」，其余六条只影响「答得好」。答错题的损失，永远大于表达不够漂亮。</div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">5.1</span><h3>按错因分类的修法</h3></div>
+    <p>三类错误要分开处理，混着改会越改越乱：</p>
+    <div class="tscroll">
+      <table class="t1">
+        <thead><tr><th>错误类型</th><th>典型表现</th><th>怎么改</th></tr></thead>
+        <tbody>
+          <tr><td>科学知识错误</td><td>电阻随温度减小、植物细胞在纯水中破裂、浓度提高使粒子能量增大</td><td>回到知识体系对应章节重看概念，把该概念的三句话定义写下来</td></tr>
+          <tr><td>英语表达错误</td><td>悬垂分词、指代不明、时态混乱、直译式搭配</td><td>只改句子，不动内容；改完对照 §1 找同类结构</td></tr>
+          <tr><td>答题策略错误</td><td>define 写成 explain、identify 写了一整段、compare 只写差异</td><td>回标准_v2 查该动词的要素；这类错误最容易在短期内改掉，优先级最高</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note w"><b>优先级：策略 &gt; 科学 &gt; 语言。</b>理由是投入产出——策略错误一次改对就能稳定得分；科学概念需要重新理解；语言问题只能慢慢磨。倒过来做，往往花了最多时间却几乎不提分。</div>
+  </div>
+</div>
+
+<!-- ============ 6 ============ -->
+<div class="ch" id="c6">
+  <div class="ch-head"><div class="ch-num">6</div><h2>内容索引与来源</h2></div>
+  <p class="ch-note">这一节不是客套的附录。凡标「已核对」的，都写了核对方式；凡没做的，直接说没做。数字全部为脚本实点，不是按设计倒推。</p>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">6.1</span><h3>V1 实际交付量</h3></div>
+    <div class="tscroll">
+      <table class="t1">
+        <thead><tr><th>内容</th><th>计划（设计稿）</th><th>实际交付</th><th>核对方式</th></tr></thead>
+        <tbody>
+          <tr><td>单句例句</td><td>30–40 句</td><td><b>36 句</b>（9 类 × 4）</td><td>脚本数卡数与编号，均为 36</td></tr>
+          <tr><td>短答范例</td><td>12 篇（Bio 4 / Chem 4 / Phy 4）</td><td><b>12 篇</b>（Bio 4 / Chem 4 / Phy 4）</td><td>编号 SA-* 共 12 个，学科分布 4/4/4</td></tr>
+          <tr><td>完整范文</td><td>6 篇</td><td><b>6 篇</b>（Bio 2 / Chem 2 / Phy 2）</td><td>编号 ER-* 共 6 个</td></tr>
+          <tr><td>答案质量对照</td><td>6 组</td><td><b>6 组 / 18 条分档答案</b></td><td>§4.1–4.6 共 6 节，每节 3 档</td></tr>
+          <tr><td>自我检查</td><td>1 套</td><td><b>7 条</b> + 1 张错因分类表</td><td>清点条目数</td></tr>
+          <tr><td>Integrated / Environmental 范文</td><td>设计稿列了 2 个主题</td><td><b>0 篇，标 V1.1</b></td><td>未做就是未做，不补占位</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note w"><b>与设计稿的三处差异，说明理由：</b>①设计稿 §二 的目录按指令动词列了 15 项（2.1 Define … 2.15 Evaluate），§六 的规模表却写 12 篇短答——本轮按规模表做 12 篇，<b>覆盖 10 个动词</b>（Explain 三篇是刻意的），未做的 9 个动词已在 §2 开头列名；②因此组织方式调整为「卡片按学科排 + §2.0 指令动词索引」：按学科找快，按动词学清，两种检索都保留；③Integrated / Environmental 组题目缺少可自洽的真实数据，硬写会变成无数据的泛论，整组推迟。</div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">6.2</span><h3>与前三页的对应</h3></div>
+    <div class="tscroll">
+      <table class="t1">
+        <thead><tr><th>本页位置</th><th>知识体系</th><th>标准_v2</th><th>同步状态</th></tr></thead>
+        <tbody>
+          <tr><td>§1.1 定义与分类</td><td>§3.2 检索类、§2.5 术语</td><td>§2.1 Define / State</td><td>一致</td></tr>
+          <tr><td>§1.3 解释机制</td><td>§3.4 解释类、§6.1 因果</td><td>§2.1 Explain、§4.6</td><td>一致（均不要求固定连接词）</td></tr>
+          <tr><td>§1.5 比较与区别</td><td>§3.6 比较类</td><td>§2.4 比较族四词</td><td>一致（Compare 只要求相同点，限 Biology 2025）</td></tr>
+          <tr><td>§1.8 限制与不确定</td><td>§4.8 误差两维度、§5.3</td><td>§4.4 结论与误差</td><td>一致（误差类型只有系统／随机；操作是成因）</td></tr>
+          <tr><td>§2.2 SA-CHE-03</td><td>§5.2 有效数字</td><td>§4.3</td><td>一致（三位有效数字为惯例，非唯一规则）</td></tr>
+          <tr><td>§2.3 SA-PHY-03</td><td>§2.6 同词异义</td><td>§3.4 易混词对</td><td>一致（终端速度 / terminal velocity）</td></tr>
+          <tr><td>§4.1 gene / locus / allele</td><td>§2.6</td><td>§3.3</td><td>一致（gene＝序列，locus＝位置，allele＝版本）</td></tr>
+          <tr><td>全页 AO 提法</td><td>§3.1（不代建学科 AO 表）</td><td>§2.1（AO1–AO3 分组，非学科全部 AO）</td><td>一致（本页不再画 AO 表格）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">6.3</span><h3>审核状态：四级，不许混用</h3></div>
+    <div class="tscroll">
+      <table class="t1">
+        <thead><tr><th>状态</th><th>本页范围</th><th>具体做了什么</th></tr></thead>
+        <tbody>
+          <tr><td><b>已逐项核实</b></td><td>12 篇短答 + 6 篇范文中的<b>全部数值</b></td><td>逐题复算：4.0 % / 10 % / 10 %；6:1、3:1、2:1；20/t 三个速率；滴定 23.45 → 0.0938；F/a 三个值 0.526／0.513／0.508，并逐行代入 a = (F − 0.01)/0.50 复算得 0.38／0.78／1.18；mgh → v → KE 与差额 0.23 J。算术与单位均已重算一遍</td></tr>
+          <tr><td><b>已修订并复查</b></td><td>术语与口径</td><td>gene / locus / allele 三分（§4.1 专设一组）；terminal velocity 统一为「终端速度」；温度定义保留理想气体模型的限定；误差按类型／成因两维度；Compare 口径限 Biology 并标 PENDING。<b>v1.1 另修五处</b>：egestion／excretion 区分（ER-BIO-01）；SA-PHY-04 从两个成因收为一个，并修正「整个下落过程加速度都小于 g」；ER-PHY-01 数据改为与恒定摩擦模型逐行自洽（1.21 → 1.18）；§0.2「同义改写常常扣分」改为「关键术语用错或改变含义时可能失分」；ER-PHY-01 删去与截距矛盾的 through the origin（linear ≠ proportional）</td></tr>
+          <tr><td><b>仅做抽查</b></td><td>全页涉及的术语约 25 个</td><td>只核了与前三页修订相关的条目（gene、locus、allele、terminal velocity、temperature、heat、precision、accuracy、Compare、Contrast）。<b>知识体系的 174 条术语本页没有逐条引用，也没有逐条复核</b>，不得据此声称全库准确</td></tr>
+          <tr><td><b>因缺原文待核</b></td><td>Physics / Chemistry 的 Compare 措辞；Biology 2025 中 AO4 的页码；MYP 指令动词完整清单</td><td>三项均未取得原文，本页一律不写具体结论</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note r"><b>本页不能声称做过的事：</b>①没有把任何答案与 IB markscheme 对照过（未取得原文）；②没有经第二位评审者复核英文表达；③没有覆盖 174 条术语。<b>凡这三件事没做，就不在页面上写「已全面审核」。</b></div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">6.4</span><h3>发布审核结果</h3></div>
+    <div class="tscroll">
+      <table class="t1">
+        <thead><tr><th>内容块</th><th>结果</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>§1 句子库（36 句）</td><td><span class="tag org">PASS WITH NOTE</span></td><td>句法结构可复核；note：例句为教学编写，未取自官方材料</td></tr>
+          <tr><td>§2 短答（12 篇）</td><td><span class="tag org">PASS WITH NOTE</span></td><td>数值与机制已复核；note：答案非官方，分值对应关系未与 markscheme 核对</td></tr>
+          <tr><td>§3 范文（6 篇）</td><td><span class="tag org">PASS WITH NOTE</span></td><td>数据自洽、可复算；note：真实实验数据会有更大离散，范文刻意收敛以便教学</td></tr>
+          <tr><td>§4 质量对照（6 组）</td><td><span class="tag org">PASS WITH NOTE</span></td><td>错误类型均为实际高发类型；note：三档等级是本页教学比较，非 IB 分档</td></tr>
+          <tr><td>§5 自检（7 条）</td><td><span class="tag org">PASS</span></td><td>不涉及科学断言，只涉及操作顺序</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><b>没有一项标 REJECT 或 REVISION。</b>不是因为完美，而是因为本页的范围窄——它只写「怎么表达」，不新增科学定义、不新增指令动词释义、不新增评分规则。范围窄，出错面就小；这是当初把它定位成教学应用层的实际好处。<br><br><b>但「审核通过」只等于「按当轮的检查项查过」，不等于没有错。</b>v1.1 修正的四项里，<span class="mono">excreted as faeces</span> 是实实在在的术语错误，v1.0 的审核没抓到——因为当时只查了「句子是否通顺、机制是否成立」，没有把每个动词与它所指的生理过程对一遍。<b>这类漏检的模式值得记住：错误往往藏在「读起来完全通顺」的地方。</b></div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">6.5</span><h3>PENDING 与 V1.1</h3></div>
+    <div class="tscroll">
+      <table class="t1">
+        <thead><tr><th>项目</th><th>状态</th><th>补齐方式</th><th>影响</th></tr></thead>
+        <tbody>
+          <tr><td>Physics / Chemistry 指南对 Compare 的措辞</td><td><span class="tag pend">PENDING</span></td><td>查该科当年版 Glossary of Command Terms，记录版本、首考年、页码</td><td>高：若口径不同，SA-BIO-03 的形态不能照搬到另两科</td></tr>
+          <tr><td>Biology 2025 中 AO4 所在页码</td><td><span class="tag pend">PENDING</span></td><td>查该指南 Assessment objectives 章节</td><td>低：本页不引用 AO4，只在标准_v2 提及</td></tr>
+          <tr><td>MYP 指令动词完整清单</td><td><span class="tag pend">PENDING</span></td><td>学校发放的 MYP Sciences 材料或指南附录</td><td>中：MYP 部分的动词释义目前依 DP 类推</td></tr>
+          <tr><td>9 个未覆盖的指令动词短答</td><td><span class="tag teach">V1.1</span></td><td>State / Outline / List / Label / Annotate / Contrast / Predict / Evaluate / Justify</td><td>中：Evaluate 与 Predict 最该先补</td></tr>
+          <tr><td>Integrated / Environmental 范文</td><td><span class="tag teach">V1.1</span></td><td>需一组可自洽的跨学科数据（如能耗与排放）</td><td>低：现有 6 篇已覆盖三科核心写法</td></tr>
+          <tr><td>与 markscheme 的对照</td><td><span class="tag pend">PENDING</span></td><td>取得某年某卷题号与评分方案后逐条比对</td><td>高：这是本页唯一无法自查的一项</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="s">
+    <div class="s-head"><span class="s-num">6.6</span><h3>怎么用这一页</h3></div>
+    <div class="appx">
+      <h4>三种用法，按目的选</h4>
+      <ul>
+        <li><b>写作前</b>：只看 §1 的九类标题，确认这次要写的是「解释」还是「评价」，再翻对应的四句。不要从头读到尾。</li>
+        <li><b>改错时</b>：先看 §4，找到自己那一档，读「错在哪一步」；再回到 §2 或 §3 看同题的合格版本。顺序反了会变成抄答案。</li>
+        <li><b>考前</b>：只过 §5 的七条，尤其第 1 与第 5 条。这两天不需要新例句。</li>
+      </ul>
+      <h4>三种不要</h4>
+      <ul>
+        <li>不要背范文。范文的价值在段落之间怎么承接，句子本身换一个题就不适用。</li>
+        <li>不要把 Level 3 当标准答案。它是「本页标准下较好」，不是满分答案。</li>
+        <li>不要在 MYP 阶段套 DP 的长句结构。要求不同，堆复杂度只会增加出错点。</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+科学英语 · 范文与例句 v1.1 ／ 2026-11-24<br>
+本页为教学应用层：概念与边界依《IB 科学英语 · 知识体系》v2.3，指令动词与答题要求依《标准_v2》v2.2。<br>
+所有题目与答案均为自编教学示例（Original example / Model answer），<b>不含任何标为 Official 的内容</b>，也不等同于 IB 官方评分答案。
+</footer>
+
+</div>
+</body>
+</html>
